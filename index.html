@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lee Nguyen Lab | Apple & Device Repair Sydney</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'sans-serif'],
+                    },
+                    colors: {
+                        appleDark: '#1d1d1f',
+                        appleGray: '#f5f5f7',
+                        appleMuted: '#6e6e73',
+                        appleBlue: '#0071e3',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- External Apple White Theme & Liquid Glass Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- External Application Logic -->
+    <script src="script.js" defer></script>
+</head>
+<body class="relative text-[#1d1d1f] bg-[#fbfbfd] selection:bg-slate-200 selection:text-black">
+
+    <!-- Real Optical Glass Refraction & Displacement SVG Filter -->
+    <svg class="pointer-events-none fixed top-0 left-0 w-0 h-0 opacity-0 overflow-hidden" aria-hidden="true">
+        <defs>
+            <filter id="liquid-glass-morph" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+                <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+                <feGaussianBlur in="displaced" stdDeviation="0.3" result="blurred" />
+                <feMerge>
+                    <feMergeNode in="blurred" />
+                </feMerge>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Interactive Dynamic Canvas: Floating Particle Network -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Header: Apple Adaptive Header Bar (Dark Keynote on Hero, Translucent White on Scroll) -->
+    <header class="apple-header-bar transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#hero" class="flex items-center cursor-pointer group">
+                    <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-[#f5f5f7] group-hover:opacity-80 transition-all">
+                        Lee Nguyen <span class="logo-subtitle font-normal text-[#a1a1a6]">Lab</span>
+                    </span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold">
+                    <a href="#hero" class="hover:text-white transition-colors">Overview</a>
+                    <a href="#services" class="hover:text-white transition-colors">Repair Services</a>
+                    <a href="#custom-case" class="hover:text-white transition-colors">Custom Cases</a>
+                    <a href="#showcase" class="hover:text-white transition-colors">Workshop</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Location</a>
+                </nav>
+
+                <div class="flex items-center space-x-3">
+                    <button onclick="openBookingModal()" class="hidden sm:inline-flex liquid-btn-primary text-xs font-bold px-5 py-2.5 rounded-full">
+                        Book Repair
+                    </button>
+                    <button id="hamburger-btn" class="md:hidden liquid-btn-icon text-white p-2.5 rounded-full focus:outline-none" aria-label="Toggle Navigation">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown Bar -->
+        <div id="mobile-menu" class="hidden md:hidden w-full border-t border-white/[0.10] bg-[#121214]/95 backdrop-blur-2xl px-6 py-5 space-y-3">
+            <a href="#hero" class="block mobile-nav-link text-sm font-semibold hover:opacity-80">Overview</a>
+            <a href="#services" class="block mobile-nav-link text-sm font-semibold hover:opacity-80">Repair Services</a>
+            <a href="#custom-case" class="block mobile-nav-link text-sm font-semibold hover:opacity-80">Custom Cases</a>
+            <a href="#showcase" class="block mobile-nav-link text-sm font-semibold hover:opacity-80">Workshop</a>
+            <a href="#contact" class="block mobile-nav-link text-sm font-semibold hover:opacity-80">Location</a>
+            <button onclick="openBookingModal()" class="w-full text-center liquid-btn-primary text-sm font-bold py-3.5 rounded-full mt-2">
+               Book a Repair
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container with elevated z-index -->
+    <div class="relative z-10">
+
+        <!-- Hero Section: Pure Apple Keynote Black Stage (#000000) -->
+        <section id="hero" class="relative w-full bg-[#000000] text-white pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden">
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+                <!-- Eyebrow Badge -->
+                <div class="hero-animate-1 inline-flex items-center space-x-2 mb-5 bg-white/[0.08] border border-white/[0.14] px-4 py-1.5 rounded-full shadow-sm backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-[#e5e5ea]">
+                        Laboratory Grade Precision
+                    </span>
+                </div>
+                
+                <!-- Apple Keynote Headline -->
+                <h1 class="hero-animate-2 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-4xl leading-[1.06] mb-6 text-[#f5f5f7]">
+                    Pro level.<br>
+                    <span class="text-[#86868b] font-medium">Inside and out.</span>
+                </h1>
+                
+                <p class="hero-animate-3 text-base sm:text-xl text-[#a1a1a6] max-w-2xl font-normal leading-relaxed mb-10">
+                    Component-level logic board micro-soldering, optical screen restoration, and laser diagnostics for Apple, Samsung, Google Pixel, MacBook, and consoles.
+                </p>
+
+                <!-- Responsive Optical Liquid Glass Hero Buttons -->
+                <div class="hero-animate-4 flex flex-col sm:flex-row gap-4 mb-8 sm:mb-12 w-full sm:w-auto">
+                    <a href="#services" class="liquid-btn-primary liquid-btn-hero-primary font-bold text-sm sm:text-base px-8 py-3.5 rounded-full text-center">
+                        Repair Services
+                    </a>
+                    <a href="#custom-case" class="liquid-btn-secondary liquid-btn-hero-secondary font-semibold text-sm sm:text-base px-8 py-3.5 rounded-full text-center">
+                        Custom Glass Cases
+                    </a>
+                </div>
+
+                <!-- Apple iPhone 18 Pro Burgundy Keynote Hero Visual (100% Full Blend to Page) -->
+                <div class="hero-animate-5 w-full max-w-6xl mx-auto relative flex items-center justify-center">
+                    <img src="images/landing-hero.jpg" 
+                         alt="Apple iPhone 18 Pro Burgundy Titanium & PRO Keynote" 
+                         class="w-full h-auto max-h-[580px] sm:max-h-[680px] object-contain transition-transform duration-1000 hover:scale-[1.02] select-none pointer-events-none sm:pointer-events-auto"
+                         onerror="this.src='images/media_uploaded.jpg'">
+                </div>
+
+                <!-- Trust Badges (Integrated into Hero Stage) -->
+                <div class="hero-animate-6 max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 sm:mt-12 w-full">
+                    <div class="bg-white/[0.06] border border-white/10 backdrop-blur-xl px-6 py-3.5 rounded-full flex items-center space-x-3 w-full sm:w-auto justify-center shadow-lg">
+                        <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="text-xs sm:text-sm font-semibold text-[#f5f5f7]">30-Min On-The-Spot Service</span>
+                        <span class="text-xs text-[#86868b]">(standard devices)</span>
+                    </div>
+                    <div class="bg-white/[0.06] border border-white/10 backdrop-blur-xl px-6 py-3.5 rounded-full flex items-center space-x-3 w-full sm:w-auto justify-center shadow-lg">
+                        <span class="text-sm">🛡</span>
+                        <span class="text-xs sm:text-sm font-semibold text-[#f5f5f7]">6 Months Lab Warranty Included</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Authentic Apple Fade from Black Keynote Stage to White Lab Theme Below -->
+            <div class="absolute bottom-0 left-0 right-0 h-28 sm:h-36 bg-gradient-to-b from-transparent via-[#000000]/70 to-[#fbfbfd] pointer-events-none"></div>
+        </section>
+
+        <!-- Section: Repair Services (Instant Quote Calculator first, followed by Repair Services under it) -->
+        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            
+            <!-- 1. Instant Quote Section Header & Calculator (Shown First) -->
+            <div id="quote" class="scroll-mt-24">
+                <div class="reveal-element text-center mb-12">
+                    <div class="inline-flex items-center space-x-2 mb-3 bg-appleBlue/10 border border-appleBlue/20 px-4 py-1.5 rounded-full shadow-sm backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-appleBlue animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-appleBlue">
+                            Instant Quote
+                        </span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1d1d1f] mb-4">
+                        Repair Services
+                    </h2>
+                    <p class="text-[#515154] text-sm sm:text-base max-w-2xl mx-auto">
+                        Configure your device model, part tier, and required component repairs below for an instant itemized diagnostic estimate.
+                    </p>
+                </div>
+
+                <div class="liquid-glass-white rounded-[2.5rem] p-6 sm:p-10 md:p-12">
+                    
+                    <!-- Window Top Bar Micro-Header -->
+                    <div class="flex items-center justify-between pb-6 mb-8 border-b border-black/[0.06]">
+                        <span class="text-[11px] font-semibold tracking-widest uppercase text-[#86868b]">Hardware Diagnostic & Price Matrix</span>
+                        <span class="text-[11px] font-mono text-[#86868b]">SYD · AUD</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                        
+                        <!-- Left Column: Device & Part Selection -->
+                        <div class="lg:col-span-7 space-y-6">
+                            
+                            <!-- Step 1: Device Category -->
+                            <div>
+                                <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                    Step 1 · Supported Devices
+                                </label>
+                                <select id="device-family" onchange="onFamilyChange()" class="w-full liquid-input text-sm sm:text-base font-semibold p-4 outline-none cursor-pointer">
+                                    <optgroup label="Apple Devices">
+                                        <option value="iphone" selected>Apple iPhone</option>
+                                        <option value="apple_ipad">Apple iPad</option>
+                                        <option value="apple_watch">Apple Watch</option>
+                                        <option value="apple_ipod">Apple iPod</option>
+                                        <option value="macbook">MacBook & Laptops</option>
+                                    </optgroup>
+                                    <optgroup label="Samsung Devices">
+                                        <option value="samsung_s">Samsung S Series</option>
+                                        <option value="samsung_z">Samsung Z Series (Fold & Flip)</option>
+                                        <option value="samsung_note">Samsung Note Series</option>
+                                        <option value="samsung_a">Samsung A Series</option>
+                                        <option value="samsung_tab_s">Samsung Tab S Series</option>
+                                        <option value="samsung_tab_a">Samsung Tab A Series</option>
+                                    </optgroup>
+                                    <optgroup label="Google & Microsoft">
+                                        <option value="google_pixel">Google Pixel Series</option>
+                                        <option value="microsoft_surface">Microsoft Surface Pro & Laptop</option>
+                                    </optgroup>
+                                    <optgroup label="Gaming & Other">
+                                        <option value="nintendo_switch">Nintendo Switch (OLED & Lite)</option>
+                                        <option value="playstation_console">PlayStation 5 & DualSense</option>
+                                        <option value="other_devices">Other Laptops / Consoles</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <!-- Step 1b: Exact Model -->
+                            <div>
+                                <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                    Model Selection
+                                </label>
+                                <select id="model-select" onchange="calculateQuote()" class="w-full liquid-input text-sm sm:text-base font-semibold p-4 outline-none cursor-pointer">
+                                    <!-- Dynamic Options via script.js -->
+                                </select>
+                            </div>
+
+                            <!-- Step 2: Quality Tier Selector -->
+                            <div id="part-tier-wrapper" class="transition-opacity duration-300">
+                                <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                    Step 2 · Select Part Quality
+                                </label>
+                                <div class="grid grid-cols-3 gap-1.5 p-1.5 bg-black/[0.03] rounded-2xl border border-black/[0.06] shadow-inner">
+                                    <button type="button" onclick="setPartGrade('aftermarket')" id="tier-btn-aftermarket" class="liquid-tier-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-center">
+                                        Aftermarket
+                                        <span class="block text-[10px] font-normal text-[#86868b]">Budget Friendly</span>
+                                    </button>
+                                    <button type="button" onclick="setPartGrade('premium')" id="tier-btn-premium" class="liquid-tier-btn active py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-center">
+                                        Premium
+                                        <span class="block text-[10px] font-normal text-appleBlue">OEM-Spec / OLED</span>
+                                    </button>
+                                    <button type="button" onclick="setPartGrade('genuine')" id="tier-btn-genuine" class="liquid-tier-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-center">
+                                        Genuine
+                                        <span class="block text-[10px] font-normal text-[#86868b]">Original Service Pack</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Required Services Checklist -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2.5">
+                                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider">
+                                        Step 3 · Select Services Needed
+                                    </label>
+                                    <!-- Clear All Button -->
+                                    <button type="button" onclick="clearAllRepairs()" class="liquid-btn-secondary text-[11px] font-bold px-3.5 py-1 rounded-full text-appleBlue">
+                                        Clear all
+                                    </button>
+                                </div>
+                                <div id="services-checklist" class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1.5 custom-scroll">
+                                    <!-- Injected dynamically via script.js -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Sticky Receipt Panel -->
+                        <div class="lg:col-span-5">
+                            <div class="liquid-glass-white glass-card-lift rounded-3xl p-6 sm:p-8 sticky top-24 border border-white/95">
+                                <div class="flex items-center justify-between pb-4 border-b border-black/[0.06]">
+                                    <div>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-appleBlue">Repair Estimate</span>
+                                        <h3 id="receipt-device-name" class="text-lg font-bold text-[#1d1d1f] mt-0.5">iPhone 18 Pro Max</h3>
+                                        <span id="receipt-part-grade" class="inline-block text-[11px] font-medium text-[#6e6e73] bg-black/[0.04] px-2.5 py-0.5 rounded-full mt-1 border border-black/[0.06]">Quality: Premium Part</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-[#1d1d1f] bg-black/[0.04] px-3 py-1 rounded-full border border-black/[0.06] shadow-sm font-mono">AUD</span>
+                                </div>
+
+                                <!-- Itemized Items List -->
+                                <div id="receipt-items" class="py-5 space-y-3 min-h-[140px] text-sm text-[#515154]">
+                                    <p class="text-[#86868b] text-xs text-center py-8">Select one or more services to generate your estimate.</p>
+                                </div>
+
+                                <!-- Cost Summary -->
+                                <div class="pt-4 border-t border-black/[0.06] space-y-2.5 text-sm">
+                                    <div class="flex justify-between text-[#6e6e73]">
+                                        <span>Parts & Components</span>
+                                        <span id="receipt-parts" class="font-medium text-[#1d1d1f] font-mono">$0.00</span>
+                                    </div>
+                                    <div class="flex justify-between text-[#6e6e73]">
+                                        <span>Bench Labor & Calibration</span>
+                                        <span id="receipt-labor" class="font-medium text-[#1d1d1f] font-mono">$0.00</span>
+                                    </div>
+                                    <div class="flex justify-between items-baseline pt-3 border-t border-black/[0.06] mt-2">
+                                        <span class="text-base font-bold text-[#1d1d1f]">Total Estimate</span>
+                                        <span id="receipt-total" class="text-3xl font-extrabold tracking-tight text-[#1d1d1f] font-mono">$0.00</span>
+                                    </div>
+                                </div>
+
+                                <!-- Turnaround & Warranty Widget -->
+                                <div class="mt-6 p-3.5 rounded-2xl bg-black/[0.03] border border-black/[0.06] text-xs text-[#515154] flex justify-around text-center shadow-inner">
+                                    <div>
+                                        <span class="block text-[#6e6e73] font-semibold">Turnaround</span>
+                                        <strong id="receipt-time" class="font-bold text-[#1d1d1f]">30–45 mins</strong>
+                                    </div>
+                                    <div class="border-r border-black/[0.06]"></div>
+                                    <div>
+                                        <span class="block text-[#6e6e73] font-semibold">Coverage</span>
+                                        <strong id="receipt-warranty" class="font-bold text-[#1d1d1f]">6 Months Warranty</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Receipt CTA Button -->
+                                <button onclick="scheduleRepairFromQuote()" class="mt-6 w-full liquid-btn-primary font-bold py-4 rounded-full text-sm flex items-center justify-center space-x-2">
+                                    <span>Schedule Repair</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div> <!-- Closes #quote -->
+        </section> <!-- Closes #services section -->
+
+        <!-- Custom Phone Case Print Studio -->
+        <section id="custom-case" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="reveal-element text-center mb-12">
+                <div class="inline-flex items-center space-x-2 mb-3 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full shadow-sm backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-700">
+                        Custom Print Studio
+                    </span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1d1d1f] mb-4">
+                    Custom Glass Cases.<br>
+                    <span class="text-[#86868b] font-medium">Your photo. Laboratory UV printed.</span>
+                </h2>
+                <p class="text-[#515154] text-sm sm:text-base max-w-2xl mx-auto">
+                    Optical-grade scratch-resistant tempered liquid glass case with high-definition laser UV print technology. Choose your phone model, customize your artwork, and preview in real time.
+                </p>
+            </div>
+
+            <div class="liquid-glass-white rounded-[2.5rem] p-6 sm:p-10 md:p-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    
+                    <!-- Left Configurator Column (7 Cols) -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- 1. Phone Model Selector -->
+                        <div>
+                            <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                1 · Select Your Phone Model
+                            </label>
+                            <select id="case-phone-model" class="w-full liquid-input text-sm sm:text-base font-semibold p-4 outline-none cursor-pointer">
+                                <optgroup label="Apple iPhone — 18 Series">
+                                    <option value="iphone_18_pm" selected>iPhone 18 Pro Max</option>
+                                    <option value="iphone_18_p">iPhone 18 Pro</option>
+                                    <option value="iphone_18_air">iPhone 18 Air</option>
+                                    <option value="iphone_18_plus">iPhone 18 Plus</option>
+                                    <option value="iphone_18">iPhone 18</option>
+                                </optgroup>
+                                <optgroup label="Apple iPhone — 17 Series">
+                                    <option value="iphone_17_pm">iPhone 17 Pro Max</option>
+                                    <option value="iphone_17_p">iPhone 17 Pro</option>
+                                    <option value="iphone_17_air">iPhone 17 Air</option>
+                                    <option value="iphone_17_plus">iPhone 17 Plus</option>
+                                    <option value="iphone_17">iPhone 17</option>
+                                </optgroup>
+                                <optgroup label="Apple iPhone — 16 Series">
+                                    <option value="iphone_16_pm">iPhone 16 Pro Max</option>
+                                    <option value="iphone_16_p">iPhone 16 Pro</option>
+                                    <option value="iphone_16_plus">iPhone 16 Plus</option>
+                                    <option value="iphone_16">iPhone 16</option>
+                                    <option value="iphone_16e">iPhone 16e</option>
+                                </optgroup>
+                                <optgroup label="Apple iPhone — 15 Series">
+                                    <option value="iphone_15_pm">iPhone 15 Pro Max</option>
+                                    <option value="iphone_15_p">iPhone 15 Pro</option>
+                                    <option value="iphone_15_plus">iPhone 15 Plus</option>
+                                    <option value="iphone_15">iPhone 15</option>
+                                </optgroup>
+                                <optgroup label="Apple iPhone — 14 Series">
+                                    <option value="iphone_14_pm">iPhone 14 Pro Max</option>
+                                    <option value="iphone_14_p">iPhone 14 Pro</option>
+                                    <option value="iphone_14_plus">iPhone 14 Plus</option>
+                                    <option value="iphone_14">iPhone 14</option>
+                                </optgroup>
+                                <optgroup label="Apple iPhone — 13 & 12 Series">
+                                    <option value="iphone_13_pm">iPhone 13 Pro Max</option>
+                                    <option value="iphone_13_p">iPhone 13 Pro</option>
+                                    <option value="iphone_13">iPhone 13</option>
+                                    <option value="iphone_13_mini">iPhone 13 mini</option>
+                                    <option value="iphone_12_pm">iPhone 12 Pro Max</option>
+                                    <option value="iphone_12_p">iPhone 12 Pro</option>
+                                    <option value="iphone_12">iPhone 12</option>
+                                    <option value="iphone_11_pm">iPhone 11 Pro Max</option>
+                                    <option value="iphone_11">iPhone 11</option>
+                                </optgroup>
+                                <optgroup label="Samsung Galaxy — S Series">
+                                    <option value="samsung_s25_u">Samsung Galaxy S25 Ultra</option>
+                                    <option value="samsung_s25_plus">Samsung Galaxy S25+</option>
+                                    <option value="samsung_s25">Samsung Galaxy S25</option>
+                                    <option value="samsung_s24_u">Samsung Galaxy S24 Ultra</option>
+                                    <option value="samsung_s24_plus">Samsung Galaxy S24+</option>
+                                    <option value="samsung_s24">Samsung Galaxy S24</option>
+                                    <option value="samsung_s23_u">Samsung Galaxy S23 Ultra</option>
+                                    <option value="samsung_s23_plus">Samsung Galaxy S23+</option>
+                                    <option value="samsung_s23">Samsung Galaxy S23</option>
+                                    <option value="samsung_s22_u">Samsung Galaxy S22 Ultra</option>
+                                    <option value="samsung_s22">Samsung Galaxy S22</option>
+                                    <option value="samsung_s21_u">Samsung Galaxy S21 Ultra</option>
+                                </optgroup>
+                                <optgroup label="Samsung Galaxy — Z & A Series">
+                                    <option value="samsung_z_fold6">Samsung Galaxy Z Fold 6</option>
+                                    <option value="samsung_z_flip6">Samsung Galaxy Z Flip 6</option>
+                                    <option value="samsung_z_fold5">Samsung Galaxy Z Fold 5</option>
+                                    <option value="samsung_z_flip5">Samsung Galaxy Z Flip 5</option>
+                                    <option value="samsung_a55">Samsung Galaxy A55 5G</option>
+                                    <option value="samsung_a54">Samsung Galaxy A54 5G</option>
+                                </optgroup>
+                                <optgroup label="Google Pixel Series">
+                                    <option value="pixel_9_pxl">Google Pixel 9 Pro XL</option>
+                                    <option value="pixel_9_p">Google Pixel 9 Pro</option>
+                                    <option value="pixel_9">Google Pixel 9</option>
+                                    <option value="pixel_8_p">Google Pixel 8 Pro</option>
+                                    <option value="pixel_8">Google Pixel 8</option>
+                                    <option value="pixel_8a">Google Pixel 8a</option>
+                                    <option value="pixel_7_p">Google Pixel 7 Pro</option>
+                                    <option value="pixel_7">Google Pixel 7</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- 2. Case Type & Material Selection -->
+                        <div>
+                            <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                2 · Choose Glass Finish & Protection
+                            </label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button type="button" onclick="setCaseFinish('clear')" id="case-mat-clear" class="liquid-tier-btn active py-3 px-2 sm:px-3 text-center">
+                                    <span class="block text-xs sm:text-sm font-bold">Liquid Clear</span>
+                                    <span class="block text-[10px] text-[#86868b] mt-0.5">9H Tempered · $49</span>
+                                </button>
+                                <button type="button" onclick="setCaseFinish('matte')" id="case-mat-matte" class="liquid-tier-btn py-3 px-2 sm:px-3 text-center">
+                                    <span class="block text-xs sm:text-sm font-bold">Frosted Matte</span>
+                                    <span class="block text-[10px] text-[#86868b] mt-0.5">Silky Finish · $49</span>
+                                </button>
+                                <button type="button" onclick="setCaseFinish('magsafe')" id="case-mat-magsafe" class="liquid-tier-btn py-3 px-2 sm:px-3 text-center">
+                                    <span class="block text-xs sm:text-sm font-bold">MagSafe Armor</span>
+                                    <span class="block text-[10px] text-appleBlue mt-0.5">N52 Ring · $59</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Artwork Upload & Presets -->
+                        <div>
+                            <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                3 · Upload Photo or Artwork
+                            </label>
+                            <div class="case-upload-dropzone p-5 sm:p-6 text-center cursor-pointer relative" id="case-dropzone">
+                                <input type="file" id="case-file-input" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full">
+                                <div class="space-y-2 pointer-events-none">
+                                    <div class="w-10 h-10 mx-auto rounded-full bg-appleBlue/10 flex items-center justify-center text-appleBlue">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-xs sm:text-sm font-bold text-[#1d1d1f]">
+                                        Click to browse or drop high-res image here
+                                    </p>
+                                    <p class="text-[11px] text-[#86868b]">
+                                        Supports PNG, JPG, HEIC up to 30MB · Laser UV Direct Print
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Sample Artwork Quick Presets -->
+                            <div class="mt-3 flex items-center justify-between">
+                                <div class="text-xs text-[#6e6e73] flex flex-wrap items-center gap-2 pt-1">
+                                    <span>Try presets:</span>
+                                    <button type="button" onclick="loadSampleCaseArt('spatial')" class="text-[#1d1d1f] hover:underline font-semibold">Spatial Glass</button>
+                                    <span>·</span>
+                                    <button type="button" onclick="loadSampleCaseArt('marble')" class="text-[#515154] hover:underline font-medium">Minimal Marble</button>
+                                    <span>·</span>
+                                    <button type="button" onclick="loadSampleCaseArt('obsidian')" class="text-[#515154] hover:underline font-medium">Obsidian Wave</button>
+                                    <span>·</span>
+                                    <button type="button" onclick="loadSampleCaseArt('blueprint')" class="text-[#515154] hover:underline font-medium">Silicon Blueprint</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Interactive Adjustments (Zoom & MagSafe Toggle) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
+                            <div>
+                                <div class="flex justify-between text-xs text-[#6e6e73] mb-1.5">
+                                    <span>Image Zoom / Scale</span>
+                                    <span id="case-zoom-val" class="font-mono text-[#1d1d1f] font-semibold">100%</span>
+                                </div>
+                                <input type="range" id="case-zoom-range" min="50" max="220" value="100" class="w-full accent-appleBlue cursor-pointer">
+                            </div>
+                            <div class="flex items-center justify-between sm:justify-end sm:space-x-3 pt-2 sm:pt-0">
+                                <label for="case-magsafe-toggle" class="text-xs text-[#515154] cursor-pointer font-medium">Show MagSafe Ring</label>
+                                <input type="checkbox" id="case-magsafe-toggle" class="liquid-checkbox">
+                            </div>
+                        </div>
+
+                        <!-- 5. Order Action Bar -->
+                        <div class="pt-4 border-t border-black/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div>
+                                <span class="text-xs text-[#6e6e73] block">Total Custom Print Price:</span>
+                                <div class="text-2xl font-extrabold text-[#1d1d1f] font-mono" id="case-total-price">$49.00 AUD</div>
+                            </div>
+                            <div class="flex space-x-3 w-full sm:w-auto">
+                                <button type="button" onclick="downloadCaseMockup()" class="liquid-btn-secondary text-xs font-semibold px-5 py-3 rounded-full flex-1 sm:flex-initial text-center">
+                                    Download Preview
+                                </button>
+                                <button type="button" onclick="orderCustomCase()" class="liquid-btn-primary text-xs font-bold px-7 py-3 rounded-full flex-1 sm:flex-initial text-center">
+                                    Order Custom Case
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Interactive Realistic Case Preview (5 Cols) -->
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                        <span class="text-[11px] font-mono uppercase tracking-widest text-[#6e6e73] mb-3">Live Interactive Glass Mockup</span>
+                        
+                        <!-- Realistic Phone Case Shell Mockup -->
+                        <div class="case-mockup-frame relative" id="case-mockup-container">
+                            
+                            <!-- 1. Big Plateau: iPhone 18 / 17 Pro Max & Pro (Wide Visor Island - Default) -->
+                            <div id="bump-iphone-plateau" class="camera-bump-plateau">
+                                <div class="plateau-inner">
+                                    <!-- Left Triple-Lens Cluster -->
+                                    <div class="relative w-[100px] h-[92px]">
+                                        <div class="camera-lens absolute top-0 left-0 w-10 h-10" title="48MP Fusion Primary"></div>
+                                        <div class="camera-lens absolute bottom-0 left-0 w-10 h-10" title="48MP Ultra Wide"></div>
+                                        <div class="camera-lens absolute top-[26px] right-0 w-10 h-10" title="48MP Periscope Telephoto"></div>
+                                    </div>
+                                    <!-- Center Titanium Accent Divider -->
+                                    <div class="plateau-divider"></div>
+                                    <!-- Right Sensor Deck: Flash, LiDAR, Mic & Spatial Sensor -->
+                                    <div class="flex flex-col items-center justify-between h-[86px] py-0.5 pr-0.5">
+                                        <div class="plateau-flash" title="Adaptive True Tone Flash">
+                                            <div class="plateau-flash-core"></div>
+                                        </div>
+                                        <div class="plateau-mic" title="Studio Acoustic Mic"></div>
+                                        <div class="plateau-lidar" title="LiDAR Depth Scanner">
+                                            <div class="plateau-lidar-optic"></div>
+                                        </div>
+                                        <span class="plateau-label">48MP PRO</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. Authentic iPhone Air Island: iPhone 18 & 17 Air (Wide Pill with Single 48MP Lens) -->
+                            <div id="bump-iphone-air" class="camera-bump-air hidden">
+                                <div class="air-island-inner">
+                                    <!-- Left: Single 48MP Fusion Camera Lens -->
+                                    <div class="air-lens-wrapper">
+                                        <div class="air-camera-lens" title="48MP Fusion Camera">
+                                            <div class="air-lens-pupil"></div>
+                                            <div class="air-lens-reflex"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Middle-Right: Acoustic Mic & True Tone Flash -->
+                                    <div class="air-sensors-cluster">
+                                        <div class="air-mic" title="Acoustic Microphone"></div>
+                                        <div class="air-flash" title="Adaptive True Tone Flash">
+                                            <div class="air-flash-core"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. Vertical Spatial Pill: iPhone 16 / 17 / 18 Standard & Plus -->
+                            <div id="bump-iphone-pill" class="camera-bump-pill hidden">
+                                <div class="camera-lens w-10 h-10" title="48MP Fusion"></div>
+                                <div class="camera-lens w-10 h-10" title="Ultra Wide"></div>
+                                <div class="camera-flash-external" title="True Tone Flash"></div>
+                            </div>
+
+                            <!-- 4. Classic Pro Island: iPhone 16 Pro down to 11 Pro Max -->
+                            <div id="bump-iphone-pro-classic" class="camera-bump-pro-classic hidden">
+                                <div class="relative w-full h-full">
+                                    <div class="camera-lens absolute top-0 left-0 w-10 h-10" title="Primary Lens"></div>
+                                    <div class="camera-lens absolute bottom-0 left-0 w-10 h-10" title="Ultra Wide Lens"></div>
+                                    <div class="camera-lens absolute top-[28px] right-0 w-10 h-10" title="Telephoto Lens"></div>
+                                    <!-- Flash & LiDAR -->
+                                    <div class="plateau-flash absolute top-1 right-2 !w-4 !h-4" title="True Tone Flash"></div>
+                                    <div class="plateau-lidar absolute bottom-1 right-2 !w-4 !h-4" title="LiDAR Scanner"></div>
+                                    <div class="plateau-mic absolute bottom-8 right-3"></div>
+                                </div>
+                            </div>
+
+                            <!-- 5. Diagonal Dual Island: iPhone 15, 14, 13 Standard & Mini -->
+                            <div id="bump-iphone-diagonal" class="camera-bump-diagonal hidden">
+                                <div class="relative w-full h-full">
+                                    <div class="camera-lens absolute top-0 left-0 w-10 h-10" title="Wide Lens"></div>
+                                    <div class="camera-lens absolute bottom-0 right-0 w-10 h-10" title="Ultra Wide Lens"></div>
+                                    <div class="plateau-flash absolute top-1.5 right-2 !w-3.5 !h-3.5" title="Flash"></div>
+                                    <div class="plateau-mic absolute bottom-2 left-2"></div>
+                                </div>
+                            </div>
+
+                            <!-- 6. Vertical Dual Square Island: iPhone 12 & 11 -->
+                            <div id="bump-iphone-dual-vert" class="camera-bump-dual-vert hidden">
+                                <div class="relative w-full h-full">
+                                    <div class="camera-lens absolute top-0 left-0 w-10 h-10"></div>
+                                    <div class="camera-lens absolute bottom-0 left-0 w-10 h-10"></div>
+                                    <div class="plateau-flash absolute top-4 right-1 !w-3.5 !h-3.5"></div>
+                                    <div class="plateau-mic absolute bottom-4 right-2"></div>
+                                </div>
+                            </div>
+
+                            <!-- 7. Samsung Floating Array -->
+                            <div id="bump-samsung" class="camera-bump-samsung hidden">
+                                <div class="relative flex flex-col justify-between h-full">
+                                    <div class="camera-lens w-10 h-10" title="Primary Camera"></div>
+                                    <div class="camera-lens w-10 h-10" title="Ultra Wide Camera"></div>
+                                    <div class="camera-lens w-10 h-10" title="Telephoto Camera"></div>
+                                    <div class="plateau-flash absolute top-2 -right-5 !w-3.5 !h-3.5" title="LED Flash"></div>
+                                </div>
+                            </div>
+
+                            <!-- 8. Pixel Visor Bar -->
+                            <div id="bump-pixel" class="camera-bump-pixel hidden">
+                                <div class="flex items-center space-x-2 bg-black/60 px-2.5 py-1 rounded-full border border-white/20">
+                                    <div class="camera-lens w-8 h-8" title="Main Camera"></div>
+                                    <div class="camera-lens w-8 h-8" title="Ultra Wide"></div>
+                                    <div class="camera-lens w-8 h-8" title="Telephoto"></div>
+                                </div>
+                                <div class="plateau-flash ml-auto !w-4 !h-4" title="LED Flash"></div>
+                            </div>
+
+                            <!-- Inner Artwork Canvas / Image -->
+                            <div id="case-art-container" class="absolute inset-0 overflow-hidden rounded-[44px]">
+                                <img id="case-preview-img" src="" alt="Custom Phone Case Preview" class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- MagSafe Guide Ring (Toggleable) -->
+                            <div id="case-magsafe-ring" class="magsafe-ring hidden"></div>
+
+                            <!-- Real Optical High-Gloss Liquid Glass Sheen Overlay -->
+                            <div class="case-glass-sheen"></div>
+                        </div>
+
+                        <!-- Live Details Indicator -->
+                        <div class="mt-4 text-center">
+                            <span id="case-preview-badge" class="text-xs font-semibold text-[#1d1d1f] bg-black/[0.04] border border-black/[0.08] px-3.5 py-1.5 rounded-full">
+                                iPhone 18 Pro Max · Liquid Clear Glass
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshop Showcase -->
+        <section id="showcase" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="reveal-element text-center mb-12">
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1d1d1f] mb-4">Inside the Workshop</h2>
+                <p class="text-[#515154] text-sm sm:text-base max-w-xl mx-auto">Clean workstations, stereomicroscopes, thermal imaging, and high-frequency laser separation.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="reveal-element stagger-delay-1 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
+                    <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-slate-100 border border-black/[0.06]">
+                        <img src="images/showcase-1.jpg" alt="Workshop Precision Lab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                </div>
+                <div class="reveal-element stagger-delay-2 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
+                    <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-slate-100 border border-black/[0.06]">
+                        <img src="images/showcase-2.jpg" alt="Micro-soldering Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                </div>
+                <div class="reveal-element stagger-delay-3 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
+                    <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-slate-100 border border-black/[0.06]">
+                        <img src="images/showcase-3.jpg" alt="Parts Calibration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                </div>
+                <div class="reveal-element stagger-delay-4 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
+                    <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-slate-100 border border-black/[0.06]">
+                        <img src="images/showcase-4.jpg" alt="Laser Glass Disassembly" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Engineering Capabilities: Precision Repair Services (Under Inside the Workshop) -->
+            <div class="mt-28">
+                <!-- Section Subheading: Engineering Capabilities -->
+                <div class="reveal-element text-center mb-16">
+                    <div class="inline-flex items-center space-x-2 mb-3 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full shadow-sm backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-700">
+                            Engineering Capabilities
+                        </span>
+                    </div>
+                    <h3 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f] mb-4">
+                        Precision Repair Services
+                    </h3>
+                    <p class="text-[#515154] text-sm sm:text-base max-w-2xl mx-auto">
+                        From micro-soldered logic chips to optical display restorations, we calibrate every device to OEM tolerances.
+                    </p>
+                </div>
+
+                <!-- 6 Service Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="reveal-element stagger-delay-1 liquid-glass-white glass-card-lift p-4 flex flex-col group">
+                        <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-100 mb-5 relative border border-black/[0.06]">
+                            <img src="images/screen-repair.jpg" alt="Phone Screen Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=600&q=80'">
+                        </div>
+                        <div class="px-2 pb-3 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-[#1d1d1f] mb-2">Screen Repairs</h4>
+                            <p class="text-sm text-[#515154] leading-relaxed mb-6 flex-grow">
+                                Restore true color accuracy, 120Hz ProMotion response, and scratch-free optical glass clarity on high-resolution displays.
+                            </p>
+                            <a href="#quote" class="liquid-btn-secondary text-appleBlue text-xs font-bold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
+                                <span>Instant Quote</span>
+                                <span class="text-sm">↑</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="reveal-element stagger-delay-2 liquid-glass-white glass-card-lift p-4 flex flex-col group">
+                        <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-100 mb-5 relative border border-black/[0.06]">
+                            <img src="images/charging-port.jpg" alt="Charging Port Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=600&q=80'">
+                        </div>
+                        <div class="px-2 pb-3 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-[#1d1d1f] mb-2">Charging Port Repairs</h4>
+                            <p class="text-sm text-[#515154] leading-relaxed mb-6 flex-grow">
+                                A broken charging port shouldn't leave you disconnected. We offer rapid component-level port replacements.
+                            </p>
+                            <a href="#quote" class="liquid-btn-secondary text-appleBlue text-xs font-bold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
+                                <span>Instant Quote</span>
+                                <span class="text-sm">↑</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="reveal-element stagger-delay-3 liquid-glass-white glass-card-lift p-4 flex flex-col group">
+                        <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-100 mb-5 relative border border-black/[0.06]">
+                            <img src="images/battery-replacement.jpg" alt="Battery Replacement" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80'">
+                        </div>
+                        <div class="px-2 pb-3 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-[#1d1d1f] mb-2">Battery Replacement</h4>
+                            <p class="text-sm text-[#515154] leading-relaxed mb-6 flex-grow">
+                                Is your phone dying too fast or overheating? Get a high-cycle premium battery replacement with calibration.
+                            </p>
+                            <a href="#quote" class="liquid-btn-secondary text-appleBlue text-xs font-bold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
+                                <span>Instant Quote</span>
+                                <span class="text-sm">↑</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="reveal-element stagger-delay-4 liquid-glass-white glass-card-lift p-4 flex flex-col group">
+                        <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-100 mb-5 relative border border-black/[0.06]">
+                            <img src="images/software-upgrade.jpg" alt="Software Upgrade" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80'">
+                        </div>
+                        <div class="px-2 pb-3 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-[#1d1d1f] mb-2">Software & Data Recovery</h4>
+                            <p class="text-sm text-[#515154] leading-relaxed mb-6 flex-grow">
+                                We recover critical lost data, resolve boot loops, and restore system firmware cleanly without the hassle.
+                            </p>
+                            <a href="#quote" class="liquid-btn-secondary text-appleBlue text-xs font-bold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
+                                <span>Instant Quote</span>
+                                <span class="text-sm">↑</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="reveal-element stagger-delay-5 liquid-glass-white glass-card-lift p-4 flex flex-col group">
+                        <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-100 mb-5 relative border border-black/[0.06]">
+                            <img src="images/business-repairs.jpg" alt="Business & School Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80'">
+                        </div>
+                        <div class="px-2 pb-3 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-[#1d1d1f] mb-2">Fleet & Enterprise Repairs</h4>
+                            <p class="text-sm text-[#515154] leading-relaxed mb-6 flex-grow">
+                                Volume enterprise device maintenance for schools, medical clinics, and corporate fleets with dedicated SLA turnaround.
+                            </p>
+                            <a href="#quote" class="liquid-btn-secondary text-appleBlue text-xs font-bold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
+                                <span>Instant Quote</span>
+                                <span class="text-sm">↑</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="reveal-element stagger-delay-6 liquid-glass-white glass-card-lift p-4 flex flex-col group">
+                        <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-100 mb-5 relative border border-black/[0.06]">
+                            <img src="images/showcase-2.jpg" alt="Micro-soldering & Logic Board Diagnostics" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?auto=format&fit=crop&w=600&q=80'">
+                        </div>
+                        <div class="px-2 pb-3 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-[#1d1d1f] mb-2">Micro-Soldering & Logic Board</h4>
+                            <p class="text-sm text-[#515154] leading-relaxed mb-6 flex-grow">
+                                Trace repairs, capacitor replacements, power IC restoration, and short-circuit thermal diagnostic repairs.
+                            </p>
+                            <a href="#quote" class="liquid-btn-secondary text-appleBlue text-xs font-bold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
+                                <span>Instant Quote</span>
+                                <span class="text-sm">↑</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="liquid-glass-white rounded-t-[3.5rem] mt-24 pt-16 pb-12 px-6 sm:px-12 border-b-0 border-x-0 border-t border-black/[0.08] shadow-[0_-15px_40px_rgba(0,0,0,0.03)]">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-black/[0.06]">
+                <div class="md:col-span-2 space-y-4">
+                    <span class="text-xl font-extrabold tracking-tight text-[#1d1d1f]">
+                        Lee Nguyen <span class="font-normal text-[#86868b]">Lab</span>
+                    </span>
+                    <p class="text-sm text-[#515154] max-w-sm">
+                        Professional, component-level technology laboratory serving individuals, educational institutions, and enterprise fleets.
+                    </p>
+                    <div class="text-xs text-[#86868b] space-y-1 pt-2">
+                        <p class="font-bold text-[#1d1d1f]">Shop Location:</p>
+                        <p class="text-[#515154]">John Street, Cabramatta, NSW 2166</p>
+                        <p class="text-[#515154]">Sydney, Australia</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-[#86868b] uppercase tracking-widest mb-3">Operating Hours</h4>
+                    <ul class="text-sm text-[#515154] space-y-2">
+                        <li class="flex justify-between">
+                            <span>Monday – Friday</span>
+                            <span class="font-bold text-[#1d1d1f]">9:00 AM – 6:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday</span>
+                            <span class="font-bold text-[#1d1d1f]">9:30 AM – 5:00 PM</span>
+                        </li>
+                        <li class="flex justify-between text-[#86868b]">
+                            <span>Sunday</span>
+                            <span>By Appointment</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-[#86868b] uppercase tracking-widest mb-3">Direct Contact</h4>
+                    <div class="space-y-3">
+                        <a href="tel:0291234567" class="block p-3.5 rounded-full liquid-btn-secondary text-center font-bold text-sm text-[#1d1d1f] shadow-sm">
+                            📞 (02) 9123 4567
+                        </a>
+                        <a href="mailto:hello@leenguyenlab.com.au" class="block text-center text-xs text-[#515154] hover:text-[#1d1d1f] font-medium transition-colors py-1">
+                            hello@leenguyenlab.com.au
+                        </a>
+                    </div>
+
+                    <!-- Social Media Dock -->
+                    <div class="flex justify-start space-x-3 mt-6">
+                        <a href="#" aria-label="Facebook" class="liquid-btn-icon w-10 h-10 rounded-full text-[#1d1d1f] hover:text-black">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="liquid-btn-icon w-10 h-10 rounded-full text-[#1d1d1f] hover:text-black">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" aria-label="TikTok" class="liquid-btn-icon w-10 h-10 rounded-full text-[#1d1d1f] hover:text-black">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.12-1.02 4.2-2.58 5.62-1.62 1.47-3.8 2.24-5.99 2.05-2.28-.2-4.4-1.39-5.71-3.23-1.28-1.78-1.63-4.06-1.11-6.15.54-2.13 2.1-3.9 4.12-4.73 1.83-.75 3.93-.83 5.81-.3v4.11c-1.37-.34-2.88-.17-4.04.64-1.13.78-1.72 2.17-1.47 3.51.27 1.41 1.4 2.58 2.82 2.87 1.5.3 3.12-.11 4.15-1.26 1.05-1.17 1.51-2.77 1.49-4.32V.02z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Google" class="liquid-btn-icon w-10 h-10 rounded-full text-[#1d1d1f] hover:text-black">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.344-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#86868b] font-medium">
+                <p>© 2026 Lee Nguyen Lab. All rights reserved. Cabramatta, Sydney.</p>
+                <div class="flex space-x-3 mt-4 sm:mt-0">
+                    <a href="#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Back to Top</a>
+                    <a href="#quote" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Price Estimator</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
+
+        <div class="relative liquid-glass-white max-w-lg w-full rounded-[2.5rem] p-6 sm:p-10 shadow-2xl border border-white/95 z-10 animate-in fade-in zoom-in-95 duration-200">
+            <!-- Modal Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 liquid-btn-icon w-8 h-8 rounded-full text-[#1d1d1f]" aria-label="Close modal">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <span class="text-xs font-bold text-appleBlue uppercase tracking-widest">Service & Print Appointment</span>
+            <h3 class="text-2xl font-extrabold text-[#1d1d1f] tracking-tight mt-1 mb-2">Schedule Your Lab Request</h3>
+            <p class="text-xs sm:text-sm text-[#515154] mb-6 font-medium">Send your details directly to our Sydney queue. We confirm turnaround time immediately.</p>
+
+            <form action="https://formsubmit.co/adrian@leenguyenlab.com.au" method="POST" class="space-y-4">
+                <input type="hidden" name="_subject" value="New Service Booking — Lee Nguyen Lab">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Your Full Name</label>
+                    <input type="text" name="name" required placeholder="e.g. David Harrison" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Phone Number</label>
+                        <input type="tel" name="phone" required placeholder="0400 000 000" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Email Address</label>
+                        <input type="email" name="email" required placeholder="name@domain.com" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Device Model</label>
+                    <input type="text" id="modal-device" name="device_model" required placeholder="e.g. iPhone 18 Pro Max" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Selected Request / Print Details</label>
+                    <textarea id="modal-issue" name="parts_or_issue" rows="2" required placeholder="e.g. Custom UV Case Print, Premium Screen" class="w-full liquid-input p-3.5 text-sm outline-none custom-scroll font-medium"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full liquid-btn-primary font-bold py-3.5 rounded-full mt-2 text-sm">
+                    Confirm & Send Booking
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

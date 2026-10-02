@@ -1,0 +1,1172 @@
+/* =========================================================================
+   LEE NGUYEN LAB — APPLE WHITE GLASS DESIGN SYSTEM WITH BLACK KEYNOTE OVERVIEW
+   Theme: Crisp Apple White Lab (#fbfbfd) + Pure Solid Keynote Black Overview (#000000)
+   Seamless integration with iPhone 18 Pro & liquid chrome PRO visuals on pure black
+   Glassmorphism: Ultra-Clear Liquid White Glass with Neutral Specular Highlights
+   ========================================================================= */
+
+/* --- 1. Base Reset & Apple SF Typography on White --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+    background-color: #fbfbfd;
+    background-image: 
+        radial-gradient(circle at 50% 0%, #ffffff 0%, #f5f5f7 50%, #ececf0 100%);
+    background-attachment: fixed;
+    color: #1d1d1f;
+    overflow-x: hidden;
+    letter-spacing: -0.018em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+/* --- 2. Interactive Canvas Background (Subtle Slate Constellation on White) --- */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none; /* Clicks pass freely to UI controls */
+    transform: translate3d(0, 0, 0);
+}
+
+/* --- 3. Apple Signature Adaptive Header Bar --- */
+/* Default on Black Overview Hero: Dark Keynote Glass */
+.apple-header-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.80);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+    transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-header-bar .logo-title {
+    color: #f5f5f7;
+    transition: color 0.3s ease;
+}
+
+.apple-header-bar .logo-subtitle {
+    color: #a1a1a6;
+    transition: color 0.3s ease;
+}
+
+.apple-header-bar nav a {
+    color: #d2d2d7;
+    transition: color 0.25s ease;
+}
+
+.apple-header-bar nav a:hover {
+    color: #ffffff;
+}
+
+/* Header button on Black Overview */
+.apple-header-bar .liquid-btn-primary {
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.45), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.08) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.40);
+    color: #ffffff;
+    box-shadow: 
+        inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.50),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.30),
+        0 4px 16px -2px rgba(0, 0, 0, 0.35);
+}
+
+.apple-header-bar .liquid-btn-primary:hover {
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.70), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.16) 100%);
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: 
+        inset 0 1.5px 2.5px 0 #ffffff,
+        0 10px 24px -2px rgba(0, 0, 0, 0.50),
+        0 0 20px 2px rgba(255, 255, 255, 0.50);
+}
+
+.apple-header-bar .liquid-btn-icon {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.06) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.60);
+    color: #ffffff;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.40), 0 4px 12px rgba(0, 0, 0, 0.30);
+}
+
+.apple-header-bar .liquid-btn-icon:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.14) 100%);
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: inset 0 1.5px 2px #ffffff, 0 0 16px rgba(255, 255, 255, 0.50);
+}
+
+/* Adaptive State: Scrolled past Black Hero onto White Lab Sections */
+.apple-header-bar.on-white-section {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.apple-header-bar.on-white-section .logo-title {
+    color: #1d1d1f;
+}
+
+.apple-header-bar.on-white-section .logo-subtitle {
+    color: #6e6e73;
+}
+
+.apple-header-bar.on-white-section nav a {
+    color: #515154;
+}
+
+.apple-header-bar.on-white-section nav a:hover {
+    color: #000000;
+}
+
+.apple-header-bar.on-white-section #hamburger-btn {
+    color: #1d1d1f;
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.10);
+    box-shadow: none;
+}
+
+.apple-header-bar.on-white-section .liquid-btn-primary {
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.85), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(240, 243, 248, 0.55) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-top: 1.5px solid #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    color: #1d1d1f;
+    box-shadow: 
+        inset 0 1px 2px 0 #ffffff,
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.04),
+        0 6px 20px -3px rgba(0, 0, 0, 0.08);
+}
+
+.apple-header-bar.on-white-section .liquid-btn-primary:hover {
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), #ffffff, transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 248, 255, 0.80) 100%);
+    border-color: #ffffff;
+    color: #000000;
+    box-shadow: 
+        inset 0 1.5px 3px 0 #ffffff,
+        0 12px 28px -4px rgba(0, 0, 0, 0.12),
+        0 0 20px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* Mobile dropdown on white */
+.apple-header-bar.on-white-section #mobile-menu {
+    background: rgba(255, 255, 255, 0.96);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.apple-header-bar.on-white-section #mobile-menu a {
+    color: #515154;
+}
+
+.apple-header-bar.on-white-section #mobile-menu a:hover {
+    color: #000000;
+}
+
+/* --- 4. Apple Liquid White Glassmorphic Containers --- */
+.liquid-glass-white {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.58) 100%);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-top: 1.5px solid #ffffff;
+    border-radius: 32px; /* Apple continuous curvature squircle */
+    box-shadow: 
+        inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.02),
+        0 20px 50px -12px rgba(0, 0, 0, 0.07),
+        0 4px 16px 0 rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #1d1d1f;
+}
+
+.liquid-glass-white:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.68) 100%);
+    border-color: #ffffff;
+    box-shadow: 
+        inset 0 1.5px 2.5px 0 #ffffff,
+        0 26px 60px -12px rgba(0, 0, 0, 0.10),
+        0 6px 20px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Apple Card Lift */
+.glass-card-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.glass-card-lift:hover {
+    transform: translateY(-4px) scale(1.006);
+}
+
+/* --- 5. Apple Liquid Glass Responsive Button System --- */
+.liquid-btn-primary, 
+.liquid-btn-secondary, 
+.liquid-tier-btn.active, 
+.liquid-btn-icon {
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px) saturate(190%);
+    -webkit-backdrop-filter: blur(20px) saturate(190%);
+    transform-style: preserve-3d;
+}
+
+/* 5.1 Primary Button: Crystal Clear White Liquid Glass with Black Lettering */
+.liquid-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.85), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(240, 243, 248, 0.55) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-top: 1.5px solid #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    color: #1d1d1f;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    box-shadow: 
+        inset 0 1px 2px 0 #ffffff,
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.04),
+        0 6px 20px -3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                background 0.3s ease, 
+                border-color 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+/* Optical Specular Arc Highlight (Convex upper lens reflection) */
+.liquid-btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 8%;
+    right: 8%;
+    height: 48%;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.20) 70%, transparent 100%);
+    pointer-events: none;
+    transition: opacity 0.35s ease, height 0.35s ease;
+}
+
+/* Dynamic Prismatic Glass Sheen Sweep */
+.liquid-btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 260%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.20) 25%, 
+        rgba(255, 255, 255, 0.85) 50%, 
+        rgba(255, 255, 255, 0.20) 75%, 
+        transparent 100%
+    );
+    transform: skewX(-24deg);
+    transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.liquid-btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), #ffffff, transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 248, 255, 0.80) 100%);
+    border-color: #ffffff;
+    color: #000000;
+    box-shadow: 
+        inset 0 1.5px 3px 0 #ffffff,
+        0 12px 28px -4px rgba(0, 0, 0, 0.12),
+        0 0 20px 2px rgba(255, 255, 255, 0.9);
+}
+
+.liquid-btn-primary:hover::before {
+    height: 54%;
+    opacity: 1;
+}
+
+.liquid-btn-primary:hover::after {
+    left: 130%;
+}
+
+.liquid-btn-primary:active {
+    transform: translateY(0px) scale(0.97);
+    box-shadow: 
+        inset 0 2px 4px 0 rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 5.2 Secondary Button: Apple Frosted Liquid Glass */
+.liquid-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.60), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.50) 0%, rgba(240, 240, 245, 0.30) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-top: 1.5px solid #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    color: #1d1d1f;
+    font-weight: 600;
+    box-shadow: 
+        inset 0 1px 1px 0 #ffffff,
+        0 4px 14px -3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.liquid-btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 8%;
+    right: 8%;
+    height: 48%;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.15) 75%, transparent 100%);
+    pointer-events: none;
+}
+
+.liquid-btn-secondary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 240%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transform: skewX(-22deg);
+    transition: left 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.liquid-btn-secondary:hover {
+    transform: translateY(-2px) scale(1.02);
+    color: #000000;
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.90), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.80) 0%, rgba(245, 245, 250, 0.50) 100%);
+    border-color: #ffffff;
+    box-shadow: 
+        inset 0 1px 2px 0 #ffffff,
+        0 8px 20px -3px rgba(0, 0, 0, 0.08);
+}
+
+.liquid-btn-secondary:hover::after {
+    left: 120%;
+}
+
+.liquid-btn-secondary:active {
+    transform: translateY(0px) scale(0.965);
+    background: rgba(255, 255, 255, 0.60);
+    box-shadow: 
+        inset 0 2px 4px 0 rgba(0, 0, 0, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* 5.2b Hero Keynote Liquid Glass Buttons on Black Overview (#hero) */
+.liquid-btn-hero-primary {
+    background: 
+        radial-gradient(circle 95px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.45), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.10) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.45) !important;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.90) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.40) !important;
+    color: #ffffff !important;
+    box-shadow: 
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.60),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.30),
+        0 8px 24px -4px rgba(0, 0, 0, 0.45) !important;
+}
+
+.liquid-btn-hero-primary:hover {
+    background: 
+        radial-gradient(circle 95px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.70), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.18) 100%) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+    box-shadow: 
+        inset 0 1.5px 3px 0 #ffffff,
+        0 12px 30px -4px rgba(0, 0, 0, 0.60),
+        0 0 25px 2px rgba(255, 255, 255, 0.45) !important;
+}
+
+.liquid-btn-hero-secondary {
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.22), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.60) !important;
+    color: #e5e5ea !important;
+    box-shadow: 
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.30),
+        0 6px 18px -4px rgba(0, 0, 0, 0.35) !important;
+}
+
+.liquid-btn-hero-secondary:hover {
+    background: 
+        radial-gradient(circle 90px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.38), transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.70) !important;
+    color: #ffffff !important;
+    box-shadow: 
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.60),
+        0 10px 24px -4px rgba(0, 0, 0, 0.50),
+        0 0 18px 2px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 5.3 Icon / Small Button: White Liquid Glass */
+.liquid-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.35) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.90);
+    border-top: 1.5px solid #ffffff;
+    box-shadow: 
+        inset 0 1px 1.5px 0 #ffffff, 
+        0 4px 12px -2px rgba(0, 0, 0, 0.06);
+    color: #1d1d1f;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.liquid-btn-icon:hover {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.80) 100%);
+    border-color: #ffffff;
+    color: #000000;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        inset 0 1.5px 2px 0 #ffffff, 
+        0 8px 18px -2px rgba(0, 0, 0, 0.10),
+        0 0 14px rgba(255, 255, 255, 0.8);
+}
+
+.liquid-btn-icon:active {
+    transform: translateY(0px) scale(0.93);
+}
+
+/* 5.4 Apple Segmented Quality Selector */
+.liquid-tier-btn {
+    position: relative;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid transparent;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #6e6e73;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.liquid-tier-btn:hover {
+    color: #1d1d1f;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.liquid-tier-btn.active {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #1d1d1f;
+    box-shadow: 
+        inset 0 1px 1px 0 #ffffff,
+        0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* --- 6. Form Controls & Inputs on Apple White Theme --- */
+.liquid-input {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    color: #1d1d1f;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: all 0.25s ease;
+    border-radius: 16px;
+}
+
+.liquid-input option {
+    background-color: #ffffff;
+    color: #1d1d1f;
+}
+
+.liquid-input optgroup {
+    background-color: #f5f5f7;
+    color: #6e6e73;
+    font-weight: 700;
+}
+
+.liquid-input:focus {
+    background: #ffffff;
+    border-color: #0071e3;
+    box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.02), 
+        0 0 0 3px rgba(0, 113, 227, 0.18);
+}
+
+/* Modern Checkbox on Light */
+input[type="checkbox"].liquid-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-radius: 0.375rem;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+input[type="checkbox"].liquid-checkbox:checked {
+    background: #0071e3;
+    border-color: #0071e3;
+    box-shadow: 0 0 8px rgba(0, 113, 227, 0.25);
+}
+
+input[type="checkbox"].liquid-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* --- 7. Custom Phone Case Studio Mockup --- */
+@keyframes floatCaseMockup {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 
+            0 28px 65px -15px rgba(0, 0, 0, 0.18), 
+            0 4px 16px rgba(0, 0, 0, 0.08),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+        transform: translateY(-10px) rotate(0.6deg);
+        box-shadow: 
+            0 40px 80px -18px rgba(0, 0, 0, 0.22), 
+            0 8px 24px rgba(0, 0, 0, 0.10),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+    }
+}
+
+.case-mockup-frame {
+    position: relative;
+    width: 290px;
+    height: 580px;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 48px;
+    overflow: hidden;
+    background: #090c12;
+    border: 4px solid #d1d5db;
+    box-shadow: 
+        0 30px 70px -15px rgba(0, 0, 0, 0.18), 
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    animation: floatCaseMockup 6.5s ease-in-out infinite;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+}
+
+.case-mockup-frame:hover {
+    animation-play-state: paused;
+    transform: translateY(-5px) scale(1.015) rotate(0.5deg);
+}
+
+@keyframes bumpSwitch {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(-8px);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0px);
+    }
+}
+
+.bump-animate {
+    animation: bumpSwitch 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 7.1 Camera Bump Variations */
+.camera-bump-plateau {
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    right: 14px;
+    height: 114px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(22, 28, 40, 0.96) 0%, rgba(10, 14, 22, 0.98) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(255, 255, 255, 0.40);
+    box-shadow: 0 14px 30px -4px rgba(0, 0, 0, 0.85), inset 0 1px 2px rgba(255, 255, 255, 0.50);
+    z-index: 20;
+    padding: 8px 12px;
+}
+
+.plateau-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.plateau-divider {
+    width: 1px;
+    height: 78%;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+    margin: 0 6px;
+}
+
+.plateau-flash {
+    width: 22px;
+    height: 22px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, #fffbee 35%, #f6e09c 75%, #b59b52 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.65);
+    box-shadow: 0 0 12px rgba(255, 235, 130, 0.55), inset 0 0 3px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plateau-flash-core {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #ffea79;
+}
+
+.plateau-mic {
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: #040608;
+    border: 0.8px solid rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.95);
+}
+
+.plateau-lidar {
+    width: 20px;
+    height: 20px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, #111a28 40%, #060910 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.32);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9), 0 2px 6px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plateau-lidar-optic {
+    width: 9px;
+    height: 9px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, #1e293b, #0a0e17);
+    border: 0.5px solid rgba(56, 189, 248, 0.45);
+}
+
+.plateau-label {
+    font-size: 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    letter-spacing: 0.09em;
+    color: rgba(255, 255, 255, 0.48);
+    font-weight: 700;
+}
+
+.camera-bump-air {
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    right: 14px;
+    height: 58px;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(240, 245, 252, 0.97) 0%, rgba(220, 230, 242, 0.95) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(255, 255, 255, 0.92);
+    box-shadow: 
+        0 10px 24px -2px rgba(0, 0, 0, 0.28), 
+        0 2px 6px rgba(0, 0, 0, 0.08),
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.95), 
+        inset 0 -1px 2px rgba(0, 0, 0, 0.06);
+    z-index: 20;
+    padding: 0 10px;
+}
+
+.air-island-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 4px;
+}
+
+.air-lens-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.air-camera-lens {
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, #080d16 35%, #182234 70%, #2f3e55 100%);
+    border: 2.5px solid #a6b5c7;
+    box-shadow: 
+        0 3px 8px rgba(0, 0, 0, 0.35), 
+        inset 0 0 6px rgba(0, 0, 0, 0.95),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.air-lens-pupil {
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, #030508 50%, #0d1522 100%);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+.air-lens-reflex {
+    position: absolute;
+    top: 16%;
+    left: 22%;
+    width: 26%;
+    height: 26%;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.85);
+    filter: blur(0.2px);
+    pointer-events: none;
+}
+
+.air-sensors-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 6px;
+}
+
+.air-mic {
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: #040608;
+    border: 0.8px solid #a6b5c7;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.95);
+}
+
+.air-flash {
+    width: 19px;
+    height: 19px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, #fffdf2 35%, #f6e4a8 75%, #c7ab5e 100%);
+    border: 1.5px solid #d4deea;
+    box-shadow: 
+        0 0 10px rgba(255, 238, 150, 0.55), 
+        0 1px 3px rgba(0, 0, 0, 0.15),
+        inset 0 0 2px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.air-flash-core {
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: #ffe366;
+    box-shadow: 0 0 4px #ffe366;
+}
+
+.camera-bump-pill {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 52px;
+    height: 104px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(22, 28, 40, 0.94) 0%, rgba(10, 14, 22, 0.97) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(255, 255, 255, 0.36);
+    box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+}
+
+.camera-flash-external {
+    position: absolute;
+    top: 48px;
+    left: 78px;
+    width: 15px;
+    height: 15px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, #fffbee 35%, #f6e09c 75%, #b59b52 100%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 8px rgba(255, 235, 130, 0.4);
+    z-index: 20;
+}
+
+.camera-bump-pro-classic {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 110px;
+    height: 114px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(22, 28, 40, 0.94) 0%, rgba(10, 14, 22, 0.97) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 24px -3px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    z-index: 20;
+    padding: 8px;
+}
+
+.camera-bump-diagonal {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 94px;
+    height: 94px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(22, 28, 40, 0.94) 0%, rgba(10, 14, 22, 0.97) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    z-index: 20;
+    padding: 6px;
+}
+
+.camera-bump-dual-vert {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 86px;
+    height: 98px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(22, 28, 40, 0.94) 0%, rgba(10, 14, 22, 0.97) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    z-index: 20;
+    padding: 6px;
+}
+
+.camera-bump-samsung {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    width: 44px;
+    height: 152px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 20;
+}
+
+.camera-bump-pixel {
+    position: absolute;
+    top: 32px;
+    left: 10px;
+    right: 10px;
+    height: 52px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(22, 28, 40, 0.96) 0%, rgba(10, 14, 22, 0.98) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(255, 255, 255, 0.38);
+    box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.45);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 12px;
+}
+
+.camera-lens {
+    border-radius: 9999px;
+    background: radial-gradient(circle, #080c14 35%, #182030 75%, #334155 100%);
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.85), inset 0 0 5px rgba(0, 0, 0, 0.95);
+    position: relative;
+}
+
+.camera-lens::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 25%;
+    height: 25%;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.case-glass-sheen {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 15;
+    background: linear-gradient(
+        130deg, 
+        rgba(255, 255, 255, 0.40) 0%, 
+        rgba(255, 255, 255, 0.12) 28%, 
+        transparent 55%, 
+        rgba(255, 255, 255, 0.10) 90%,
+        rgba(255, 255, 255, 0.25) 100%
+    );
+    border-radius: inherit;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.magsafe-ring {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    border-radius: 9999px;
+    border: 2px dashed rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+    z-index: 12;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.magsafe-ring::after {
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 16px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.case-upload-dropzone {
+    border: 1.5px dashed rgba(0, 0, 0, 0.18);
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 24px;
+    transition: all 0.25s ease;
+}
+
+.case-upload-dropzone:hover, .case-upload-dropzone.dragover {
+    border-color: #0071e3;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* --- 8. Apple Spatial Transitions & Keyframe Animations --- */
+
+/* 8.1 Hero Page-Load Staggered Entrance */
+@keyframes appleFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(32px) scale(0.975);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+    }
+}
+
+.hero-animate-1 { animation: appleFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both; }
+.hero-animate-2 { animation: appleFadeUp 0.90s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both; }
+.hero-animate-3 { animation: appleFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both; }
+.hero-animate-4 { animation: appleFadeUp 1.00s cubic-bezier(0.16, 1, 0.3, 1) 0.44s both; }
+.hero-animate-5 { animation: appleFadeUp 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.56s both; }
+.hero-animate-6 { animation: appleFadeUp 1.10s cubic-bezier(0.16, 1, 0.3, 1) 0.68s both; }
+
+/* 8.2 Scroll Reveal with Smooth De-Blur */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(32px);
+    filter: blur(6px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
+}
+
+.reveal-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+}
+
+/* Stagger Delays for Cards & Grids */
+.stagger-delay-1 { transition-delay: 0.08s; }
+.stagger-delay-2 { transition-delay: 0.16s; }
+.stagger-delay-3 { transition-delay: 0.24s; }
+.stagger-delay-4 { transition-delay: 0.32s; }
+.stagger-delay-5 { transition-delay: 0.40s; }
+.stagger-delay-6 { transition-delay: 0.48s; }
+
+/* 8.3 Glass Ambient Breathing Glow Pulse */
+@keyframes glassPulseGlow {
+    0%, 100% {
+        box-shadow: 
+            inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
+            0 8px 24px -6px rgba(0, 0, 0, 0.06);
+        border-color: rgba(255, 255, 255, 0.90);
+    }
+    50% {
+        box-shadow: 
+            inset 0 1.5px 2px 0 #ffffff,
+            0 14px 32px -6px rgba(0, 0, 0, 0.09),
+            0 0 20px 2px rgba(255, 255, 255, 0.7);
+        border-color: #ffffff;
+    }
+}
+
+.glass-glow-pulse {
+    animation: glassPulseGlow 4.5s ease-in-out infinite;
+}
+
+/* 8.4 Receipt Price Live Pulse */
+@keyframes receiptPricePulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.06); color: #0071e3; }
+    100% { transform: scale(1); }
+}
+
+.price-pulse {
+    animation: receiptPricePulse 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 8.5 Mobile Menu Smooth Slide & Spring */
+#mobile-menu {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: top center;
+}
+
+#mobile-menu:not(.hidden) {
+    animation: mobileMenuSlide 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes mobileMenuSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-12px) scale(0.98);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+    }
+}
+
+/* 8.6 Apple Modal Spring Entrance */
+#booking-modal:not(.hidden) > div:first-child {
+    animation: modalBackdropFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#booking-modal:not(.hidden) > div:last-child {
+    animation: modalCardSpring 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalBackdropFade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes modalCardSpring {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(24px);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0px);
+    }
+}
+
+/* --- 9. Light Theme Custom Scrollbars --- */
+.custom-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.30);
+}
