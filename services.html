@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Repair Services | Lee Nguyen Lab</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter SF Pro Display Hierarchy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'sans-serif'],
+                    },
+                    colors: {
+                        appleDark: '#1d1d1f',
+                        appleGray: '#f5f5f7',
+                        appleMuted: '#6e6e73',
+                        appleBlue: '#0071e3',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- External Apple White Theme & Liquid Glass Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- External Application Logic -->
+    <script src="script.js" defer></script>
+</head>
+<body class="relative text-[#1d1d1f] bg-[#fbfbfd] selection:bg-slate-200 selection:text-black min-h-screen">
+
+    <!-- Interactive Dynamic Canvas: Floating Particle Network -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Header: Frosted Translucent Apple White Bar -->
+    <header class="apple-header-bar on-white-section transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html#hero" class="flex items-center cursor-pointer group">
+                    <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-[#1d1d1f] group-hover:opacity-80 transition-all">
+                        Lee Nguyen <span class="logo-subtitle font-normal text-[#6e6e73]">Lab</span>
+                    </span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold">
+                    <a href="index.html#hero" class="text-[#515154] hover:text-black transition-colors">Overview</a>
+                    <a href="services.html" class="text-appleBlue font-bold border-b-2 border-appleBlue pb-0.5 transition-colors">Repair Services</a>
+                    
+                    <!-- Accessories Dropdown Menu -->
+                    <div class="relative group">
+                        <a href="accessories.html" class="flex items-center space-x-1 text-[#515154] hover:text-black transition-colors py-2">
+                            <span>Accessories</span>
+                            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <div class="absolute -left-4 top-full pt-2 w-72 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+                            <div class="apple-nav-dropdown rounded-2xl p-2.5 shadow-2xl border border-white/95 space-y-1">
+                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Custom Cases</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">Lab UV Print Studio</span>
+                                </a>
+                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Screen Protectors</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">9H Tempered & Privacy</span>
+                                </a>
+                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Lanyards</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">Braided cords & wrist straps</span>
+                                </a>
+                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Chargers, Cables & Powerbanks</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">GaN 65W & MagSafe packs</span>
+                                </a>
+                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Stickers</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">Waterproof vinyl tech decals</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="index.html#showcase" class="text-[#515154] hover:text-black transition-colors">Workshop</a>
+                    <a href="about.html" class="text-[#515154] hover:text-black transition-colors">About Us</a>
+                </nav>
+
+                <div class="flex items-center space-x-3">
+                    <button onclick="openBookingModal()" class="hidden sm:inline-flex liquid-btn-primary text-xs font-bold px-5 py-2.5 rounded-full">
+                        Book Repair
+                    </button>
+                    <button id="hamburger-btn" class="md:hidden liquid-btn-icon text-[#1d1d1f] p-2.5 rounded-full focus:outline-none" aria-label="Toggle Navigation">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown Bar -->
+        <div id="mobile-menu" class="hidden md:hidden w-full border-t border-black/[0.08] bg-white/95 backdrop-blur-2xl px-6 py-5 space-y-3">
+            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">Overview</a>
+            <a href="services.html" class="block mobile-nav-link text-sm font-bold text-appleBlue">Repair Services</a>
+            
+            <!-- Mobile Accessories Submenu -->
+            <div>
+                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black py-1">
+                    <span>Accessories</span>
+                    <svg id="mobile-acc-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-black/[0.1] space-y-2 py-1 mt-1">
+                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Custom Cases</a>
+                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Screen Protectors</a>
+                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Lanyards</a>
+                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Chargers, Cables & Powerbanks</a>
+                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Stickers</a>
+                </div>
+            </div>
+
+            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">Workshop</a>
+            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">About Us</a>
+            <button onclick="openBookingModal()" class="w-full text-center liquid-btn-primary text-sm font-bold py-3.5 rounded-full mt-2">
+               Book a Repair
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 pt-28 sm:pt-36 pb-24">
+
+        <!-- 1. Apple Keynote Hero Header: Unboxed & Clean -->
+        <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-6 sm:pt-12 pb-12 sm:pb-16">
+            <div class="inline-flex items-center space-x-2 mb-4 bg-appleBlue/10 border border-appleBlue/20 px-4 py-1.5 rounded-full shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-appleBlue animate-pulse"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-appleBlue">
+                    Hardware Diagnostic Matrix · Sydney
+                </span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-[#1d1d1f] leading-tight max-w-4xl">
+                Repair Services &<br>Instant Price Quote
+            </h1>
+
+            <p class="text-lg sm:text-2xl font-medium text-[#6e6e73] mt-5 max-w-3xl leading-relaxed">
+                Select your device family, specific model, and part tier below for an immediate itemized diagnostic estimate.
+            </p>
+        </section>
+
+        <!-- 2. Interactive Instant Quote Section & Calculator -->
+        <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            
+            <div id="quote" class="scroll-mt-24">
+                <div class="liquid-glass-white rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-xl border border-white/95">
+                    
+                    <!-- Window Top Bar Micro-Header -->
+                    <div class="flex items-center justify-between pb-6 mb-8 border-b border-black/[0.06]">
+                        <span class="text-[11px] font-semibold tracking-widest uppercase text-[#86868b]">Hardware Diagnostic & Price Matrix</span>
+                        <span class="text-[11px] font-mono text-[#86868b]">SYDNEY · AUD</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                        
+                        <!-- Left Column: Device & Part Selection -->
+                        <div class="lg:col-span-7 space-y-6">
+                            
+                            <!-- Step 1: Device Category -->
+                            <div>
+                                <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                    Step 1 · Supported Devices
+                                </label>
+                                <select id="device-family" onchange="onFamilyChange()" class="w-full liquid-input text-sm sm:text-base font-semibold p-4 outline-none cursor-pointer">
+                                    <optgroup label="Apple Devices">
+                                        <option value="iphone" selected>Apple iPhone</option>
+                                        <option value="apple_ipad">Apple iPad</option>
+                                        <option value="apple_watch">Apple Watch</option>
+                                        <option value="apple_ipod">Apple iPod</option>
+                                        <option value="macbook">MacBook & Laptops</option>
+                                    </optgroup>
+                                    <optgroup label="Samsung Devices">
+                                        <option value="samsung_s">Samsung S Series</option>
+                                        <option value="samsung_z">Samsung Z Series (Fold & Flip)</option>
+                                        <option value="samsung_note">Samsung Note Series</option>
+                                        <option value="samsung_a">Samsung A Series</option>
+                                        <option value="samsung_tab_s">Samsung Tab S Series</option>
+                                        <option value="samsung_tab_a">Samsung Tab A Series</option>
+                                    </optgroup>
+                                    <optgroup label="Google & Microsoft">
+                                        <option value="google_pixel">Google Pixel Series</option>
+                                        <option value="microsoft_surface">Microsoft Surface Pro & Laptop</option>
+                                    </optgroup>
+                                    <optgroup label="Gaming & Other">
+                                        <option value="nintendo_switch">Nintendo Switch (OLED & Lite)</option>
+                                        <option value="playstation_console">PlayStation 5 & DualSense</option>
+                                        <option value="other_devices">Other Laptops / Consoles</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <!-- Step 1b: Exact Model -->
+                            <div>
+                                <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                    Model Selection
+                                </label>
+                                <select id="model-select" onchange="calculateQuote()" class="w-full liquid-input text-sm sm:text-base font-semibold p-4 outline-none cursor-pointer">
+                                    <!-- Dynamic Options via script.js -->
+                                </select>
+                            </div>
+
+                            <!-- Step 2: Quality Tier Selector -->
+                            <div id="part-tier-wrapper" class="transition-opacity duration-300">
+                                <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
+                                    Step 2 · Select Part Quality
+                                </label>
+                                <div class="grid grid-cols-3 gap-1.5 p-1.5 bg-black/[0.03] rounded-2xl border border-black/[0.06] shadow-inner">
+                                    <button type="button" onclick="setPartGrade('aftermarket')" id="tier-btn-aftermarket" class="liquid-tier-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-center">
+                                        Aftermarket
+                                        <span class="block text-[10px] font-normal text-[#86868b]">Budget Friendly</span>
+                                    </button>
+                                    <button type="button" onclick="setPartGrade('premium')" id="tier-btn-premium" class="liquid-tier-btn active py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-center">
+                                        Premium
+                                        <span class="block text-[10px] font-normal text-appleBlue">OEM-Spec / OLED</span>
+                                    </button>
+                                    <button type="button" onclick="setPartGrade('genuine')" id="tier-btn-genuine" class="liquid-tier-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-center">
+                                        Genuine
+                                        <span class="block text-[10px] font-normal text-[#86868b]">Original Service Pack</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Required Services Checklist -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2.5">
+                                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider">
+                                        Step 3 · Select Services Needed
+                                    </label>
+                                    <button type="button" onclick="clearAllRepairs()" class="liquid-btn-secondary text-[11px] font-bold px-3.5 py-1 rounded-full text-appleBlue">
+                                        Clear all
+                                    </button>
+                                </div>
+                                <div id="services-checklist" class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1.5 custom-scroll">
+                                    <!-- Injected dynamically via script.js -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Sticky Receipt Panel -->
+                        <div class="lg:col-span-5">
+                            <div class="liquid-glass-white glass-card-lift rounded-3xl p-6 sm:p-8 sticky top-24 border border-white/95">
+                                <div class="flex items-center justify-between pb-4 border-b border-black/[0.06]">
+                                    <div>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-appleBlue">Repair Estimate</span>
+                                        <h3 id="receipt-device-name" class="text-lg font-bold text-[#1d1d1f] mt-0.5">iPhone 18 Pro Max</h3>
+                                        <span id="receipt-part-grade" class="inline-block text-[11px] font-medium text-[#6e6e73] bg-black/[0.04] px-2.5 py-0.5 rounded-full mt-1 border border-black/[0.06]">Quality: Premium Part</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-[#1d1d1f] bg-black/[0.04] px-3 py-1 rounded-full border border-black/[0.06] shadow-sm font-mono">AUD</span>
+                                </div>
+
+                                <!-- Itemized Items List -->
+                                <div id="receipt-items" class="py-5 space-y-3 min-h-[140px] text-sm text-[#515154]">
+                                    <p class="text-[#86868b] text-xs text-center py-8">Select one or more services to generate your estimate.</p>
+                                </div>
+
+                                <!-- Cost Summary -->
+                                <div class="pt-4 border-t border-black/[0.06] space-y-2.5 text-sm">
+                                    <div class="flex justify-between text-[#6e6e73]">
+                                        <span>Parts & Components</span>
+                                        <span id="receipt-parts" class="font-medium text-[#1d1d1f] font-mono">$0.00</span>
+                                    </div>
+                                    <div class="flex justify-between text-[#6e6e73]">
+                                        <span>Bench Labor & Calibration</span>
+                                        <span id="receipt-labor" class="font-medium text-[#1d1d1f] font-mono">$0.00</span>
+                                    </div>
+                                    <div class="flex justify-between items-baseline pt-3 border-t border-black/[0.06] mt-2">
+                                        <span class="text-base font-bold text-[#1d1d1f]">Total Estimate</span>
+                                        <span id="receipt-total" class="text-3xl font-extrabold tracking-tight text-[#1d1d1f] font-mono">$0.00</span>
+                                    </div>
+                                </div>
+
+                                <!-- Turnaround & Warranty Widget -->
+                                <div class="mt-6 p-3.5 rounded-2xl bg-black/[0.03] border border-black/[0.06] text-xs text-[#515154] flex justify-around text-center shadow-inner">
+                                    <div>
+                                        <span class="block text-[#6e6e73] font-semibold">Turnaround</span>
+                                        <strong id="receipt-time" class="font-bold text-[#1d1d1f]">30–45 mins</strong>
+                                    </div>
+                                    <div class="border-r border-black/[0.06]"></div>
+                                    <div>
+                                        <span class="block text-[#6e6e73] font-semibold">Coverage</span>
+                                        <strong id="receipt-warranty" class="font-bold text-[#1d1d1f]">6 Months Warranty</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Receipt CTA Button -->
+                                <button onclick="scheduleRepairFromQuote()" class="mt-6 w-full liquid-btn-primary font-bold py-4 rounded-full text-sm flex items-center justify-center space-x-2">
+                                    <span>Schedule Repair</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Engineering Bench Capabilities -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-appleBlue block mb-2">Technical Excellence</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1d1d1f]">
+                    Component-Level Mastery
+                </h2>
+                <p class="text-sm sm:text-base text-[#6e6e73] mt-3 max-w-xl mx-auto">
+                    Where standard kiosks say "replace the board", our microscope goes to work.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="liquid-glass-white p-7 rounded-3xl border border-white/95 space-y-3">
+                    <span class="text-2xl">🔬</span>
+                    <h3 class="font-bold text-lg text-[#1d1d1f]">Logic Board Soldering</h3>
+                    <p class="text-xs sm:text-sm text-[#515154] leading-relaxed">
+                        Trace jumper reconstruction, short detection using thermal imaging, and fine-pitch IC chip reballing under continuous magnification.
+                    </p>
+                </div>
+                <div class="liquid-glass-white p-7 rounded-3xl border border-white/95 space-y-3">
+                    <span class="text-2xl">📱</span>
+                    <h3 class="font-bold text-lg text-[#1d1d1f]">Cleanroom Screen Assembly</h3>
+                    <p class="text-xs sm:text-sm text-[#515154] leading-relaxed">
+                        TrueTone serialization programming, factory water-resistance gasket restoration, and OLED digitizer alignment.
+                    </p>
+                </div>
+                <div class="liquid-glass-white p-7 rounded-3xl border border-white/95 space-y-3">
+                    <span class="text-2xl">💧</span>
+                    <h3 class="font-bold text-lg text-[#1d1d1f]">Ultrasonic Deoxidation</h3>
+                    <p class="text-xs sm:text-sm text-[#515154] leading-relaxed">
+                        Multi-stage 99% isopropyl alcohol ultrasonic bath to dissolve mineral deposits, salvage logic boards, and restore corroded solder joints.
+                    </p>
+                </div>
+                <div class="liquid-glass-white p-7 rounded-3xl border border-white/95 space-y-3">
+                    <span class="text-2xl">🔋</span>
+                    <h3 class="font-bold text-lg text-[#1d1d1f]">BMS Board Transplant</h3>
+                    <p class="text-xs sm:text-sm text-[#515154] leading-relaxed">
+                        Micro-spot welding the original Battery Management System board to new premium cells, preserving authentic iOS battery health telemetry.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. The Lab Standard Benchmark Grid -->
+        <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 border-t border-black/[0.08]">
+            <div class="mb-12">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-appleBlue block mb-2">Our Promise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f]">
+                    The Lab Standard
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="space-y-2 pt-4 border-t border-black/[0.10]">
+                    <span class="text-xs font-mono font-bold text-appleBlue">01</span>
+                    <h4 class="font-bold text-[#1d1d1f]">Respecting What’s Inside</h4>
+                    <p class="text-xs sm:text-sm text-[#515154]">All internal brackets, screws, and seals are precisely replaced.</p>
+                </div>
+                <div class="space-y-2 pt-4 border-t border-black/[0.10]">
+                    <span class="text-xs font-mono font-bold text-appleBlue">02</span>
+                    <h4 class="font-bold text-[#1d1d1f]">On-the-Spot Turnaround</h4>
+                    <p class="text-xs sm:text-sm text-[#515154]">Standard screens and batteries completed in ~30 mins before your eyes.</p>
+                </div>
+                <div class="space-y-2 pt-4 border-t border-black/[0.10]">
+                    <span class="text-xs font-mono font-bold text-appleBlue">03</span>
+                    <h4 class="font-bold text-[#1d1d1f]">Transparent Options</h4>
+                    <p class="text-xs sm:text-sm text-[#515154]">Aftermarket, Premium OEM-Spec, and Genuine Service Pack tiers.</p>
+                </div>
+                <div class="space-y-2 pt-4 border-t border-black/[0.10]">
+                    <span class="text-xs font-mono font-bold text-appleBlue">04</span>
+                    <h4 class="font-bold text-[#1d1d1f]">Tested & Warranted</h4>
+                    <p class="text-xs sm:text-sm text-[#515154]">Rigorous hardware validation backed by up to 6 months comprehensive warranty.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="liquid-glass-white rounded-t-[3.5rem] pt-16 pb-12 px-6 sm:px-12 border-b-0 border-x-0 border-t border-black/[0.08] shadow-[0_-15px_40px_rgba(0,0,0,0.03)]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-black/[0.06]">
+            <div class="md:col-span-2 space-y-4">
+                <span class="text-xl font-extrabold tracking-tight text-[#1d1d1f]">
+                    Lee Nguyen <span class="font-normal text-[#86868b]">Lab</span>
+                </span>
+                <p class="text-sm text-[#515154] max-w-sm">
+                    Professional, component-level technology laboratory serving individuals, educational institutions, and enterprise fleets.
+                </p>
+                <div class="text-xs text-[#86868b] space-y-1 pt-2">
+                    <p class="font-bold text-[#1d1d1f]">Shop Location:</p>
+                    <p class="text-[#515154]">Suite 107, Level 1/54 Park Rd</p>
+                    <p class="text-[#515154]">Cabramatta, NSW 2166, Sydney</p>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold text-[#86868b] uppercase tracking-widest mb-3">Operating Hours</h4>
+                <ul class="text-sm text-[#515154] space-y-2">
+                    <li class="flex justify-between">
+                        <span>Monday – Sunday</span>
+                        <span class="font-bold text-[#1d1d1f]">8:00 AM – 8:00 PM</span>
+                    </li>
+                    <li class="flex justify-between text-[#86868b]">
+                        <span>Open 7 Days</span>
+                        <span>Walk-ins & Appointments</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold text-[#86868b] uppercase tracking-widest mb-3">Direct Contact</h4>
+                <div class="space-y-3">
+                    <a href="tel:0291234567" class="block p-3.5 rounded-full liquid-btn-secondary text-center font-bold text-sm text-[#1d1d1f] shadow-sm">
+                        📞 (02) 9123 4567
+                    </a>
+                    <a href="mailto:hello@leenguyenlab.com.au" class="block text-center text-xs text-[#515154] hover:text-[#1d1d1f] font-medium transition-colors py-1">
+                        hello@leenguyenlab.com.au
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#86868b] font-medium">
+            <p>© 2026 Lee Nguyen Lab. All rights reserved. Cabramatta, Sydney.</p>
+            <div class="flex space-x-3 mt-4 sm:mt-0">
+                <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Home Overview</a>
+                <a href="accessories.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Accessories</a>
+                <a href="about.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">About Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
+
+        <div class="relative liquid-glass-white max-w-lg w-full rounded-[2.5rem] p-6 sm:p-10 shadow-2xl border border-white/95 z-10 animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 liquid-btn-icon w-8 h-8 rounded-full text-[#1d1d1f]" aria-label="Close modal">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <span class="text-xs font-bold text-appleBlue uppercase tracking-widest">Service Appointment</span>
+            <h3 class="text-2xl font-extrabold text-[#1d1d1f] tracking-tight mt-1 mb-2">Schedule Your Lab Request</h3>
+            <p class="text-xs sm:text-sm text-[#515154] mb-6 font-medium">Send your details directly to our Sydney queue. We confirm turnaround time immediately.</p>
+
+            <form action="https://formsubmit.co/adrian@leenguyenlab.com.au" method="POST" class="space-y-4">
+                <input type="hidden" name="_subject" value="New Service Booking — Lee Nguyen Lab">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Your Full Name</label>
+                    <input type="text" name="name" required placeholder="e.g. David Harrison" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Phone Number</label>
+                        <input type="tel" name="phone" required placeholder="0400 000 000" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Email Address</label>
+                        <input type="email" name="email" required placeholder="name@domain.com" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Device Model</label>
+                    <input type="text" id="modal-device" name="device_model" required placeholder="e.g. iPhone 18 Pro Max" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Required Services / Diagnostics</label>
+                    <textarea id="modal-issue" name="parts_or_issue" rows="2" required placeholder="e.g. Premium Screen Replacement, Logic Board Diagnostics" class="w-full liquid-input p-3.5 text-sm outline-none custom-scroll font-medium"></textarea>
+                </div>
+
+                <button type="submit" class="w-full liquid-btn-primary font-bold py-3.5 rounded-full mt-2 text-sm">
+                    Confirm & Send Booking
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

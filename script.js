@@ -703,8 +703,11 @@
         }
 
         function onFamilyChange() {
-            const familyKey = document.getElementById('device-family').value;
+            const familyEl = document.getElementById('device-family');
+            if (!familyEl) return;
+            const familyKey = familyEl.value;
             const currentCat = catalog[familyKey];
+            if (!currentCat) return;
             const modelSelect = document.getElementById('model-select');
             const tierWrapper = document.getElementById('part-tier-wrapper');
             
@@ -1250,3 +1253,250 @@
             init3DTiltCards();
             initMockup3DTilt();
         });
+
+        // Mobile Navigation Accessories Dropdown Toggle
+        function toggleMobileAccessories() {
+            const menu = document.getElementById('mobile-acc-dropdown');
+            const chevron = document.getElementById('mobile-acc-chevron');
+            if (menu) {
+                menu.classList.toggle('hidden');
+                if (chevron) {
+                    chevron.classList.toggle('rotate-180');
+                }
+            }
+        }
+
+        // =========================================================================
+        // 9. Apple E-Commerce Shopping Cart, Filtering, and Drawer System
+        // =========================================================================
+        let labCart = [];
+        try {
+            const stored = localStorage.getItem('lab_cart_items');
+            if (stored) labCart = JSON.parse(stored);
+        } catch (e) {
+            labCart = [];
+        }
+
+        function saveCart() {
+            try {
+                localStorage.setItem('lab_cart_items', JSON.stringify(labCart));
+            } catch (e) {}
+            updateCartUI();
+        }
+
+        function addToCart(item) {
+            const existing = labCart.find(i => i.title === item.title && i.variant === item.variant);
+            if (existing) {
+                existing.qty = (existing.qty || 1) + (item.qty || 1);
+            } else {
+                labCart.push({
+                    id: item.id || ('prod_' + Date.now()),
+                    title: item.title,
+                    variant: item.variant || 'Standard',
+                    price: Number(item.price),
+                    image: item.image,
+                    qty: item.qty || 1,
+                    category: item.category || 'all'
+                });
+            }
+            saveCart();
+            showToast(`Added "${item.title}" to cart 🛒`);
+            openCartDrawer();
+        }
+
+        function addCustomCaseToCart() {
+            const modelSelect = document.getElementById('case-phone-model');
+            const modelName = modelSelect?.options[modelSelect.selectedIndex]?.text || 'iPhone 18 Pro Max';
+            const typeNames = {
+                liquid_clear: 'Liquid Clear Optical Glass Case',
+                matte_frosted: 'Frosted Matte Glass Case',
+                magsafe_armor: 'MagSafe Armor Glass Case'
+            };
+            const caseImgMap = {
+                liquid_clear: 'images/products/case_clear.jpg',
+                matte_frosted: 'images/products/case_matte.jpg',
+                magsafe_armor: 'images/products/case_magsafe.jpg'
+            };
+            const title = 'Custom Laser UV Glass Case';
+            const variant = modelName + ' · ' + (typeNames[currentCaseType] || 'Custom Glass');
+            const image = caseImgMap[currentCaseType] || 'images/products/case_clear.jpg';
+
+            addToCart({
+                id: 'custom-case-' + Date.now(),
+                title: title,
+                variant: variant,
+                price: currentCasePrice,
+                image: image,
+                category: 'custom-cases'
+            });
+        }
+
+        function updateCartQty(index, change) {
+            if (!labCart[index]) return;
+            labCart[index].qty += change;
+            if (labCart[index].qty <= 0) {
+                labCart.splice(index, 1);
+            }
+            saveCart();
+        }
+
+        function removeFromCart(index) {
+            if (!labCart[index]) return;
+            const removed = labCart[index].title;
+            labCart.splice(index, 1);
+            saveCart();
+            showToast(`Removed "${removed}" from cart`);
+        }
+
+        function clearCart() {
+            labCart = [];
+            saveCart();
+        }
+
+        function openCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-backdrop');
+            if (drawer && backdrop) {
+                backdrop.classList.add('active');
+                drawer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-backdrop');
+            if (drawer && backdrop) {
+                backdrop.classList.remove('active');
+                drawer.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function updateCartUI() {
+            const totalCount = labCart.reduce((sum, item) => sum + (item.qty || 1), 0);
+            const subtotal = labCart.reduce((sum, item) => sum + ((item.price || 0) * (item.qty || 1)), 0);
+
+            document.querySelectorAll('.cart-count-badge').forEach(el => {
+                el.textContent = totalCount;
+                if (totalCount > 0) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            const itemsContainer = document.getElementById('cart-items-list');
+            const emptyState = document.getElementById('cart-empty-state');
+            const footerContainer = document.getElementById('cart-footer-summary');
+            const subtotalEl = document.getElementById('cart-subtotal-val');
+            const totalEl = document.getElementById('cart-total-val');
+
+            if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
+            if (totalEl) totalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
+
+            if (!itemsContainer) return;
+
+            if (labCart.length === 0) {
+                itemsContainer.innerHTML = '';
+                if (emptyState) emptyState.classList.remove('hidden');
+                if (footerContainer) footerContainer.classList.add('opacity-50', 'pointer-events-none');
+            } else {
+                if (emptyState) emptyState.classList.add('hidden');
+                if (footerContainer) footerContainer.classList.remove('opacity-50', 'pointer-events-none');
+
+                itemsContainer.innerHTML = labCart.map((item, index) => `
+                    <div class="flex items-center space-x-3.5 p-3.5 rounded-2xl bg-black/[0.02] border border-black/[0.05] hover:bg-black/[0.04] transition-all">
+                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 rounded-xl object-cover border border-black/[0.06] flex-shrink-0 bg-white">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-xs sm:text-sm text-[#1d1d1f] truncate">${item.title}</h4>
+                            <p class="text-[11px] text-[#86868b] truncate">${item.variant}</p>
+                            <div class="flex items-center justify-between mt-1.5">
+                                <span class="font-mono font-bold text-xs sm:text-sm text-[#1d1d1f]">$${item.price}.00 AUD</span>
+                                <div class="flex items-center space-x-1.5 bg-white border border-black/[0.1] rounded-lg px-1.5 py-0.5">
+                                    <button type="button" onclick="updateCartQty(${index}, -1)" class="text-xs text-[#86868b] hover:text-black px-1 font-bold">−</button>
+                                    <span class="text-xs font-mono font-bold text-[#1d1d1f] px-1">${item.qty}</span>
+                                    <button type="button" onclick="updateCartQty(${index}, 1)" class="text-xs text-[#86868b] hover:text-black px-1 font-bold">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" onclick="removeFromCart(${index})" class="text-[#86868b] hover:text-red-500 p-1.5 transition-colors" title="Remove Item">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function showToast(message) {
+            let toast = document.getElementById('lab-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'lab-toast';
+                toast.className = 'toast-bubble';
+                document.body.appendChild(toast);
+            }
+            toast.innerHTML = `<span>✨</span><span>${message}</span>`;
+            toast.classList.add('show');
+            clearTimeout(toast.timeout);
+            toast.timeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2800);
+        }
+
+        function checkoutCart() {
+            if (labCart.length === 0) {
+                showToast('Your cart is empty');
+                return;
+            }
+            closeCartDrawer();
+            const summaryItems = labCart.map(i => `${i.qty}x ${i.title} (${i.variant}) - $${i.price * i.qty} AUD`).join('\n');
+            const total = labCart.reduce((sum, item) => sum + ((item.price || 0) * (item.qty || 1)), 0);
+            const orderNotes = `ONLINE ACCESSORIES CART ORDER:\n${summaryItems}\n\nTOTAL: $${total.toFixed(2)} AUD\nFulfillment: Cabramatta Bench Pickup / Express Dispatch`;
+
+            openBookingModal('Accessories Store Order', orderNotes);
+        }
+
+        function filterAccessories(cat, btn) {
+            document.querySelectorAll('.filter-pill-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.product-ecommerce-card');
+            cards.forEach(card => {
+                const itemCat = card.getAttribute('data-category');
+                if (cat === 'all' || itemCat === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const sections = document.querySelectorAll('.accessory-cat-section');
+            sections.forEach(sec => {
+                const secCat = sec.getAttribute('data-category');
+                if (cat === 'all' || secCat === cat) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        }
+
+        function searchAccessories(query) {
+            const q = (query || '').toLowerCase().trim();
+            const cards = document.querySelectorAll('.product-ecommerce-card');
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (!q || text.includes(q)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize cart on load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCartUI();
+        });
+

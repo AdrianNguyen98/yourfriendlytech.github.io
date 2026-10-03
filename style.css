@@ -194,6 +194,25 @@ body {
     color: #000000;
 }
 
+/* --- Accessories Dropdown in Navigation --- */
+.apple-nav-dropdown {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-top: 1.5px solid #ffffff;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.18), 0 4px 16px -2px rgba(0, 0, 0, 0.08);
+}
+
+.apple-nav-dropdown a {
+    color: #1d1d1f !important;
+}
+
+.apple-nav-dropdown a:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000000 !important;
+}
+
 /* --- 4. Apple Liquid White Glassmorphic Containers --- */
 .liquid-glass-white {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.58) 100%);
@@ -1170,3 +1189,158 @@ input[type="checkbox"].liquid-checkbox:checked::after {
 .custom-scroll::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.30);
 }
+
+/* --- 10. Apple Handwriting Letter Animation --- */
+.font-handwriting {
+    font-family: 'Caveat', 'Homemade Apple', cursive, -apple-system, sans-serif;
+    white-space: nowrap;
+}
+
+.font-script {
+    font-family: 'Homemade Apple', 'Caveat', cursive, -apple-system, sans-serif;
+}
+
+#handwriting-pen {
+    display: inline-block;
+    transition: transform 0.08s ease, opacity 0.25s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    user-select: none;
+}
+
+/* --- 11. Apple-Style E-Commerce Store & Cart Drawer --- */
+.cart-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 120;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cart-drawer-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 440px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.15);
+    z-index: 125;
+    transform: translateX(100%);
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer-panel.active {
+    transform: translateX(0);
+}
+
+.product-ecommerce-card {
+    background: #ffffff;
+    border-radius: 1.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.product-ecommerce-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.09), 0 6px 14px -3px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 113, 227, 0.3);
+}
+
+.product-photo-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, #f7f7f9 0%, #ececef 100%);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-ecommerce-card:hover .product-photo-wrap img {
+    transform: scale(1.06);
+}
+
+.product-badge-pill {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.filter-pill-btn {
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-pill-btn.active {
+    background: #1d1d1f !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+}
+
+.toast-bubble {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: rgba(29, 29, 31, 0.95);
+    color: #ffffff;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 12px 20px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+    z-index: 150;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-40px);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.toast-bubble.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
