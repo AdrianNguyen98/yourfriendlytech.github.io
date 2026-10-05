@@ -103,13 +103,13 @@
                     this.vx = this.baseVx;
                     this.vy = this.baseVy;
 
-                    // Physical particle properties (Subtle Luminous Constellation on Deep Navy Canvas)
+                    // Physical particle properties (Subtle Luminous Constellation on Indigo Canvas)
                     this.radius = Math.random() * 1.5 + 1.1; // 1.1px to 2.6px
                     const slateTones = [
-                        'rgba(255, 255, 255, 0.75)',   // pure starlight
-                        'rgba(186, 230, 253, 0.70)',   // luminous cyan
-                        'rgba(147, 197, 253, 0.65)',   // celestial sky
-                        'rgba(224, 242, 254, 0.80)'    // radiant ice white
+                        'rgba(255, 255, 255, 0.85)',   // pure starlight
+                        'rgba(233, 213, 255, 0.78)',   // luminous lavender (#e9d5ff)
+                        'rgba(196, 181, 253, 0.72)',   // celestial violet (#c4b5fd)
+                        'rgba(216, 180, 254, 0.80)'    // radiant violet ice (#d8b4fe)
                     ];
                     this.color = slateTones[Math.floor(Math.random() * slateTones.length)];
                 }

@@ -24,12 +24,14 @@
                     },
                     colors: {
                         appleDark: '#f5f5f7',
-                        appleGray: '#0b172a',
-                        appleMuted: '#94a3b8',
+                        appleGray: '#4b0082',
+                        appleMuted: '#c4b5fd',
                         appleBlue: '#0071e3',
-                        appleNavy: '#0b172a',
-                        appleNavyCard: '#13233c',
-                        appleNavyLight: '#1e3a63',
+                        appleIndigo: '#4b0082',
+                        appleNavy: '#4b0082',
+                        appleIndigoCard: '#590a99',
+                        appleIndigoLight: '#6d1cb8',
+                        appleIndigoDark: '#35005c',
                     }
                 }
             }
@@ -42,7 +44,7 @@
     <!-- External Application Logic -->
     <script src="script.js" defer></script>
 </head>
-<body class="relative text-[#f5f5f7] bg-[#0b172a] selection:bg-blue-600/30 selection:text-white">
+<body class="relative text-[#f5f5f7] bg-[#4b0082] selection:bg-indigo-500/40 selection:text-white">
 
     <!-- Real Optical Glass Refraction & Displacement SVG Filter -->
     <svg class="pointer-events-none fixed top-0 left-0 w-0 h-0 opacity-0 overflow-hidden" aria-hidden="true">
@@ -194,7 +196,7 @@
                     <img src="images/landing-hero.jpg" 
                          alt="Apple iPhone 18 Pro Burgundy Titanium & PRO Keynote" 
                          class="w-full h-auto max-h-[580px] sm:max-h-[680px] object-contain transition-transform duration-1000 hover:scale-[1.02] select-none pointer-events-none sm:pointer-events-auto"
-                         onerror="this.src='images/media_uploaded.jpg'">
+                         onerror="this.onerror=null; this.src='images/media_uploaded.jpg'">
                 </div>
 
                 <!-- Trust Badges (Integrated into Hero Stage) -->
@@ -211,8 +213,8 @@
                 </div>
             </div>
 
-            <!-- Authentic Apple Fade from Black Keynote Stage to Deep Navy Blue Theme Below -->
-            <div class="absolute bottom-0 left-0 right-0 h-28 sm:h-36 bg-gradient-to-b from-transparent via-[#0b172a]/70 to-[#0b172a] pointer-events-none"></div>
+            <!-- Authentic Apple Fade from Black Keynote Stage to Indigo Theme Below -->
+            <div class="absolute bottom-0 left-0 right-0 h-28 sm:h-36 bg-gradient-to-b from-transparent via-[#4b0082]/70 to-[#4b0082] pointer-events-none"></div>
         </section>
 
         <!-- Apple Overview Gateway: Repair Services & Lab Accessories -->
@@ -308,22 +310,22 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                 <div class="reveal-element stagger-delay-1 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
                     <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-slate-900 border border-white/10">
-                        <img src="images/showcase-1.jpg" alt="Workshop Precision Lab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'">
+                        <img src="images/showcase-1.jpg" alt="Workshop Precision Lab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                     </div>
                 </div>
                 <div class="reveal-element stagger-delay-2 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
                     <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-slate-900 border border-white/10">
-                        <img src="images/showcase-2.jpg" alt="Micro-soldering Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?auto=format&fit=crop&w=600&q=80'">
+                        <img src="images/showcase-2.jpg" alt="Micro-soldering Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                     </div>
                 </div>
                 <div class="reveal-element stagger-delay-3 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
                     <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-slate-900 border border-white/10">
-                        <img src="images/showcase-3.jpg" alt="Parts Calibration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=600&q=80'">
+                        <img src="images/showcase-3.jpg" alt="Parts Calibration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                     </div>
                 </div>
                 <div class="reveal-element stagger-delay-4 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
                     <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-slate-900 border border-white/10">
-                        <img src="images/showcase-4.jpg" alt="Laser Glass Disassembly" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80'">
+                        <img src="images/showcase-4.jpg" alt="Laser Glass Disassembly" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -351,7 +353,7 @@
                     <!-- Service Card 1 -->
                     <div class="reveal-element stagger-delay-1 liquid-glass-white glass-card-lift p-4 flex flex-col group">
                         <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-900 mb-5 relative border border-white/10">
-                            <img src="images/screen-repair.jpg" alt="Phone Screen Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=600&q=80'">
+                            <img src="images/screen-repair.jpg" alt="Phone Screen Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                         <div class="px-2 pb-3 flex flex-col flex-grow">
                             <h4 class="text-xl font-bold text-white mb-2">Screen Repairs</h4>
@@ -368,7 +370,7 @@
                     <!-- Service Card 2 -->
                     <div class="reveal-element stagger-delay-2 liquid-glass-white glass-card-lift p-4 flex flex-col group">
                         <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-900 mb-5 relative border border-white/10">
-                            <img src="images/charging-port.jpg" alt="Charging Port Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=600&q=80'">
+                            <img src="images/charging-port.jpg" alt="Charging Port Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                         <div class="px-2 pb-3 flex flex-col flex-grow">
                             <h4 class="text-xl font-bold text-white mb-2">Charging Port Repairs</h4>
@@ -385,7 +387,7 @@
                     <!-- Service Card 3 -->
                     <div class="reveal-element stagger-delay-3 liquid-glass-white glass-card-lift p-4 flex flex-col group">
                         <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-900 mb-5 relative border border-white/10">
-                            <img src="images/battery-replacement.jpg" alt="Battery Replacement" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80'">
+                            <img src="images/battery-replacement.jpg" alt="Battery Replacement" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                         <div class="px-2 pb-3 flex flex-col flex-grow">
                             <h4 class="text-xl font-bold text-white mb-2">Battery Replacement</h4>
@@ -402,7 +404,7 @@
                     <!-- Service Card 4 -->
                     <div class="reveal-element stagger-delay-4 liquid-glass-white glass-card-lift p-4 flex flex-col group">
                         <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-900 mb-5 relative border border-white/10">
-                            <img src="images/software-upgrade.jpg" alt="Software Upgrade" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80'">
+                            <img src="images/software-upgrade.jpg" alt="Software Upgrade" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                         <div class="px-2 pb-3 flex flex-col flex-grow">
                             <h4 class="text-xl font-bold text-white mb-2">Software & Data Recovery</h4>
@@ -419,7 +421,7 @@
                     <!-- Service Card 5 -->
                     <div class="reveal-element stagger-delay-5 liquid-glass-white glass-card-lift p-4 flex flex-col group">
                         <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-900 mb-5 relative border border-white/10">
-                            <img src="images/business-repairs.jpg" alt="Business & School Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80'">
+                            <img src="images/business-repairs.jpg" alt="Business & School Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                         <div class="px-2 pb-3 flex flex-col flex-grow">
                             <h4 class="text-xl font-bold text-white mb-2">Fleet & Enterprise Repairs</h4>
@@ -436,7 +438,7 @@
                     <!-- Service Card 6 -->
                     <div class="reveal-element stagger-delay-6 liquid-glass-white glass-card-lift p-4 flex flex-col group">
                         <div class="w-full h-56 rounded-[1.5rem] overflow-hidden bg-slate-900 mb-5 relative border border-white/10">
-                            <img src="images/showcase-2.jpg" alt="Micro-soldering & Logic Board Diagnostics" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?auto=format&fit=crop&w=600&q=80'">
+                            <img src="images/showcase-2.jpg" alt="Micro-soldering & Logic Board Diagnostics" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                         <div class="px-2 pb-3 flex flex-col flex-grow">
                             <h4 class="text-xl font-bold text-white mb-2">Micro-Soldering & Logic Board</h4>
@@ -515,11 +517,12 @@
 
             <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-medium">
                 <p>© 2026 Lee Nguyen Lab. All rights reserved. Cabramatta, Sydney.</p>
-                <div class="flex space-x-3 mt-4 sm:mt-0">
+                <div class="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-0 justify-center">
                     <a href="#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Back to Top</a>
                     <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Repair Services</a>
                     <a href="accessories.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Accessories</a>
                     <a href="about.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">About Us</a>
+                    <a href="terms.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Terms & Conditions</a>
                 </div>
             </div>
         </footer>
