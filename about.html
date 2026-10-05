@@ -8,7 +8,8 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter & Caveat Handwriting Script -->
+    <!-- Apple SF Pro Font CDN & Handwriting Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,14 +19,18 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'sans-serif'],
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+                        apple: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
                         handwriting: ['Caveat', 'cursive', 'sans-serif'],
                     },
                     colors: {
-                        appleDark: '#1d1d1f',
-                        appleGray: '#f5f5f7',
-                        appleMuted: '#6e6e73',
+                        appleDark: '#f5f5f7',
+                        appleGray: '#0b172a',
+                        appleMuted: '#94a3b8',
                         appleBlue: '#0071e3',
+                        appleNavy: '#0b172a',
+                        appleNavyCard: '#13233b',
+                        appleNavyLight: '#1e3a63',
                     }
                 }
             }
@@ -38,68 +43,68 @@
     <!-- External Application Logic -->
     <script src="script.js" defer></script>
 </head>
-<body class="relative text-[#1d1d1f] bg-[#fbfbfd] selection:bg-slate-200 selection:text-black min-h-screen">
+<body class="relative text-[#f5f5f7] bg-[#0b172a] selection:bg-blue-600/30 selection:text-white min-h-screen">
 
     <!-- Interactive Dynamic Canvas: Floating Particle Network -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Navigation Header: Frosted Translucent Apple White Bar -->
+    <!-- Navigation Header: Frosted Translucent Apple Bar -->
     <header class="apple-header-bar on-white-section transition-all duration-300">
         <div class="max-w-7xl mx-auto px-5 sm:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html#hero" class="flex items-center cursor-pointer group">
-                    <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-[#1d1d1f] group-hover:opacity-80 transition-all">
-                        Lee Nguyen <span class="logo-subtitle font-normal text-[#6e6e73]">Lab</span>
+                    <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-white group-hover:opacity-80 transition-all">
+                        Lee Nguyen <span class="logo-subtitle font-normal text-slate-400">Lab</span>
                     </span>
                 </a>
 
                 <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold">
-                    <a href="index.html#hero" class="text-[#515154] hover:text-black transition-colors">Overview</a>
-                    <a href="services.html" class="text-[#515154] hover:text-black transition-colors">Repair Services</a>
+                    <a href="index.html#hero" class="text-[#94a3b8] hover:text-white transition-colors">Overview</a>
+                    <a href="services.html" class="text-[#94a3b8] hover:text-white transition-colors">Repair Services</a>
                     
                     <!-- Accessories Dropdown Menu -->
                     <div class="relative group">
-                        <a href="accessories.html" class="flex items-center space-x-1 text-[#515154] hover:text-black transition-colors py-2">
+                        <a href="accessories.html" class="flex items-center space-x-1 text-[#94a3b8] hover:text-white transition-colors py-2">
                             <span>Accessories</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </a>
                         <div class="absolute -left-4 top-full pt-2 w-72 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
-                            <div class="apple-nav-dropdown rounded-2xl p-2.5 shadow-2xl border border-white/95 space-y-1">
-                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
-                                    <span class="block font-bold text-xs text-[#1d1d1f]">Custom Cases</span>
-                                    <span class="block text-[10px] text-[#86868b] font-normal">Lab UV Print Studio</span>
+                            <div class="apple-nav-dropdown rounded-2xl p-2.5 shadow-2xl border border-white/10 space-y-1">
+                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
+                                    <span class="block font-bold text-xs text-white">Custom Cases</span>
+                                    <span class="block text-[10px] text-[#94a3b8] font-normal">Lab UV Print Studio</span>
                                 </a>
-                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
-                                    <span class="block font-bold text-xs text-[#1d1d1f]">Screen Protectors</span>
-                                    <span class="block text-[10px] text-[#86868b] font-normal">9H Tempered & Privacy</span>
+                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
+                                    <span class="block font-bold text-xs text-white">Screen Protectors</span>
+                                    <span class="block text-[10px] text-[#94a3b8] font-normal">9H Tempered & Privacy</span>
                                 </a>
-                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
-                                    <span class="block font-bold text-xs text-[#1d1d1f]">Lanyards</span>
-                                    <span class="block text-[10px] text-[#86868b] font-normal">Braided cords & wrist straps</span>
+                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
+                                    <span class="block font-bold text-xs text-white">Lanyards</span>
+                                    <span class="block text-[10px] text-[#94a3b8] font-normal">Braided cords & wrist straps</span>
                                 </a>
-                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
-                                    <span class="block font-bold text-xs text-[#1d1d1f]">Chargers, Cables & Powerbanks</span>
-                                    <span class="block text-[10px] text-[#86868b] font-normal">GaN 65W & MagSafe packs</span>
+                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
+                                    <span class="block font-bold text-xs text-white">Chargers, Cables & Powerbanks</span>
+                                    <span class="block text-[10px] text-[#94a3b8] font-normal">GaN 65W & MagSafe packs</span>
                                 </a>
-                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
-                                    <span class="block font-bold text-xs text-[#1d1d1f]">Stickers</span>
-                                    <span class="block text-[10px] text-[#86868b] font-normal">Waterproof vinyl tech decals</span>
+                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
+                                    <span class="block font-bold text-xs text-white">Stickers</span>
+                                    <span class="block text-[10px] text-[#94a3b8] font-normal">Waterproof vinyl tech decals</span>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <a href="index.html#showcase" class="text-[#515154] hover:text-black transition-colors">Workshop</a>
-                    <a href="about.html" class="text-appleBlue font-bold border-b-2 border-appleBlue pb-0.5 transition-colors">About Us</a>
+                    <a href="index.html#showcase" class="text-[#94a3b8] hover:text-white transition-colors">Workshop</a>
+                    <a href="about.html" class="text-sky-400 font-bold border-b-2 border-sky-400 pb-0.5 transition-colors">About Us</a>
                 </nav>
 
                 <div class="flex items-center space-x-3">
                     <button onclick="openBookingModal()" class="hidden sm:inline-flex liquid-btn-primary text-xs font-bold px-5 py-2.5 rounded-full">
                         Book Repair
                     </button>
-                    <button id="hamburger-btn" class="md:hidden liquid-btn-icon text-[#1d1d1f] p-2.5 rounded-full focus:outline-none" aria-label="Toggle Navigation">
+                    <button id="hamburger-btn" class="md:hidden liquid-btn-icon text-white p-2.5 rounded-full focus:outline-none" aria-label="Toggle Navigation">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -109,27 +114,27 @@
         </div>
 
         <!-- Mobile Menu Dropdown Bar -->
-        <div id="mobile-menu" class="hidden md:hidden w-full border-t border-black/[0.08] bg-white/95 backdrop-blur-2xl px-6 py-5 space-y-3">
-            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">Overview</a>
-            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">Repair Services</a>
+        <div id="mobile-menu" class="hidden md:hidden w-full border-t border-white/10 bg-[#0b172a]/95 backdrop-blur-2xl px-6 py-5 space-y-3">
+            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Overview</a>
+            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Repair Services</a>
             
             <!-- Mobile Accessories Submenu -->
             <div>
-                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black py-1">
+                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white py-1">
                     <span>Accessories</span>
                     <svg id="mobile-acc-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-black/[0.1] space-y-2 py-1 mt-1">
-                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Custom Cases</a>
-                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Screen Protectors</a>
-                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Lanyards</a>
-                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Chargers, Cables & Powerbanks</a>
-                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Stickers</a>
+                <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-white/10 space-y-2 py-1 mt-1">
+                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Custom Cases</a>
+                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Screen Protectors</a>
+                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Lanyards</a>
+                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Chargers, Cables & Powerbanks</a>
+                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Stickers</a>
                 </div>
             </div>
 
-            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">Workshop</a>
-            <a href="about.html" class="block mobile-nav-link text-sm font-bold text-appleBlue">About Us</a>
+            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Workshop</a>
+            <a href="about.html" class="block mobile-nav-link text-sm font-bold text-sky-400">About Us</a>
             <button onclick="openBookingModal()" class="w-full text-center liquid-btn-primary text-sm font-bold py-3.5 rounded-full mt-2">
                Book a Repair
             </button>
@@ -142,27 +147,27 @@
         <!-- 1. Apple Keynote Hero Section: Unboxed, Grand Typography -->
         <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 sm:pt-16 pb-16 sm:pb-24">
             <!-- Eyebrow Badge -->
-            <div class="inline-flex items-center space-x-2 mb-6 sm:mb-8">
-                <span class="w-2 h-2 rounded-full bg-appleBlue animate-pulse"></span>
-                <span class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-appleBlue">
+            <div class="inline-flex items-center space-x-2 mb-6 sm:mb-8 bg-blue-500/10 border border-blue-400/20 px-4 py-1.5 rounded-full shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                <span class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-sky-400">
                     Our Story · Cabramatta, Sydney
                 </span>
             </div>
 
             <!-- Apple Large Headline -->
-            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-[#1d1d1f] leading-[1.04] max-w-5xl">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[1.04] max-w-5xl">
                 The Story Behind<br>Lee Nguyen Lab
             </h1>
 
             <!-- Keynote Subtitle / Manifesto Tagline -->
-            <p class="text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#86868b] mt-6 sm:mt-8 max-w-4xl leading-tight">
+            <p class="text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#94a3b8] mt-6 sm:mt-8 max-w-4xl leading-tight">
                 Born out of obsession.<br class="sm:hidden"> Built on honest craft.
             </p>
         </section>
 
         <!-- Subtle Apple Divider Hairline -->
         <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-            <hr class="border-t border-black/[0.08]">
+            <hr class="border-t border-white/10">
         </div>
 
         <!-- 2. Apple Lead Narrative: Open Reading Spread -->
@@ -171,19 +176,19 @@
                 
                 <!-- Left Kicker / Meta Label -->
                 <div class="lg:col-span-4 lg:sticky lg:top-28">
-                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-appleBlue block mb-2">01 / The Genesis</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#1d1d1f]">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-sky-400 block mb-2">01 / The Genesis</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
                         54 Park Road,<br class="hidden sm:inline"> Cabramatta.
                     </h2>
-                    <p class="text-xs sm:text-sm text-[#86868b] mt-2 font-medium">Suite 107, Level 1 · Est. 2022</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-2 font-medium">Suite 107, Level 1 · Est. 2022</p>
                 </div>
 
                 <!-- Right Editorial Body: High-Impact Apple Typography -->
                 <div class="lg:col-span-8 space-y-6 sm:space-y-8">
-                    <p class="text-xl sm:text-2xl md:text-3xl font-medium text-[#1d1d1f] leading-relaxed">
-                        Lee Nguyen Lab didn’t begin as a corporate storefront. In 2022, it started with a personal obsession with hardware, an illuminated microscope, a soldering iron, and a simple frustration: watching perfectly salvageable devices get written off simply because the rest of the industry found it easier to say, <span class="text-appleBlue underline decoration-appleBlue/30 decoration-2 underline-offset-4 font-semibold">“it’s unfixable, just replace it.”</span>
+                    <p class="text-xl sm:text-2xl md:text-3xl font-medium text-white leading-relaxed">
+                        Lee Nguyen Lab didn’t begin as a corporate storefront. In 2022, it started with a personal obsession with hardware, an illuminated microscope, a soldering iron, and a simple frustration: watching perfectly salvageable devices get written off simply because the rest of the industry found it easier to say, <span class="text-sky-400 underline decoration-sky-400/30 decoration-2 underline-offset-4 font-semibold">“it’s unfixable, just replace it.”</span>
                     </p>
-                    <p class="text-lg sm:text-xl text-[#515154] leading-relaxed font-normal">
+                    <p class="text-lg sm:text-xl text-[#94a3b8] leading-relaxed font-normal">
                         From our workshop at Suite 107, Level 1/54 Park Rd in Cabramatta, we set out with a clear purpose—to bring genuine craftsmanship, technical honesty, and component-level mastery back to device repair.
                     </p>
                 </div>
@@ -193,7 +198,7 @@
 
         <!-- Subtle Apple Divider Hairline -->
         <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-            <hr class="border-t border-black/[0.08]">
+            <hr class="border-t border-white/10">
         </div>
 
         <!-- 3. Apple Editorial Feature: More Than Just Swapping Parts -->
@@ -202,25 +207,25 @@
                 
                 <!-- Left Kicker -->
                 <div class="lg:col-span-4 lg:sticky lg:top-28">
-                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-appleBlue block mb-2">02 / The Philosophy</span>
-                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#1d1d1f] leading-snug">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-sky-400 block mb-2">02 / The Philosophy</span>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-snug">
                         More Than Just Swapping Parts
                     </h2>
                 </div>
 
                 <!-- Right Narrative Flow -->
                 <div class="lg:col-span-8 space-y-6 sm:space-y-8">
-                    <p class="text-lg sm:text-xl md:text-2xl font-medium text-[#1d1d1f] leading-relaxed">
+                    <p class="text-lg sm:text-xl md:text-2xl font-medium text-white leading-relaxed">
                         When a phone screen shatters, a laptop refuses to boot, or an iPad suffers water damage, it is never just about the broken glass. It is about irrecoverable photos, crucial business documents, school projects, and the lifeline people depend on every day.
                     </p>
 
-                    <p class="text-lg sm:text-xl text-[#515154] leading-relaxed">
+                    <p class="text-lg sm:text-xl text-[#94a3b8] leading-relaxed">
                         We realized early on that Western Sydney didn’t need another kiosk doing hasty part swaps. The community needed an authentic technician who understood what was happening at the logic board level. While standard counters turn away complex board failures, we get under the microscope—diagnosing micro-soldering faults, rebuilding damaged motherboard traces, and recovering liquid-damaged hardware.
                     </p>
 
                     <!-- Apple Pull Quote Callout (Unboxed, Open Accent) -->
-                    <div class="border-l-4 border-appleBlue pl-6 sm:pl-8 py-3 my-8 sm:my-10">
-                        <p class="text-xl sm:text-2xl font-semibold text-[#1d1d1f] leading-snug italic">
+                    <div class="border-l-4 border-sky-400 pl-6 sm:pl-8 py-3 my-8 sm:my-10">
+                        <p class="text-xl sm:text-2xl font-semibold text-white leading-snug italic">
                             “If a device only needs a five-minute port clean rather than an expensive socket replacement, that is exactly what we tell you. If a repair is not economically viable, we share straightforward advice before you spend a single dollar.”
                         </p>
                     </div>
@@ -231,18 +236,18 @@
 
         <!-- Subtle Apple Divider Hairline -->
         <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-            <hr class="border-t border-black/[0.08]">
+            <hr class="border-t border-white/10">
         </div>
 
         <!-- 4. Apple Specification Grid: The Lab Standard -->
         <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-24">
             
             <div class="mb-12 sm:mb-16">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-appleBlue block mb-2">03 / The Benchmark</span>
-                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1d1d1f]">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-sky-400 block mb-2">03 / The Benchmark</span>
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
                     The Lab Standard
                 </h2>
-                <p class="text-base sm:text-xl text-[#6e6e73] mt-3 max-w-2xl font-normal">
+                <p class="text-base sm:text-xl text-[#94a3b8] mt-3 max-w-2xl font-normal">
                     Precision engineering protocols applied to every single device that reaches our bench.
                 </p>
             </div>
@@ -251,45 +256,45 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 pt-4">
                 
                 <!-- Pillar 1 -->
-                <div class="space-y-3 pt-6 border-t border-black/[0.12]">
-                    <span class="text-xs font-mono font-extrabold text-appleBlue tracking-wider">01</span>
-                    <h3 class="text-lg sm:text-xl font-bold tracking-tight text-[#1d1d1f]">
+                <div class="space-y-3 pt-6 border-t border-white/10">
+                    <span class="text-xs font-mono font-extrabold text-sky-400 tracking-wider">01</span>
+                    <h3 class="text-lg sm:text-xl font-bold tracking-tight text-white">
                         Respecting What’s Inside
                     </h3>
-                    <p class="text-sm sm:text-base text-[#515154] leading-relaxed">
+                    <p class="text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                         The shields, screws, brackets, and factory water-resistant seals that clients never see are put back in place with meticulous precision.
                     </p>
                 </div>
 
                 <!-- Pillar 2 -->
-                <div class="space-y-3 pt-6 border-t border-black/[0.12]">
-                    <span class="text-xs font-mono font-extrabold text-appleBlue tracking-wider">02</span>
-                    <h3 class="text-lg sm:text-xl font-bold tracking-tight text-[#1d1d1f]">
+                <div class="space-y-3 pt-6 border-t border-white/10">
+                    <span class="text-xs font-mono font-extrabold text-sky-400 tracking-wider">02</span>
+                    <h3 class="text-lg sm:text-xl font-bold tracking-tight text-white">
                         On-the-Spot Turnaround
                     </h3>
-                    <p class="text-sm sm:text-base text-[#515154] leading-relaxed">
+                    <p class="text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                         We know being without your device disrupts your day, so standard screen and battery services are completed right before your eyes in around 30 minutes.
                     </p>
                 </div>
 
                 <!-- Pillar 3 -->
-                <div class="space-y-3 pt-6 border-t border-black/[0.12]">
-                    <span class="text-xs font-mono font-extrabold text-appleBlue tracking-wider">03</span>
-                    <h3 class="text-lg sm:text-xl font-bold tracking-tight text-[#1d1d1f]">
+                <div class="space-y-3 pt-6 border-t border-white/10">
+                    <span class="text-xs font-mono font-extrabold text-sky-400 tracking-wider">03</span>
+                    <h3 class="text-lg sm:text-xl font-bold tracking-tight text-white">
                         Transparent Options
                     </h3>
-                    <p class="text-sm sm:text-base text-[#515154] leading-relaxed">
+                    <p class="text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                         We offer transparent part tiers—ranging from budget-friendly aftermarket components to OEM-spec displays and genuine original packs.
                     </p>
                 </div>
 
                 <!-- Pillar 4 -->
-                <div class="space-y-3 pt-6 border-t border-black/[0.12]">
-                    <span class="text-xs font-mono font-extrabold text-appleBlue tracking-wider">04</span>
-                    <h3 class="text-lg sm:text-xl font-bold tracking-tight text-[#1d1d1f]">
+                <div class="space-y-3 pt-6 border-t border-white/10">
+                    <span class="text-xs font-mono font-extrabold text-sky-400 tracking-wider">04</span>
+                    <h3 class="text-lg sm:text-xl font-bold tracking-tight text-white">
                         Tested & Warranted
                     </h3>
-                    <p class="text-sm sm:text-base text-[#515154] leading-relaxed">
+                    <p class="text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                         Every device undergoes rigorous post-repair quality checks and leaves our bench backed by up to 6 months of comprehensive warranty.
                     </p>
                 </div>
@@ -300,7 +305,7 @@
 
         <!-- Subtle Apple Divider Hairline -->
         <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-            <hr class="border-t border-black/[0.08]">
+            <hr class="border-t border-white/10">
         </div>
 
         <!-- 5. Apple Editorial Community Spread -->
@@ -309,19 +314,19 @@
                 
                 <!-- Left Kicker -->
                 <div class="lg:col-span-4 lg:sticky lg:top-28">
-                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-appleBlue block mb-2">04 / Our Roots</span>
-                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#1d1d1f] leading-snug">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-sky-400 block mb-2">04 / Our Roots</span>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-snug">
                         Dedicated to Our Community
                     </h2>
                 </div>
 
                 <!-- Right Narrative Flow -->
                 <div class="lg:col-span-8 space-y-6 sm:space-y-8">
-                    <p class="text-xl sm:text-2xl font-medium text-[#1d1d1f] leading-relaxed">
+                    <p class="text-xl sm:text-2xl font-medium text-white leading-relaxed">
                         Since 2022, we’ve proudly supported locals across Cabramatta and Greater Sydney, alongside providing dependable fleet support for neighborhood schools and small businesses.
                     </p>
 
-                    <p class="text-lg sm:text-xl text-[#515154] leading-relaxed">
+                    <p class="text-lg sm:text-xl text-[#94a3b8] leading-relaxed">
                         Whether your daily driver took a heavy drop or suddenly went silent, bring it by the bench. We’ll inspect it under the scope and treat your gear with the care it deserves.
                     </p>
                 </div>
@@ -331,30 +336,30 @@
 
         <!-- Subtle Apple Divider Hairline -->
         <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-            <hr class="border-t border-black/[0.08]">
+            <hr class="border-t border-white/10">
         </div>
 
         <!-- 6. Apple Signature Finale: Authentic Handwriting Animation on Open Stage -->
         <section id="handwriting-letter-section" class="max-w-5xl mx-auto px-4 sm:px-8 py-20 sm:py-32 text-center">
             
-            <span class="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#86868b] block mb-6">
+            <span class="text-xs font-mono font-bold uppercase tracking-[0.25em] text-slate-400 block mb-6">
                 Direct from the Workbench
             </span>
 
             <!-- Authentic Handwriting Letter Animation Output (Strictly single row) -->
             <div class="inline-flex items-center justify-center flex-nowrap whitespace-nowrap min-h-[56px] sm:min-h-[72px] md:min-h-[88px] relative px-2 max-w-full overflow-visible">
-                <span id="handwritten-text" class="font-handwriting text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-[#1d1d1f] tracking-wide inline-block select-none whitespace-nowrap"></span>
+                <span id="handwritten-text" class="font-handwriting text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide inline-block select-none whitespace-nowrap"></span>
                 <span id="handwriting-pen" class="inline-block flex-shrink-0 transform -rotate-12 transition-transform duration-75 pointer-events-none text-xl sm:text-2xl md:text-3xl lg:text-4xl ml-1.5 sm:ml-2 align-baseline opacity-0">✒️</span>
             </div>
 
             <!-- Subtitle & Controls -->
             <div id="handwriting-subtext" class="opacity-0 transition-opacity duration-700 mt-4">
-                <p class="text-sm sm:text-base font-semibold tracking-wider text-[#6e6e73]">
+                <p class="text-sm sm:text-base font-semibold tracking-wider text-[#94a3b8]">
                     Lee Nguyen Lab — Cabramatta, Sydney.
                 </p>
 
                 <div class="flex items-center justify-center space-x-3 mt-8">
-                    <button type="button" onclick="replayHandwritingLetter()" class="liquid-btn-secondary text-xs font-bold px-4 py-2 rounded-full text-[#515154] hover:text-[#1d1d1f] inline-flex items-center space-x-1.5 shadow-sm">
+                    <button type="button" onclick="replayHandwritingLetter()" class="liquid-btn-secondary text-xs font-bold px-4 py-2 rounded-full text-slate-200 hover:text-white inline-flex items-center space-x-1.5 shadow-sm">
                         <span>↺</span>
                         <span>Replay Handwriting</span>
                     </button>
@@ -369,30 +374,30 @@
     </main>
 
     <!-- Footer -->
-    <footer class="liquid-glass-white rounded-t-[3.5rem] pt-16 pb-12 px-6 sm:px-12 border-b-0 border-x-0 border-t border-black/[0.08] shadow-[0_-15px_40px_rgba(0,0,0,0.03)]">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-black/[0.06]">
+    <footer class="liquid-glass-white rounded-t-[3.5rem] pt-16 pb-12 px-6 sm:px-12 border-b-0 border-x-0 border-t border-white/10 shadow-[0_-15px_40px_rgba(0,0,0,0.4)]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
             <div class="md:col-span-2 space-y-4">
-                <span class="text-xl font-extrabold tracking-tight text-[#1d1d1f]">
-                    Lee Nguyen <span class="font-normal text-[#86868b]">Lab</span>
+                <span class="text-xl font-extrabold tracking-tight text-white">
+                    Lee Nguyen <span class="font-normal text-slate-400">Lab</span>
                 </span>
-                <p class="text-sm text-[#515154] max-w-sm">
+                <p class="text-sm text-[#94a3b8] max-w-sm">
                     Professional, component-level technology laboratory serving individuals, educational institutions, and enterprise fleets.
                 </p>
-                <div class="text-xs text-[#86868b] space-y-1 pt-2">
-                    <p class="font-bold text-[#1d1d1f]">Shop Location:</p>
-                    <p class="text-[#515154]">Suite 107, Level 1/54 Park Rd</p>
-                    <p class="text-[#515154]">Cabramatta, NSW 2166, Sydney</p>
+                <div class="text-xs text-slate-400 space-y-1 pt-2">
+                    <p class="font-bold text-white">Shop Location:</p>
+                    <p class="text-[#94a3b8]">Suite 107, Level 1/54 Park Rd</p>
+                    <p class="text-[#94a3b8]">Cabramatta, NSW 2166, Sydney</p>
                 </div>
             </div>
 
             <div>
-                <h4 class="text-xs font-bold text-[#86868b] uppercase tracking-widest mb-3">Operating Hours</h4>
-                <ul class="text-sm text-[#515154] space-y-2">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Operating Hours</h4>
+                <ul class="text-sm text-[#94a3b8] space-y-2">
                     <li class="flex justify-between">
                         <span>Monday – Sunday</span>
-                        <span class="font-bold text-[#1d1d1f]">8:00 AM – 8:00 PM</span>
+                        <span class="font-bold text-white">8:00 AM – 8:00 PM</span>
                     </li>
-                    <li class="flex justify-between text-[#86868b]">
+                    <li class="flex justify-between text-slate-400">
                         <span>Open 7 Days</span>
                         <span>Walk-ins & Appointments</span>
                     </li>
@@ -400,62 +405,62 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-bold text-[#86868b] uppercase tracking-widest mb-3">Direct Contact</h4>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Direct Contact</h4>
                 <div class="space-y-3">
-                    <a href="tel:0291234567" class="block p-3.5 rounded-full liquid-btn-secondary text-center font-bold text-sm text-[#1d1d1f] shadow-sm">
+                    <a href="tel:0291234567" class="block p-3.5 rounded-full liquid-btn-secondary text-center font-bold text-sm text-white shadow-sm">
                         📞 (02) 9123 4567
                     </a>
-                    <a href="mailto:hello@leenguyenlab.com.au" class="block text-center text-xs text-[#515154] hover:text-[#1d1d1f] font-medium transition-colors py-1">
+                    <a href="mailto:hello@leenguyenlab.com.au" class="block text-center text-xs text-[#94a3b8] hover:text-white font-medium transition-colors py-1">
                         hello@leenguyenlab.com.au
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#86868b] font-medium">
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-medium">
             <p>© 2026 Lee Nguyen Lab. All rights reserved. Cabramatta, Sydney.</p>
             <div class="flex space-x-3 mt-4 sm:mt-0">
-                <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Home Overview</a>
-                <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Repair Services</a>
-                <a href="accessories.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Accessories</a>
+                <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Home Overview</a>
+                <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Repair Services</a>
+                <a href="accessories.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Accessories</a>
             </div>
         </div>
     </footer>
 
     <!-- Booking Modal -->
     <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
-        <div class="absolute inset-0 bg-black/50 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
 
-        <div class="relative liquid-glass-white max-w-lg w-full rounded-[2.5rem] p-6 sm:p-10 shadow-2xl border border-white/95 z-10 animate-in fade-in zoom-in-95 duration-200">
-            <button onclick="closeBookingModal()" class="absolute top-6 right-6 liquid-btn-icon w-8 h-8 rounded-full text-[#1d1d1f]" aria-label="Close modal">
+        <div class="relative liquid-glass-white max-w-lg w-full rounded-[2.5rem] p-6 sm:p-10 shadow-2xl border border-white/10 z-10 animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 liquid-btn-icon w-8 h-8 rounded-full text-slate-300 hover:text-white" aria-label="Close modal">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
-            <span class="text-xs font-bold text-appleBlue uppercase tracking-widest">Service & Print Appointment</span>
-            <h3 class="text-2xl font-extrabold text-[#1d1d1f] tracking-tight mt-1 mb-2">Schedule Your Lab Request</h3>
-            <p class="text-xs sm:text-sm text-[#515154] mb-6 font-medium">Send your details directly to our Sydney queue. We confirm turnaround time immediately.</p>
+            <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Service & Print Appointment</span>
+            <h3 class="text-2xl font-extrabold text-white tracking-tight mt-1 mb-2">Schedule Your Lab Request</h3>
+            <p class="text-xs sm:text-sm text-[#94a3b8] mb-6 font-medium">Send your details directly to our Sydney queue. We confirm turnaround time immediately.</p>
 
             <form action="https://formsubmit.co/adrian@leenguyenlab.com.au" method="POST" class="space-y-4">
                 <input type="hidden" name="_subject" value="New Service Booking — Lee Nguyen Lab">
                 <input type="hidden" name="_captcha" value="false">
 
                 <div>
-                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Your Full Name</label>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Your Full Name</label>
                     <input type="text" name="name" required placeholder="e.g. David Harrison" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Phone Number</label>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Phone Number</label>
                     <input type="tel" name="phone" required placeholder="e.g. 0412 345 678" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Device Model & Issue</label>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Device Model & Issue</label>
                     <input type="text" name="device" required placeholder="e.g. iPhone 15 Pro Max, Audio IC / Screen" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Preferred Date / Notes</label>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Preferred Date / Notes</label>
                     <textarea name="notes" rows="3" placeholder="Tell us about the issue or specify a preferred drop-in time..." class="w-full liquid-input p-3.5 text-sm outline-none font-medium"></textarea>
                 </div>
 

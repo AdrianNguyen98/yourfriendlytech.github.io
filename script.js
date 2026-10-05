@@ -103,13 +103,13 @@
                     this.vx = this.baseVx;
                     this.vy = this.baseVy;
 
-                    // Physical particle properties (Subtle Slate Constellation on White Canvas)
+                    // Physical particle properties (Subtle Luminous Constellation on Deep Navy Canvas)
                     this.radius = Math.random() * 1.5 + 1.1; // 1.1px to 2.6px
                     const slateTones = [
-                        'rgba(71, 85, 105, 0.45)',   // deep slate
-                        'rgba(100, 116, 139, 0.40)',  // neutral slate
-                        'rgba(148, 163, 184, 0.50)',  // light slate
-                        'rgba(51, 65, 85, 0.35)'      // dark slate
+                        'rgba(255, 255, 255, 0.75)',   // pure starlight
+                        'rgba(186, 230, 253, 0.70)',   // luminous cyan
+                        'rgba(147, 197, 253, 0.65)',   // celestial sky
+                        'rgba(224, 242, 254, 0.80)'    // radiant ice white
                     ];
                     this.color = slateTones[Math.floor(Math.random() * slateTones.length)];
                 }
@@ -281,22 +281,22 @@
                                 ctx.moveTo(opt1.x, opt1.y);
                                 ctx.lineTo(opt2.x, opt2.y);
                                 ctx.strokeStyle = opt1.isHovered || opt2.isHovered 
-                                    ? `rgba(15, 23, 42, ${lineAlpha})` 
-                                    : `rgba(51, 65, 85, ${lineAlpha * 0.8})`;
+                                    ? `rgba(255, 255, 255, ${lineAlpha * 1.2})` 
+                                    : `rgba(186, 230, 253, ${lineAlpha * 0.9})`;
                                 ctx.lineWidth = opt1.isHovered || opt2.isHovered ? 1.5 : 1.1;
                                 ctx.stroke();
                             } else {
                                 ctx.beginPath();
                                 ctx.moveTo(p1.x, p1.y);
                                 ctx.lineTo(p2.x, p2.y);
-                                ctx.strokeStyle = `rgba(100, 116, 139, ${lineAlpha * 0.75})`;
+                                ctx.strokeStyle = `rgba(147, 197, 253, ${lineAlpha * 0.75})`;
                                 ctx.lineWidth = 0.9;
                                 ctx.stroke();
                             }
                         }
                     }
 
-                    // Cursor tracer proximity lines (pure starlight white)
+                    // Cursor tracer proximity lines (radiant celestial trace)
                     if (mouse.x !== null && mouse.y !== null) {
                         const mdx = p1.x - mouse.x;
                         const mdy = p1.y - mouse.y;
@@ -305,22 +305,22 @@
 
                         if (mDistSq < mouseConnectDist * mouseConnectDist) {
                             const mDist = Math.sqrt(mDistSq);
-                            const mAlpha = (1 - mDist / mouseConnectDist) * 0.38;
+                            const mAlpha = (1 - mDist / mouseConnectDist) * 0.45;
                             ctx.beginPath();
                             ctx.moveTo(mouse.x, mouse.y);
                             ctx.lineTo(opt1.x, opt1.y);
-                            ctx.strokeStyle = `rgba(71, 85, 105, ${mAlpha * 0.5})`;
+                            ctx.strokeStyle = `rgba(224, 242, 254, ${mAlpha * 0.6})`;
                             ctx.lineWidth = 1.1;
                             ctx.stroke();
                         }
                     }
 
-                    // Step 3: Render particle dots underneath glass (clean neutral glass, no pink/blue fringes)
+                    // Step 3: Render particle dots underneath glass (radiant celestial optics)
                     if (opt1.isUnderGlass) {
                         // Single magnified core particle viewed through curved glass
                         ctx.beginPath();
                         ctx.arc(opt1.x, opt1.y, p1.radius * opt1.magnification * 1.35, 0, Math.PI * 2);
-                        ctx.fillStyle = opt1.isHovered ? '#0f172a' : p1.color;
+                        ctx.fillStyle = opt1.isHovered ? '#ffffff' : p1.color;
                         ctx.fill();
                     } else {
                         ctx.beginPath();
@@ -738,13 +738,13 @@
 
             currentCat.services.forEach((svc, index) => {
                 const label = document.createElement('label');
-                label.className = 'flex items-center justify-between p-3.5 rounded-2xl bg-white/75 hover:bg-white transition-all cursor-pointer border border-black/[0.06] shadow-sm select-none';
+                label.className = 'flex items-center justify-between p-3.5 rounded-2xl bg-white/[0.06] hover:bg-white/[0.12] transition-all cursor-pointer border border-white/10 shadow-sm select-none';
                 label.innerHTML = `
                     <div class="flex items-center space-x-3">
                         <input type="checkbox" value="${svc.id}" ${index === 0 ? 'checked' : ''} onchange="calculateQuote()" class="w-4 h-4 rounded text-appleBlue cursor-pointer liquid-checkbox">
-                        <span class="text-sm font-bold text-[#1d1d1f]">${svc.name}</span>
+                        <span class="text-sm font-bold text-white">${svc.name}</span>
                     </div>
-                    <span id="price-tag-${svc.id}" class="text-xs font-bold text-[#515154]"></span>
+                    <span id="price-tag-${svc.id}" class="text-xs font-bold text-sky-400 apple-price"></span>
                 `;
                 container.appendChild(label);
             });
@@ -780,9 +780,9 @@
 
             if (checkboxes.length === 0) {
                 receiptItems.innerHTML = '<p class="text-[#86868b] text-xs text-center py-8">Select one or more services to generate your estimate.</p>';
-                document.getElementById('receipt-parts').textContent = '$0.00';
-                document.getElementById('receipt-labor').textContent = '$0.00';
-                animatePriceCounter('receipt-total', 0);
+                document.getElementById('receipt-parts').textContent = 'A$0.00';
+                document.getElementById('receipt-labor').textContent = 'A$0.00';
+                animatePriceCounter('receipt-total', 0, 'A$');
                 return;
             }
 
@@ -801,11 +801,11 @@
                     partsTotal += itemPrice;
 
                     const tag = document.getElementById(`price-tag-${svc.id}`);
-                    if (tag) tag.textContent = `$${itemPrice}`;
+                    if (tag) tag.textContent = `A$${itemPrice}`;
 
                     const row = document.createElement('div');
-                    row.className = 'flex justify-between items-center text-xs text-[#515154] animate-in fade-in duration-200';
-                    row.innerHTML = `<span>${svc.name}</span><span class="font-bold text-[#1d1d1f]">$${itemPrice}.00</span>`;
+                    row.className = 'flex justify-between items-center text-xs text-[#94a3b8] animate-in fade-in duration-200';
+                    row.innerHTML = `<span>${svc.name}</span><span class="apple-price font-bold text-white">A$${itemPrice}.00</span>`;
                     receiptItems.appendChild(row);
                 }
             });
@@ -816,9 +816,9 @@
             else if (familyKey === 'macbook' || familyKey === 'microsoft_surface') timeEstimate = "1–2 Days";
 
             const grandTotal = partsTotal + baseLabor;
-            document.getElementById('receipt-parts').textContent = `$${partsTotal.toFixed(2)}`;
-            document.getElementById('receipt-labor').textContent = `$${baseLabor.toFixed(2)}`;
-            animatePriceCounter('receipt-total', grandTotal);
+            document.getElementById('receipt-parts').textContent = `A$${partsTotal.toFixed(2)}`;
+            document.getElementById('receipt-labor').textContent = `A$${baseLabor.toFixed(2)}`;
+            animatePriceCounter('receipt-total', grandTotal, 'A$');
             
             const totalEl = document.getElementById('receipt-total');
             if (totalEl) {
@@ -829,8 +829,8 @@
             document.getElementById('receipt-time').textContent = timeEstimate;
         }
 
-        // Animated Rolling Price Counter
-        function animatePriceCounter(elementId, targetValue, prefix = '$', suffix = '') {
+        // Animated Rolling Price Counter (Apple A$ Standard)
+        function animatePriceCounter(elementId, targetValue, prefix = 'A$', suffix = '') {
             const el = document.getElementById(elementId);
             if (!el) return;
             const currentNum = parseFloat(el.textContent.replace(/[^0-9.]/g, '')) || 0;
@@ -1036,7 +1036,7 @@
                 }
             }
 
-            animatePriceCounter('case-total-price', price, '$', ' AUD');
+            animatePriceCounter('case-total-price', price, 'A$', '');
             const priceEl = document.getElementById('case-total-price');
             if (priceEl) {
                 priceEl.classList.remove('price-pulse');
@@ -1124,7 +1124,7 @@
                 magsafe_armor: 'MagSafe Optical Armor Glass Case'
             };
             const caseTitle = typeNames[currentCaseType] || 'Custom Glass Case';
-            const summary = 'Custom Case UV Print [' + caseTitle + '] — $' + currentCasePrice + '.00 AUD (Photo Configured)';
+            const summary = 'Custom Case UV Print [' + caseTitle + '] — A$' + currentCasePrice + '.00 (Photo Configured)';
 
             openBookingModal(modelName, summary);
         }
@@ -1392,8 +1392,8 @@
             const subtotalEl = document.getElementById('cart-subtotal-val');
             const totalEl = document.getElementById('cart-total-val');
 
-            if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
-            if (totalEl) totalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
+            if (subtotalEl) subtotalEl.textContent = `A$${subtotal.toFixed(2)}`;
+            if (totalEl) totalEl.textContent = `A$${subtotal.toFixed(2)}`;
 
             if (!itemsContainer) return;
 
@@ -1406,21 +1406,21 @@
                 if (footerContainer) footerContainer.classList.remove('opacity-50', 'pointer-events-none');
 
                 itemsContainer.innerHTML = labCart.map((item, index) => `
-                    <div class="flex items-center space-x-3.5 p-3.5 rounded-2xl bg-black/[0.02] border border-black/[0.05] hover:bg-black/[0.04] transition-all">
-                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 rounded-xl object-cover border border-black/[0.06] flex-shrink-0 bg-white">
+                    <div class="flex items-center space-x-3.5 p-3.5 rounded-2xl bg-white/[0.05] border border-white/10 hover:bg-white/[0.08] transition-all">
+                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 rounded-xl object-cover border border-white/10 flex-shrink-0 bg-slate-900">
                         <div class="flex-1 min-w-0">
-                            <h4 class="font-bold text-xs sm:text-sm text-[#1d1d1f] truncate">${item.title}</h4>
-                            <p class="text-[11px] text-[#86868b] truncate">${item.variant}</p>
+                            <h4 class="font-bold text-xs sm:text-sm text-white truncate">${item.title}</h4>
+                            <p class="text-[11px] text-[#94a3b8] truncate">${item.variant}</p>
                             <div class="flex items-center justify-between mt-1.5">
-                                <span class="font-mono font-bold text-xs sm:text-sm text-[#1d1d1f]">$${item.price}.00 AUD</span>
-                                <div class="flex items-center space-x-1.5 bg-white border border-black/[0.1] rounded-lg px-1.5 py-0.5">
-                                    <button type="button" onclick="updateCartQty(${index}, -1)" class="text-xs text-[#86868b] hover:text-black px-1 font-bold">−</button>
-                                    <span class="text-xs font-mono font-bold text-[#1d1d1f] px-1">${item.qty}</span>
-                                    <button type="button" onclick="updateCartQty(${index}, 1)" class="text-xs text-[#86868b] hover:text-black px-1 font-bold">+</button>
+                                <span class="apple-price font-bold text-xs sm:text-sm text-white">A$${item.price}.00</span>
+                                <div class="flex items-center space-x-1.5 bg-white/10 border border-white/15 rounded-lg px-1.5 py-0.5">
+                                    <button type="button" onclick="updateCartQty(${index}, -1)" class="text-xs text-[#94a3b8] hover:text-white px-1 font-bold">−</button>
+                                    <span class="text-xs apple-price font-bold text-white px-1">${item.qty}</span>
+                                    <button type="button" onclick="updateCartQty(${index}, 1)" class="text-xs text-[#94a3b8] hover:text-white px-1 font-bold">+</button>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" onclick="removeFromCart(${index})" class="text-[#86868b] hover:text-red-500 p-1.5 transition-colors" title="Remove Item">
+                        <button type="button" onclick="removeFromCart(${index})" class="text-[#94a3b8] hover:text-red-400 p-1.5 transition-colors" title="Remove Item">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                         </button>
                     </div>
@@ -1450,9 +1450,9 @@
                 return;
             }
             closeCartDrawer();
-            const summaryItems = labCart.map(i => `${i.qty}x ${i.title} (${i.variant}) - $${i.price * i.qty} AUD`).join('\n');
+            const summaryItems = labCart.map(i => `${i.qty}x ${i.title} (${i.variant}) - A$${i.price * i.qty}.00`).join('\n');
             const total = labCart.reduce((sum, item) => sum + ((item.price || 0) * (item.qty || 1)), 0);
-            const orderNotes = `ONLINE ACCESSORIES CART ORDER:\n${summaryItems}\n\nTOTAL: $${total.toFixed(2)} AUD\nFulfillment: Cabramatta Bench Pickup / Express Dispatch`;
+            const orderNotes = `ONLINE ACCESSORIES CART ORDER:\n${summaryItems}\n\nTOTAL: A$${total.toFixed(2)}\nFulfillment: Cabramatta Bench Pickup / Express Dispatch`;
 
             openBookingModal('Accessories Store Order', orderNotes);
         }
