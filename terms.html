@@ -19,93 +19,88 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
-                        apple: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', '"Inter"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+                        apple: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', '"Inter"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
                     },
                     colors: {
-                        appleDark: '#f5f5f7',
-                        appleGray: '#4b0082',
-                        appleMuted: '#c4b5fd',
-                        appleBlue: '#0071e3',
-                        appleIndigo: '#4b0082',
-                        appleNavy: '#4b0082',
-                        appleIndigoCard: '#590a99',
-                        appleIndigoLight: '#6d1cb8',
-                        appleIndigoDark: '#35005c',
+                        navyBase: '#0f1f38',
+                        navyAlt: '#152a4a',
+                        navyCard: '#1c355c',
+                        navyPrimary: '#3b6ea5',
+                        navySoft: '#7da6d8',
+                        textLight: '#f5f5f7',
+                        mutedSlate: '#94a3b8',
                     }
                 }
             }
         }
     </script>
     
-    <!-- External Apple White Theme & Liquid Glass Stylesheet -->
+    <!-- External Apple Minimalist Light Navy Stylesheet -->
     <link rel="stylesheet" href="style.css">
     
     <!-- External Application Logic -->
     <script src="script.js" defer></script>
 </head>
-<body class="relative text-[#f5f5f7] bg-[#4b0082] selection:bg-indigo-500/40 selection:text-white min-h-screen">
+<body class="relative text-[#f5f5f7] bg-[#0f1f38] selection:bg-[#3b6ea5]/40 selection:text-white min-h-screen">
 
-    <!-- Interactive Dynamic Canvas: Floating Particle Network -->
-    <canvas id="particle-canvas"></canvas>
-
-    <!-- Navigation Header: Frosted Translucent Apple Bar -->
+    <!-- Navigation Header: Minimalist Translucent Light Navy Bar -->
     <header class="apple-header-bar on-white-section transition-all duration-300">
         <div class="max-w-7xl mx-auto px-5 sm:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html#hero" class="flex items-center cursor-pointer group">
-                    <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-white group-hover:opacity-80 transition-all">
-                        Lee Nguyen <span class="logo-subtitle font-normal text-slate-400">Lab</span>
+                    <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-[#f5f5f7] group-hover:opacity-80 transition-all">
+                        Lee Nguyen <span class="logo-subtitle font-normal text-[#7da6d8]">Lab</span>
                     </span>
                 </a>
 
                 <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold">
-                    <a href="index.html#hero" class="text-[#94a3b8] hover:text-white transition-colors">Overview</a>
-                    <a href="services.html" class="text-[#94a3b8] hover:text-white transition-colors">Repair Services</a>
+                    <a href="index.html#hero" class="text-[#cbd5e1] hover:text-white transition-colors">Overview</a>
+                    <a href="services.html" class="text-[#cbd5e1] hover:text-white transition-colors">Repair Services</a>
                     
                     <!-- Accessories Dropdown Menu -->
                     <div class="relative group">
-                        <a href="accessories.html" class="flex items-center space-x-1 text-[#94a3b8] hover:text-white transition-colors py-2">
+                        <a href="accessories.html" class="flex items-center space-x-1 text-[#cbd5e1] hover:text-white transition-colors py-2">
                             <span>Accessories</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </a>
                         <div class="absolute -left-4 top-full pt-2 w-72 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
-                            <div class="apple-nav-dropdown rounded-2xl p-2.5 shadow-2xl border border-white/10 space-y-1">
-                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Custom Cases</span>
+                            <div class="apple-nav-dropdown rounded-2xl p-2.5 space-y-1">
+                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl transition-colors">
+                                    <span class="block font-bold text-xs text-[#f5f5f7]">Custom Cases</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">Lab UV Print Studio</span>
                                 </a>
-                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Screen Protectors</span>
+                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl transition-colors">
+                                    <span class="block font-bold text-xs text-[#f5f5f7]">Screen Protectors</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">9H Tempered & Privacy</span>
                                 </a>
-                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Lanyards</span>
+                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl transition-colors">
+                                    <span class="block font-bold text-xs text-[#f5f5f7]">Lanyards</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">Braided cords & wrist straps</span>
                                 </a>
-                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Chargers, Cables & Powerbanks</span>
+                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl transition-colors">
+                                    <span class="block font-bold text-xs text-[#f5f5f7]">Chargers, Cables & Powerbanks</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">GaN 65W & MagSafe packs</span>
                                 </a>
-                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Stickers</span>
+                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl transition-colors">
+                                    <span class="block font-bold text-xs text-[#f5f5f7]">Stickers</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">Waterproof vinyl tech decals</span>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <a href="index.html#showcase" class="text-[#94a3b8] hover:text-white transition-colors">Workshop</a>
-                    <a href="about.html" class="text-[#94a3b8] hover:text-white transition-colors">About Us</a>
+                    <a href="index.html#showcase" class="text-[#cbd5e1] hover:text-white transition-colors">Workshop</a>
+                    <a href="about.html" class="text-[#cbd5e1] hover:text-white transition-colors">About Us</a>
                 </nav>
 
                 <div class="flex items-center space-x-3">
-                    <button onclick="openBookingModal()" class="hidden sm:inline-flex liquid-btn-primary text-xs font-bold px-5 py-2.5 rounded-full">
+                    <button onclick="openBookingModal()" class="hidden sm:inline-flex liquid-btn-primary text-xs font-semibold px-5 py-2.5 rounded-full">
                         Book Repair
                     </button>
-                    <button id="hamburger-btn" class="md:hidden liquid-btn-icon text-white p-2.5 rounded-full focus:outline-none" aria-label="Toggle Navigation">
+                    <button id="hamburger-btn" class="md:hidden liquid-btn-icon text-[#f5f5f7] p-2.5 rounded-full focus:outline-none" aria-label="Toggle Navigation">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -115,17 +110,17 @@
         </div>
 
         <!-- Mobile Menu Dropdown Bar -->
-        <div id="mobile-menu" class="hidden md:hidden w-full border-t border-white/10 bg-[#4b0082]/95 backdrop-blur-2xl px-6 py-5 space-y-3">
-            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Overview</a>
-            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Repair Services</a>
+        <div id="mobile-menu" class="hidden md:hidden w-full border-t border-white/15 bg-[#0f1f38]/95 backdrop-blur-xl px-6 py-5 space-y-3">
+            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white">Overview</a>
+            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white">Repair Services</a>
             
             <!-- Mobile Accessories Submenu -->
             <div>
-                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white py-1">
+                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white py-1">
                     <span>Accessories</span>
                     <svg id="mobile-acc-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-white/10 space-y-2 py-1 mt-1">
+                <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-white/15 space-y-2 py-1 mt-1">
                     <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Custom Cases</a>
                     <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Screen Protectors</a>
                     <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Lanyards</a>
@@ -134,33 +129,25 @@
                 </div>
             </div>
 
-            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Workshop</a>
-            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">About Us</a>
-            <button onclick="openBookingModal()" class="w-full text-center liquid-btn-primary text-sm font-bold py-3.5 rounded-full mt-2">
+            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white">Workshop</a>
+            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white">About Us</a>
+            <button onclick="openBookingModal()" class="w-full text-center liquid-btn-primary text-sm font-semibold py-3.5 rounded-full mt-2">
                Book a Repair
             </button>
         </div>
     </header>
 
-    <!-- Main Editorial Content: Apple Open Canvas Architecture -->
+    <!-- Main Editorial Content -->
     <main class="relative z-10 pt-28 sm:pt-36 pb-24">
 
-        <!-- 1. Apple Keynote Hero Header -->
+        <!-- 1. Hero Header -->
         <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-6 sm:pt-12 pb-8 sm:pb-12">
-            <!-- Eyebrow Badge -->
-            <div class="inline-flex items-center space-x-2 mb-4 bg-blue-500/10 border border-blue-400/20 px-4 py-1.5 rounded-full shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
-                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">
-                    Service Standards · Cabramatta, Sydney
-                </span>
-            </div>
-
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                 <div>
-                    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
+                    <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#f5f5f7] leading-[1.06]">
                         Terms & Conditions
                     </h1>
-                    <p class="text-lg sm:text-2xl font-medium text-[#94a3b8] mt-4 max-w-2xl leading-relaxed">
+                    <p class="text-lg sm:text-2xl font-normal text-[#94a3b8] mt-4 max-w-2xl leading-relaxed">
                         Transparent protocols for hardware diagnostics, 6-month warranties, client privacy, and lab service agreements.
                     </p>
                 </div>
@@ -169,7 +156,7 @@
                 <div class="w-full lg:w-80">
                     <div class="relative">
                         <input type="text" id="terms-search-input" oninput="searchTerms(this.value)" placeholder="Search clauses (e.g. warranty, backup)..." class="w-full liquid-input py-3 pl-10 pr-4 text-xs font-medium outline-none rounded-full">
-                        <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-[#94a3b8] absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                     </div>
@@ -177,18 +164,15 @@
             </div>
 
             <!-- Quick Meta Strip -->
-            <div class="flex flex-wrap items-center gap-3 sm:gap-6 mt-8 pt-6 border-t border-white/10 text-xs text-slate-400 font-medium">
-                <span class="flex items-center space-x-1.5">
-                    <span class="text-sky-400 font-bold">●</span>
-                    <span class="text-slate-300">Effective Edition: 2026</span>
-                </span>
+            <div class="flex flex-wrap items-center gap-3 sm:gap-6 mt-8 pt-6 border-t border-white/15 text-xs text-[#94a3b8] font-medium">
+                <span class="text-[#f5f5f7] font-semibold">Effective Edition: 2026</span>
                 <span>·</span>
                 <span>Jurisdiction: New South Wales, Australia</span>
                 <span>·</span>
-                <span class="text-slate-300">Australian Consumer Law (ACL) Compliant</span>
+                <span class="text-[#f5f5f7] font-semibold">Australian Consumer Law (ACL) Compliant</span>
                 <span>·</span>
-                <button type="button" onclick="window.print()" class="text-sky-400 hover:text-white transition-colors underline font-semibold">
-                    Print Copy 🖨️
+                <button type="button" onclick="window.print()" class="text-[#7da6d8] hover:text-white transition-colors underline font-semibold">
+                    Print Copy
                 </button>
             </div>
         </section>
@@ -196,26 +180,26 @@
         <!-- 2. Interactive Category Tabs -->
         <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
             <div class="flex flex-wrap gap-2" id="terms-tabs-bar">
-                <button type="button" onclick="switchTermsTab('all', this)" class="terms-tab-btn active filter-pill-btn text-xs font-bold px-4 py-2 rounded-full">
+                <button type="button" onclick="switchTermsTab('all', this)" class="terms-tab-btn active filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
                     All Sections (6)
                 </button>
                 <button type="button" onclick="switchTermsTab('scope', this)" class="terms-tab-btn filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
-                    🛠️ Diagnostic & Repairs
+                    Diagnostic & Repairs
                 </button>
                 <button type="button" onclick="switchTermsTab('warranty', this)" class="terms-tab-btn filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
-                    🛡️ 6-Month Warranty
+                    6-Month Warranty
                 </button>
                 <button type="button" onclick="switchTermsTab('privacy', this)" class="terms-tab-btn filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
-                    🔒 Data Security & Backups
+                    Data Security & Backups
                 </button>
                 <button type="button" onclick="switchTermsTab('turnaround', this)" class="terms-tab-btn filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
-                    ⏱️ Turnaround & Storage
+                    Turnaround & Storage
                 </button>
                 <button type="button" onclick="switchTermsTab('custom', this)" class="terms-tab-btn filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
-                    🎨 Custom UV Print Studio
+                    Custom UV Print Studio
                 </button>
                 <button type="button" onclick="switchTermsTab('acl', this)" class="terms-tab-btn filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
-                    ⚖️ Consumer Rights (ACL)
+                    Consumer Rights (ACL)
                 </button>
             </div>
         </section>
@@ -224,55 +208,55 @@
         <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-8 space-y-8" id="terms-content-container">
 
             <!-- Clause 01: Scope & Diagnostics -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[2.5rem] border border-white/10 space-y-5 transition-all duration-300" data-category="scope" id="clause-scope">
-                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="scope" id="clause-scope">
+                <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-400/20 text-sky-400 flex items-center justify-center font-bold text-xs">01</span>
-                        <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                        <span class="text-base font-semibold text-[#7da6d8]">01.</span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f7]">
                             Diagnostic Assessment, Quotations & Authorization
                         </h2>
                     </div>
-                    <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider hidden sm:inline">Scope of Work</span>
+                    <span class="text-xs font-medium text-[#94a3b8] hidden sm:inline">Scope of Work</span>
                 </div>
 
                 <div class="space-y-4 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                     <p>
-                        <strong class="text-white">1.1 Diagnostic Triage:</strong> Prior to undertaking physical repairs, our Sydney workshop technicians perform a preliminary hardware diagnostic. Where obvious faults exist (such as shattered digitizers or degraded battery cells), itemized pricing is provided upfront using our standard fee schedule.
+                        <strong class="text-[#f5f5f7]">1.1 Diagnostic Triage:</strong> Prior to undertaking physical repairs, our Sydney workshop technicians perform a preliminary hardware diagnostic. Where obvious faults exist (such as shattered digitizers or degraded battery cells), itemized pricing is provided upfront using our standard fee schedule.
                     </p>
                     <p>
-                        <strong class="text-white">1.2 Latent Hardware & Board Faults:</strong> Electronic devices brought in post-impact or after liquid exposure frequently harbor internal micro-fractures, lifted circuit traces, or short-circuited surface-mount capacitors. Should our microscopic bench inspection reveal secondary faults outside the initial quote, we pause work and contact the client for explicit authorization prior to commencing additional tasks.
+                        <strong class="text-[#f5f5f7]">1.2 Latent Hardware & Board Faults:</strong> Electronic devices brought in post-impact or after liquid exposure frequently harbor internal micro-fractures, lifted circuit traces, or short-circuited surface-mount capacitors. Should our microscopic bench inspection reveal secondary faults outside the initial quote, we pause work and contact the client for explicit authorization prior to commencing additional tasks.
                     </p>
                     <p>
-                        <strong class="text-white">1.3 Ultrasonic & Deoxidation Bench Work:</strong> Complex liquid damage recovery requires multi-stage ultrasonic chemical cleaning, thermal imaging, and trace re-bridging. A non-refundable diagnostic triage fee may apply to cover chemical bench supplies and micro-inspection labor, which is completely credited towards the total invoice upon successful repair.
+                        <strong class="text-[#f5f5f7]">1.3 Ultrasonic & Deoxidation Bench Work:</strong> Complex liquid damage recovery requires multi-stage ultrasonic chemical cleaning, thermal imaging, and trace re-bridging. A non-refundable diagnostic triage fee may apply to cover chemical bench supplies and micro-inspection labor, which is completely credited towards the total invoice upon successful repair.
                     </p>
                 </div>
             </article>
 
             <!-- Clause 02: 6-Month Warranty -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[2.5rem] border border-white/10 space-y-5 transition-all duration-300" data-category="warranty" id="clause-warranty">
-                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="warranty" id="clause-warranty">
+                <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-400/20 text-sky-400 flex items-center justify-center font-bold text-xs">02</span>
-                        <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                        <span class="text-base font-semibold text-[#7da6d8]">02.</span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f7]">
                             Comprehensive Hardware Warranty Policy
                         </h2>
                     </div>
-                    <span class="text-[11px] font-mono text-emerald-400 uppercase tracking-wider hidden sm:inline">Up to 6 Months</span>
+                    <span class="text-xs font-semibold text-[#7da6d8] hidden sm:inline">Up to 6 Months</span>
                 </div>
 
                 <div class="space-y-4 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                     <p>
-                        <strong class="text-white">2.1 Coverage Scope:</strong> Lee Nguyen Lab warrants all installed replacement hardware components and bench workmanship against defects in material and assembly for a period of up to <strong class="text-white">six (6) months</strong> from the date of client collection, as specified on your invoice:
+                        <strong class="text-[#f5f5f7]">2.1 Coverage Scope:</strong> Lee Nguyen Lab warrants all installed replacement hardware components and bench workmanship against defects in material and assembly for a period of up to <strong class="text-[#f5f5f7]">six (6) months</strong> from the date of client collection, as specified on your invoice:
                     </p>
-                    <ul class="list-disc pl-6 space-y-2 text-slate-300 text-sm">
-                        <li><strong class="text-white">Genuine Service Packs & Premium OEM-Spec Modules:</strong> Covered by our full 6-Month Comprehensive Warranty (touch responsiveness, OLED display uniformity, battery health retention, port connectivity).</li>
-                        <li><strong class="text-white">Aftermarket Budget Modules:</strong> Covered by a 90-Day Functional Warranty against component defects.</li>
-                        <li><strong class="text-white">Logic Board Micro-Soldering Repairs:</strong> Covered by a 90-Day Warranty on the specific IC chips, trace jumpers, or soldered power rails restored.</li>
+                    <ul class="list-disc pl-6 space-y-2 text-[#94a3b8] text-sm">
+                        <li><strong class="text-[#f5f5f7]">Genuine Service Packs & Premium OEM-Spec Modules:</strong> Covered by our full 6-Month Comprehensive Warranty (touch responsiveness, OLED display uniformity, battery health retention, port connectivity).</li>
+                        <li><strong class="text-[#f5f5f7]">Aftermarket Budget Modules:</strong> Covered by a 90-Day Functional Warranty against component defects.</li>
+                        <li><strong class="text-[#f5f5f7]">Logic Board Micro-Soldering Repairs:</strong> Covered by a 90-Day Warranty on the specific IC chips, trace jumpers, or soldered power rails restored.</li>
                     </ul>
                     <p>
-                        <strong class="text-white">2.2 What Is Excluded:</strong> Warranty coverage does not apply if the device experiences subsequent accidental damage post-handover, including:
+                        <strong class="text-[#f5f5f7]">2.2 What Is Excluded:</strong> Warranty coverage does not apply if the device experiences subsequent accidental damage post-handover, including:
                     </p>
-                    <ul class="list-disc pl-6 space-y-1.5 text-slate-300 text-sm">
+                    <ul class="list-disc pl-6 space-y-1.5 text-[#94a3b8] text-sm">
                         <li>Fresh physical drops resulting in cracked glass, hairline fissures, or internal OLED bleeding / black ink spots.</li>
                         <li>New liquid ingress, moisture exposure, or chemical deoxidation.</li>
                         <li>Unauthorized disassembly, modification, or tamper seals broken by any third-party kiosk or repairer.</li>
@@ -282,101 +266,101 @@
             </article>
 
             <!-- Clause 03: Data Security & Privacy -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[2.5rem] border border-white/10 space-y-5 transition-all duration-300" data-category="privacy" id="clause-privacy">
-                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="privacy" id="clause-privacy">
+                <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-400/20 text-sky-400 flex items-center justify-center font-bold text-xs">03</span>
-                        <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                        <span class="text-base font-semibold text-[#7da6d8]">03.</span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f7]">
                             Data Confidentiality, Privacy & Client Backups
                         </h2>
                     </div>
-                    <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider hidden sm:inline">Zero Inspection Policy</span>
+                    <span class="text-xs font-medium text-[#94a3b8] hidden sm:inline">Zero Inspection Policy</span>
                 </div>
 
                 <div class="space-y-4 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                     <p>
-                        <strong class="text-white">3.1 Strict Client Privacy:</strong> We hold personal privacy as an absolute standard. Technicians will never browse, inspect, transfer, or disclose any customer files, personal photos, text messages, passwords, or personal applications during the repair process. Passcodes provided for post-repair diagnostic verification (camera, microphone, speaker, touchscreen calibration) are utilized strictly for functional testing.
+                        <strong class="text-[#f5f5f7]">3.1 Strict Client Privacy:</strong> We hold personal privacy as an absolute standard. Technicians will never browse, inspect, transfer, or disclose any customer files, personal photos, text messages, passwords, or personal applications during the repair process. Passcodes provided for post-repair diagnostic verification (camera, microphone, speaker, touchscreen calibration) are utilized strictly for functional testing.
                     </p>
                     <p>
-                        <strong class="text-white">3.2 Backup Responsibility:</strong> While routine screen, battery, and charging port replacements do not intentionally alter flash storage, complex hardware triage, thermal logic board rework, or power rail surges carry inherent electrical risks. Clients are strongly urged to perform an independent cloud (iCloud / Google Drive) or computer backup prior to surrendering devices for service.
+                        <strong class="text-[#f5f5f7]">3.2 Backup Responsibility:</strong> While routine screen, battery, and charging port replacements do not intentionally alter flash storage, complex hardware triage, thermal logic board rework, or power rail surges carry inherent electrical risks. Clients are strongly urged to perform an independent cloud (iCloud / Google Drive) or computer backup prior to surrendering devices for service.
                     </p>
                     <p>
-                        <strong class="text-white">3.3 Biometric & Telemetry Preservation:</strong> Wherever technically viable, our laboratory utilizes advanced hardware serial programmer tools to transfer TrueTone serialization, ambient light calibration, and original Face ID / Touch ID sensors to your new replacement hardware.
+                        <strong class="text-[#f5f5f7]">3.3 Biometric & Telemetry Preservation:</strong> Wherever technically viable, our laboratory utilizes advanced hardware serial programmer tools to transfer TrueTone serialization, ambient light calibration, and original Face ID / Touch ID sensors to your new replacement hardware.
                     </p>
                 </div>
             </article>
 
             <!-- Clause 04: Turnaround & Storage -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[2.5rem] border border-white/10 space-y-5 transition-all duration-300" data-category="turnaround" id="clause-turnaround">
-                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="turnaround" id="clause-turnaround">
+                <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-400/20 text-sky-400 flex items-center justify-center font-bold text-xs">04</span>
-                        <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                        <span class="text-base font-semibold text-[#7da6d8]">04.</span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f7]">
                             Workshop Turnaround, Pickup & Storage Policy
                         </h2>
                     </div>
-                    <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider hidden sm:inline">Cabramatta Lab Bench</span>
+                    <span class="text-xs font-medium text-[#94a3b8] hidden sm:inline">Cabramatta Lab Bench</span>
                 </div>
 
                 <div class="space-y-4 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                     <p>
-                        <strong class="text-white">4.1 Turnaround Timelines:</strong> Standard mobile screen replacements and battery swaps are ordinarily completed on the spot in approximately <strong class="text-white">30–45 minutes</strong>. Micro-soldering, board jumper recovery, and liquid ultrasonic treatments require between <strong class="text-white">24 to 72 hours</strong> to ensure comprehensive post-thermal burn-in validation.
+                        <strong class="text-[#f5f5f7]">4.1 Turnaround Timelines:</strong> Standard mobile screen replacements and battery swaps are ordinarily completed on the spot in approximately <strong class="text-[#f5f5f7]">30–45 minutes</strong>. Micro-soldering, board jumper recovery, and liquid ultrasonic treatments require between <strong class="text-[#f5f5f7]">24 to 72 hours</strong> to ensure comprehensive post-thermal burn-in validation.
                     </p>
                     <p>
-                        <strong class="text-white">4.2 Notification & Verification:</strong> Upon bench completion, clients receive automated confirmation via SMS or email. The physical collection of any repaired device requires presentation of the workshop claim ticket, matching identification, or verified booking phone number.
+                        <strong class="text-[#f5f5f7]">4.2 Notification & Verification:</strong> Upon bench completion, clients receive automated confirmation via SMS or email. The physical collection of any repaired device requires presentation of the workshop claim ticket, matching identification, or verified booking phone number.
                     </p>
                     <p>
-                        <strong class="text-white">4.3 Uncollected Hardware Policy:</strong> Devices not collected within <strong class="text-white">60 days</strong> of completion notification will incur reasonable storage fees, and after 90 days may be recycled or disposed of in strict accordance with the New South Wales <em class="text-slate-300">Uncollected Goods Act 1995</em> to recover outstanding parts and labor costs.
+                        <strong class="text-[#f5f5f7]">4.3 Uncollected Hardware Policy:</strong> Devices not collected within <strong class="text-[#f5f5f7]">60 days</strong> of completion notification will incur reasonable storage fees, and after 90 days may be recycled or disposed of in strict accordance with the New South Wales <em class="text-[#f5f5f7]">Uncollected Goods Act 1995</em> to recover outstanding parts and labor costs.
                     </p>
                 </div>
             </article>
 
             <!-- Clause 05: Custom Accessories & UV Studio -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[2.5rem] border border-white/10 space-y-5 transition-all duration-300" data-category="custom" id="clause-custom">
-                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="custom" id="clause-custom">
+                <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-400/20 text-sky-400 flex items-center justify-center font-bold text-xs">05</span>
-                        <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                        <span class="text-base font-semibold text-[#7da6d8]">05.</span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f7]">
                             Custom Phone Cases & UV Print Studio Terms
                         </h2>
                     </div>
-                    <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider hidden sm:inline">UV Laser Studio</span>
+                    <span class="text-xs font-medium text-[#94a3b8] hidden sm:inline">UV Laser Studio</span>
                 </div>
 
                 <div class="space-y-4 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                     <p>
-                        <strong class="text-white">5.1 Custom Artwork Authorization:</strong> Clients uploading custom images, photographs, or corporate graphics into our interactive print studio warrant that they possess all required legal rights, copyright permissions, or licenses to reproduce the supplied content.
+                        <strong class="text-[#f5f5f7]">5.1 Custom Artwork Authorization:</strong> Clients uploading custom images, photographs, or corporate graphics into our interactive print studio warrant that they possess all required legal rights, copyright permissions, or licenses to reproduce the supplied content.
                     </p>
                     <p>
-                        <strong class="text-white">5.2 Color Rendering & Alignment:</strong> While our laboratory employs high-definition direct UV inkjet printers on 9H tempered glass and frosted surfaces, slight variances may occur between on-screen RGB digital mockups and final physical CMYK+White UV cured prints due to display color profiles and optical glass refraction.
+                        <strong class="text-[#f5f5f7]">5.2 Color Rendering & Alignment:</strong> While our laboratory employs high-definition direct UV inkjet printers on 9H tempered glass and frosted surfaces, slight variances may occur between on-screen RGB digital mockups and final physical CMYK+White UV cured prints due to display color profiles and optical glass refraction.
                     </p>
                     <p>
-                        <strong class="text-white">5.3 Print Longevity Guarantee:</strong> Our cured UV inks are scratch-resistant, solvent-tested, and guaranteed against peeling or sunlight UV degradation under standard everyday usage. Customized personalized cases are manufactured bespoke to client specifications and cannot be refunded solely for change of mind.
+                        <strong class="text-[#f5f5f7]">5.3 Print Longevity Guarantee:</strong> Our cured UV inks are scratch-resistant, solvent-tested, and guaranteed against peeling or sunlight UV degradation under standard everyday usage. Customized personalized cases are manufactured bespoke to client specifications and cannot be refunded solely for change of mind.
                     </p>
                 </div>
             </article>
 
             <!-- Clause 06: Australian Consumer Law -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[2.5rem] border border-white/10 space-y-5 transition-all duration-300" data-category="acl" id="clause-acl">
-                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="acl" id="clause-acl">
+                <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-400/20 text-sky-400 flex items-center justify-center font-bold text-xs">06</span>
-                        <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                        <span class="text-base font-semibold text-[#7da6d8]">06.</span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f7]">
                             Statutory Guarantees under Australian Consumer Law
                         </h2>
                     </div>
-                    <span class="text-[11px] font-mono text-sky-400 uppercase tracking-wider hidden sm:inline">ACL Compliance</span>
+                    <span class="text-xs font-semibold text-[#7da6d8] hidden sm:inline">ACL Compliance</span>
                 </div>
 
                 <div class="space-y-4 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                     <p>
-                        <strong class="text-white">6.1 Statutory Consumer Guarantees:</strong> Our goods and services come with guarantees that cannot be excluded under the Australian Consumer Law (<em class="text-slate-300">Competition and Consumer Act 2010</em>).
+                        <strong class="text-[#f5f5f7]">6.1 Statutory Consumer Guarantees:</strong> Our goods and services come with guarantees that cannot be excluded under the Australian Consumer Law (<em class="text-[#f5f5f7]">Competition and Consumer Act 2010</em>).
                     </p>
                     <p>
-                        <strong class="text-white">6.2 Major & Minor Failures:</strong> For major failures with the service, you are entitled to cancel your service contract with us and obtain a refund or compensation for its reduced value. You are also entitled to a replacement or refund for a major failure with goods. If a failure with the goods or service does not amount to a major failure, you are entitled to have the failure rectified in a reasonable time.
+                        <strong class="text-[#f5f5f7]">6.2 Major & Minor Failures:</strong> For major failures with the service, you are entitled to cancel your service contract with us and obtain a refund or compensation for its reduced value. You are also entitled to a replacement or refund for a major failure with goods. If a failure with the goods or service does not amount to a major failure, you are entitled to have the failure rectified in a reasonable time.
                     </p>
                     <p>
-                        <strong class="text-white">6.3 Non-Exclusion:</strong> Nothing contained within these Terms and Conditions operates to exclude, restrict, or modify any statutory condition, guarantee, right, or remedy conferred by the Australian Consumer Law or any other applicable Australian Commonwealth or State legislation that cannot be lawfully excluded.
+                        <strong class="text-[#f5f5f7]">6.3 Non-Exclusion:</strong> Nothing contained within these Terms and Conditions operates to exclude, restrict, or modify any statutory condition, guarantee, right, or remedy conferred by the Australian Consumer Law or any other applicable Australian Commonwealth or State legislation that cannot be lawfully excluded.
                     </p>
                 </div>
             </article>
@@ -385,19 +369,18 @@
 
         <!-- 4. Direct Assistance & Contact Callout -->
         <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-8">
-            <div class="liquid-glass-white p-8 sm:p-12 rounded-[2.5rem] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="bg-[#152a4a] p-8 sm:p-12 rounded-[24px] border border-white/15 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="space-y-2 text-center md:text-left">
-                    <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Have Questions?</span>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Need Clarification on Our Terms?</h3>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-[#f5f5f7] tracking-tight">Need Clarification on Our Terms?</h3>
                     <p class="text-sm text-[#94a3b8] max-w-lg">
                         Speak directly with our senior technician at our Cabramatta laboratory. We explain all diagnostic tests and warranties in plain English before touching your device.
                     </p>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-                    <a href="tel:0291234567" class="liquid-btn-secondary px-6 py-3.5 rounded-full font-bold text-sm text-white w-full sm:w-auto text-center shadow-sm">
-                        📞 (02) 9123 4567
+                    <a href="tel:0291234567" class="liquid-btn-secondary px-6 py-3.5 rounded-full font-semibold text-sm w-full sm:w-auto text-center">
+                        (02) 9123 4567
                     </a>
-                    <button onclick="openBookingModal()" class="liquid-btn-primary px-6 py-3.5 rounded-full font-bold text-sm w-full sm:w-auto text-center shadow-sm">
+                    <button onclick="openBookingModal()" class="liquid-btn-primary px-6 py-3.5 rounded-full font-semibold text-sm w-full sm:w-auto text-center">
                         Book Repair Appointment
                     </button>
                 </div>
@@ -407,30 +390,29 @@
     </main>
 
     <!-- Footer -->
-    <footer class="liquid-glass-white rounded-t-[3.5rem] pt-16 pb-12 px-6 sm:px-12 border-b-0 border-x-0 border-t border-white/10 shadow-[0_-15px_40px_rgba(0,0,0,0.4)]">
+    <footer class="bg-[#0f1f38] pt-16 pb-12 px-6 sm:px-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
             <div class="md:col-span-2 space-y-4">
-                <span class="text-xl font-extrabold tracking-tight text-white">
-                    Lee Nguyen <span class="font-normal text-slate-400">Lab</span>
+                <span class="text-xl font-bold tracking-tight text-[#f5f5f7]">
+                    Lee Nguyen <span class="font-normal text-[#7da6d8]">Lab</span>
                 </span>
                 <p class="text-sm text-[#94a3b8] max-w-sm">
                     Professional, component-level technology laboratory serving individuals, educational institutions, and enterprise fleets.
                 </p>
-                <div class="text-xs text-slate-400 space-y-1 pt-2">
-                    <p class="font-bold text-white">Shop Location:</p>
-                    <p class="text-[#94a3b8]">Suite 107, Level 1/54 Park Rd</p>
-                    <p class="text-[#94a3b8]">Cabramatta, NSW 2166, Sydney</p>
+                <div class="text-xs text-[#94a3b8] space-y-1 pt-2">
+                    <p class="font-semibold text-[#f5f5f7]">Shop Location:</p>
+                    <p class="text-[#94a3b8]">Suite 107, Level 1/54 Park Rd, Cabramatta NSW 2166</p>
                 </div>
             </div>
 
             <div>
-                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Operating Hours</h4>
+                <h4 class="text-xs font-semibold text-[#f5f5f7] mb-3">Operating Hours</h4>
                 <ul class="text-sm text-[#94a3b8] space-y-2">
                     <li class="flex justify-between">
                         <span>Monday – Sunday</span>
-                        <span class="font-bold text-white">8:00 AM – 8:00 PM</span>
+                        <span class="font-semibold text-[#f5f5f7]">8:00 AM – 8:00 PM</span>
                     </li>
-                    <li class="flex justify-between text-slate-400">
+                    <li class="flex justify-between text-[#94a3b8]">
                         <span>Open 7 Days</span>
                         <span>Walk-ins & Appointments</span>
                     </li>
@@ -438,41 +420,40 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Direct Contact</h4>
+                <h4 class="text-xs font-semibold text-[#f5f5f7] mb-3">Direct Contact</h4>
                 <div class="space-y-3">
-                    <a href="tel:0291234567" class="block p-3.5 rounded-full liquid-btn-secondary text-center font-bold text-sm text-white shadow-sm">
-                        📞 (02) 9123 4567
+                    <a href="tel:0291234567" class="block p-3.5 rounded-full liquid-btn-secondary text-center font-semibold text-sm">
+                        (02) 9123 4567
                     </a>
-                    <a href="mailto:hello@leenguyenlab.com.au" class="block text-center text-xs text-[#94a3b8] hover:text-white font-medium transition-colors py-1">
+                    <a href="mailto:hello@leenguyenlab.com.au" class="block text-center text-xs text-[#94a3b8] hover:text-[#7da6d8] font-medium transition-colors py-1">
                         hello@leenguyenlab.com.au
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-medium">
-            <p>© 2026 Lee Nguyen Lab. All rights reserved. Cabramatta, Sydney.</p>
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#94a3b8] font-medium">
+            <p>© 2026 Lee Nguyen Lab. All rights reserved. Suite 107, Level 1/54 Park Rd, Cabramatta NSW 2166.</p>
             <div class="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-0 justify-center">
-                <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Home Overview</a>
-                <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Repair Services</a>
-                <a href="accessories.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Accessories</a>
-                <a href="about.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">About Us</a>
-                <a href="terms.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-sky-400 border-sky-400/40">Terms & Conditions</a>
+                <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Home Overview</a>
+                <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Repair Services</a>
+                <a href="accessories.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Accessories</a>
+                <a href="about.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">About Us</a>
+                <a href="terms.html" class="liquid-btn-primary text-xs px-4 py-1.5 rounded-full font-medium">Terms & Conditions</a>
             </div>
         </div>
     </footer>
 
     <!-- Booking Modal -->
     <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
+        <div class="absolute inset-0 bg-[#060e1c]/70 backdrop-blur-sm transition-opacity" onclick="closeBookingModal()"></div>
 
-        <div class="relative liquid-glass-white max-w-lg w-full rounded-[2.5rem] p-6 sm:p-10 shadow-2xl border border-white/10 z-10 animate-in fade-in zoom-in-95 duration-200">
-            <button onclick="closeBookingModal()" class="absolute top-6 right-6 liquid-btn-icon w-8 h-8 rounded-full text-slate-300 hover:text-white" aria-label="Close modal">
+        <div class="relative liquid-glass-white max-w-lg w-full rounded-[24px] p-6 sm:p-10 shadow-2xl border border-white/15 z-10 animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 liquid-btn-icon w-8 h-8 rounded-full" aria-label="Close modal">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Service Inquiry</span>
-            <h3 class="text-2xl font-extrabold text-white tracking-tight mt-1 mb-2">Schedule Your Lab Request</h3>
+            <h3 class="text-2xl font-bold text-[#f5f5f7] tracking-tight mb-2">Schedule Your Lab Request</h3>
             <p class="text-xs sm:text-sm text-[#94a3b8] mb-6 font-medium">Send your details directly to our Sydney queue. We confirm turnaround time immediately.</p>
 
             <form action="https://formsubmit.co/adrian@leenguyenlab.com.au" method="POST" class="space-y-4">
@@ -480,32 +461,32 @@
                 <input type="hidden" name="_captcha" value="false">
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Your Full Name</label>
+                    <label class="block text-xs font-semibold text-[#f5f5f7] mb-1.5">Your Full Name</label>
                     <input type="text" name="name" required placeholder="e.g. David Harrison" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Phone Number</label>
+                        <label class="block text-xs font-semibold text-[#f5f5f7] mb-1.5">Phone Number</label>
                         <input type="tel" name="phone" required placeholder="0400 000 000" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Email Address</label>
+                        <label class="block text-xs font-semibold text-[#f5f5f7] mb-1.5">Email Address</label>
                         <input type="email" name="email" required placeholder="name@domain.com" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Device Model</label>
+                    <label class="block text-xs font-semibold text-[#f5f5f7] mb-1.5">Device Model</label>
                     <input type="text" id="modal-device" name="device_model" required placeholder="e.g. iPhone 18 Pro Max" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Question or Service Required</label>
+                    <label class="block text-xs font-semibold text-[#f5f5f7] mb-1.5">Question or Service Required</label>
                     <textarea id="modal-issue" name="parts_or_issue" rows="2" required placeholder="e.g. Warranty inquiry, Screen repair quote" class="w-full liquid-input p-3.5 text-sm outline-none custom-scroll font-medium"></textarea>
                 </div>
 
-                <button type="submit" class="w-full liquid-btn-primary font-bold py-3.5 rounded-full mt-2 text-sm">
+                <button type="submit" class="w-full liquid-btn-primary font-semibold py-3.5 rounded-full mt-2 text-sm">
                     Confirm & Send Booking
                 </button>
             </form>
@@ -515,7 +496,6 @@
     <!-- Terms Tab Switching & Live Filter Engine -->
     <script>
         function switchTermsTab(category, btnElement) {
-            // Update active state on tab buttons
             const buttons = document.querySelectorAll('.terms-tab-btn');
             buttons.forEach(b => b.classList.remove('active'));
             if (btnElement) {
@@ -538,7 +518,6 @@
             const term = (query || '').toLowerCase().trim();
             const cards = document.querySelectorAll('.terms-clause-card');
 
-            // Reset tab button highlight to 'All'
             const allBtn = document.querySelector('.terms-tab-btn');
             if (allBtn && term !== '') {
                 document.querySelectorAll('.terms-tab-btn').forEach(b => b.classList.remove('active'));
