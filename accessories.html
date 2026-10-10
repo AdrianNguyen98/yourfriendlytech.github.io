@@ -23,15 +23,10 @@
                         apple: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
                     },
                     colors: {
-                        appleDark: '#f5f5f7',
-                        appleGray: '#4b0082',
-                        appleMuted: '#c4b5fd',
+                        appleDark: '#1d1d1f',
+                        appleGray: '#f5f5f7',
+                        appleMuted: '#6e6e73',
                         appleBlue: '#0071e3',
-                        appleIndigo: '#4b0082',
-                        appleNavy: '#4b0082',
-                        appleIndigoCard: '#590a99',
-                        appleIndigoLight: '#6d1cb8',
-                        appleIndigoDark: '#35005c',
                     }
                 }
             }
@@ -44,7 +39,7 @@
     <!-- External Application Logic -->
     <script src="script.js" defer></script>
 </head>
-<body class="relative text-[#f5f5f7] bg-[#4b0082] selection:bg-indigo-500/40 selection:text-white min-h-screen">
+<body class="relative text-[#1d1d1f] bg-[#fbfbfd] selection:bg-slate-200 selection:text-black min-h-screen">
 
     <!-- Interactive Dynamic Canvas: Floating Particle Network -->
     <canvas id="particle-canvas"></canvas>
@@ -54,57 +49,57 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html#hero" class="flex items-center cursor-pointer group">
-                    <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-white group-hover:opacity-80 transition-all">
-                        Lee Nguyen <span class="logo-subtitle font-normal text-slate-400">Lab</span>
+                    <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-[#1d1d1f] group-hover:opacity-80 transition-all">
+                        Lee Nguyen <span class="logo-subtitle font-normal text-[#6e6e73]">Lab</span>
                     </span>
                 </a>
 
                 <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold">
-                    <a href="index.html#hero" class="text-[#94a3b8] hover:text-white transition-colors">Overview</a>
-                    <a href="services.html" class="text-[#94a3b8] hover:text-white transition-colors">Repair Services</a>
+                    <a href="index.html#hero" class="text-[#515154] hover:text-black transition-colors">Overview</a>
+                    <a href="services.html" class="text-[#515154] hover:text-black transition-colors">Repair Services</a>
                     
                     <!-- Accessories Dropdown Menu (Active) -->
                     <div class="relative group">
-                        <a href="accessories.html" class="flex items-center space-x-1 text-sky-400 font-bold border-b-2 border-sky-400 pb-0.5 transition-colors py-2">
+                        <a href="accessories.html" class="flex items-center space-x-1 text-appleBlue font-bold border-b-2 border-appleBlue pb-0.5 transition-colors py-2">
                             <span>Accessories</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </a>
                         <div class="absolute -left-4 top-full pt-2 w-72 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
-                            <div class="apple-nav-dropdown rounded-2xl p-2.5 shadow-2xl border border-white/10 space-y-1 bg-[#4b0082]/95 backdrop-blur-2xl">
-                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Custom Cases</span>
-                                    <span class="block text-[10px] text-slate-400 font-normal">UV Laser Print Studio</span>
+                            <div class="apple-nav-dropdown rounded-2xl p-2.5 shadow-2xl border border-white/95 space-y-1 bg-white/95 backdrop-blur-2xl">
+                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Custom Cases</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">UV Laser Print Studio</span>
                                 </a>
-                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Screen Protectors</span>
-                                    <span class="block text-[10px] text-slate-400 font-normal">9H Tempered & Privacy</span>
+                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Screen Protectors</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">9H Tempered & Privacy</span>
                                 </a>
-                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Lanyards</span>
-                                    <span class="block text-[10px] text-slate-400 font-normal">Braided cords & wrist straps</span>
+                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Lanyards</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">Braided cords & wrist straps</span>
                                 </a>
-                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Chargers, Cables & Powerbanks</span>
-                                    <span class="block text-[10px] text-slate-400 font-normal">GaN 65W & MagSafe packs</span>
+                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Chargers, Cables & Powerbanks</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">GaN 65W & MagSafe packs</span>
                                 </a>
-                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl hover:bg-white/[0.08] transition-colors">
-                                    <span class="block font-bold text-xs text-white">Stickers</span>
-                                    <span class="block text-[10px] text-slate-400 font-normal">Waterproof vinyl tech decals</span>
+                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl hover:bg-black/[0.06] transition-colors">
+                                    <span class="block font-bold text-xs text-[#1d1d1f]">Stickers</span>
+                                    <span class="block text-[10px] text-[#86868b] font-normal">Waterproof vinyl tech decals</span>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <a href="index.html#showcase" class="text-[#94a3b8] hover:text-white transition-colors">Workshop</a>
-                    <a href="about.html" class="text-[#94a3b8] hover:text-white transition-colors">About Us</a>
+                    <a href="index.html#showcase" class="text-[#515154] hover:text-black transition-colors">Workshop</a>
+                    <a href="about.html" class="text-[#515154] hover:text-black transition-colors">About Us</a>
                 </nav>
 
                 <div class="flex items-center space-x-3">
                     <!-- Shopping Cart Drawer Trigger Button with Live Counter -->
-                    <button onclick="openCartDrawer()" class="relative liquid-btn-secondary text-xs font-bold px-3.5 sm:px-4 py-2.5 rounded-full flex items-center space-x-2 text-white hover:bg-white/[0.1] transition-all" aria-label="View Cart">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button onclick="openCartDrawer()" class="relative liquid-btn-secondary text-xs font-bold px-3.5 sm:px-4 py-2.5 rounded-full flex items-center space-x-2 text-[#1d1d1f] hover:bg-black/[0.05] transition-all" aria-label="View Cart">
+                        <svg class="w-4 h-4 text-[#1d1d1f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                         </svg>
                         <span class="hidden sm:inline font-semibold">Cart</span>
@@ -114,7 +109,7 @@
                     <button onclick="openBookingModal()" class="hidden sm:inline-flex liquid-btn-primary text-xs font-bold px-5 py-2.5 rounded-full">
                         Book Repair
                     </button>
-                    <button id="hamburger-btn" class="md:hidden liquid-btn-icon text-white p-2.5 rounded-full focus:outline-none" aria-label="Toggle Navigation">
+                    <button id="hamburger-btn" class="md:hidden liquid-btn-icon text-[#1d1d1f] p-2.5 rounded-full focus:outline-none" aria-label="Toggle Navigation">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -124,27 +119,27 @@
         </div>
 
         <!-- Mobile Menu Dropdown Bar -->
-        <div id="mobile-menu" class="hidden md:hidden w-full border-t border-white/10 bg-[#4b0082]/95 backdrop-blur-2xl px-6 py-5 space-y-3">
-            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Overview</a>
-            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Repair Services</a>
+        <div id="mobile-menu" class="hidden md:hidden w-full border-t border-black/[0.08] bg-white/95 backdrop-blur-2xl px-6 py-5 space-y-3">
+            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">Overview</a>
+            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">Repair Services</a>
             
             <!-- Mobile Accessories Submenu -->
             <div>
-                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-bold text-sky-400 py-1">
+                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-bold text-appleBlue py-1">
                     <span>Accessories</span>
                     <svg id="mobile-acc-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-white/10 space-y-2 py-1 mt-1">
-                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Custom Cases</a>
-                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Screen Protectors</a>
-                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Lanyards</a>
-                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Chargers, Cables & Powerbanks</a>
-                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Stickers</a>
+                <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-black/[0.1] space-y-2 py-1 mt-1">
+                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Custom Cases</a>
+                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Screen Protectors</a>
+                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Lanyards</a>
+                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Chargers, Cables & Powerbanks</a>
+                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] py-1">Stickers</a>
                 </div>
             </div>
 
-            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">Workshop</a>
-            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-white">About Us</a>
+            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">Workshop</a>
+            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#515154] hover:text-black">About Us</a>
             <button onclick="openBookingModal()" class="w-full text-center liquid-btn-primary text-sm font-bold py-3.5 rounded-full mt-2">
                Book a Repair
             </button>
@@ -156,18 +151,18 @@
 
         <!-- 1. Apple Store Hero Banner & Interactive Filter Bar -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-black/[0.08]">
                 <div>
-                    <div class="inline-flex items-center space-x-2 mb-3 bg-blue-500/10 border border-blue-400/20 px-3.5 py-1.5 rounded-full shadow-sm">
-                        <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
-                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400">
+                    <div class="inline-flex items-center space-x-2 mb-3 bg-appleBlue/10 border border-appleBlue/20 px-3.5 py-1.5 rounded-full shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-appleBlue animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-appleBlue">
                             Lee Nguyen Lab Store · Cabramatta
                         </span>
                     </div>
-                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#1d1d1f] leading-tight">
                         Accessories & Gear.
                     </h1>
-                    <p class="text-base sm:text-lg text-[#94a3b8] mt-2 max-w-2xl font-medium">
+                    <p class="text-base sm:text-lg text-[#6e6e73] mt-2 max-w-2xl font-medium">
                         Everyday protection, high-voltage power, and custom UV print craftsmanship — bench tested in Sydney.
                     </p>
                 </div>
@@ -176,7 +171,7 @@
                 <div class="w-full md:w-80">
                     <div class="relative">
                         <input type="text" id="accessory-search-input" oninput="searchAccessories(this.value)" placeholder="Search accessories..." class="w-full liquid-input py-2.5 pl-10 pr-4 text-xs font-medium outline-none rounded-full">
-                        <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-[#86868b] absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                     </div>
@@ -186,27 +181,27 @@
             <!-- E-Commerce Category Filter Pills -->
             <div class="flex items-center justify-between flex-wrap gap-3 pt-6">
                 <div class="flex flex-wrap gap-2" id="category-filter-pills">
-                    <button type="button" onclick="filterAccessories('all', this)" class="filter-pill-btn active liquid-btn-secondary text-xs font-bold px-4 py-2 rounded-full text-white">
+                    <button type="button" onclick="filterAccessories('all', this)" class="filter-pill-btn active liquid-btn-secondary text-xs font-bold px-4 py-2 rounded-full text-[#1d1d1f]">
                         All Items (15)
                     </button>
-                    <button type="button" onclick="filterAccessories('custom-cases', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#94a3b8]">
+                    <button type="button" onclick="filterAccessories('custom-cases', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#515154]">
                         🎨 Custom Cases (3)
                     </button>
-                    <button type="button" onclick="filterAccessories('screen-protectors', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#94a3b8]">
+                    <button type="button" onclick="filterAccessories('screen-protectors', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#515154]">
                         🛡️ Screen Protectors (4)
                     </button>
-                    <button type="button" onclick="filterAccessories('lanyards', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#94a3b8]">
+                    <button type="button" onclick="filterAccessories('lanyards', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#515154]">
                         📿 Lanyards & Straps (3)
                     </button>
-                    <button type="button" onclick="filterAccessories('chargers-power', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#94a3b8]">
+                    <button type="button" onclick="filterAccessories('chargers-power', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#515154]">
                         ⚡ Chargers & Power (3)
                     </button>
-                    <button type="button" onclick="filterAccessories('stickers', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#94a3b8]">
+                    <button type="button" onclick="filterAccessories('stickers', this)" class="filter-pill-btn liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full text-[#515154]">
                         ✨ Stickers (2)
                     </button>
                 </div>
 
-                <div class="hidden lg:flex items-center space-x-4 text-xs text-slate-400 font-medium">
+                <div class="hidden lg:flex items-center space-x-4 text-xs text-[#86868b] font-medium">
                     <span class="flex items-center space-x-1.5">
                         <span class="text-emerald-500 font-bold">●</span>
                         <span>In Stock at Suite 107 Cabramatta</span>
@@ -221,17 +216,17 @@
         <!-- 2. CATEGORY: CUSTOM CASES (With E-Commerce Cards & Custom Studio)   -->
         <!-- =================================================================== -->
         <section id="custom-cases" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" data-category="custom-cases">
-            <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-black/[0.06]">
                 <div>
                     <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Category 01</span>
-                    <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+                    <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f] mt-1">
                         Custom Phone Cases
                     </h2>
-                    <p class="text-xs sm:text-sm text-[#94a3b8] mt-1">
+                    <p class="text-xs sm:text-sm text-[#6e6e73] mt-1">
                         Optical 9H tempered glass backs, shock-absorbing TPU frames, and UV laser printing technology.
                     </p>
                 </div>
-                <a href="#custom-studio-bench" class="hidden sm:inline-flex items-center space-x-1.5 text-xs font-bold text-sky-400 hover:underline">
+                <a href="#custom-studio-bench" class="hidden sm:inline-flex items-center space-x-1.5 text-xs font-bold text-appleBlue hover:underline">
                     <span>Jump to 3D Print Studio</span>
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </a>
@@ -244,39 +239,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="custom-cases">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 ★ Best Seller
                             </span>
                             <img src="images/products/case_clear.jpg" alt="Liquid Clear Tempered Custom Case" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.9 (164)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.9 (164)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">Ready to Print</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Liquid Clear Tempered Case
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Ultra-clear 9H scratch-resistant tempered backplate with shock-absorbing TPU air-cushion bumpers. Anti-yellowing resin technology.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Compatibility:</span>
-                                <span class="font-semibold text-white">iPhone 18 / 17 / 16 / Galaxy S25</span>
+                                <span class="font-semibold text-[#1d1d1f]">iPhone 18 / 17 / 16 / Galaxy S25</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Print Finish:</span>
-                                <span class="font-semibold text-white">Laser High-Gloss Direct UV</span>
+                                <span class="font-semibold text-[#1d1d1f]">Laser High-Gloss Direct UV</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Retail Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$49.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Retail Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$49.00</span>
                         </div>
                         <div class="flex items-center space-x-2">
                             <a href="#custom-studio-bench" onclick="setCaseFinish('clear')" class="liquid-btn-secondary text-xs font-semibold px-3 py-2 rounded-full" title="Customize in Studio">
@@ -293,39 +288,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="custom-cases">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 Anti-Fingerprint
                             </span>
                             <img src="images/products/case_matte.jpg" alt="Frosted Matte Silk Custom Case" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.8 (98)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.8 (98)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">Ready to Print</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Frosted Matte Silk Custom Case
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Velvety frosted smoky matte finish with micro-etched AG surface. Completely repels oily fingerprints and sweaty hand smudges.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Compatibility:</span>
-                                <span class="font-semibold text-white">All Major Flagship Models</span>
+                                <span class="font-semibold text-[#1d1d1f]">All Major Flagship Models</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Touch Feel:</span>
-                                <span class="font-semibold text-white">Silky Satin Cashmere Texture</span>
+                                <span class="font-semibold text-[#1d1d1f]">Silky Satin Cashmere Texture</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Retail Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$49.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Retail Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$49.00</span>
                         </div>
                         <div class="flex items-center space-x-2">
                             <a href="#custom-studio-bench" onclick="setCaseFinish('matte')" class="liquid-btn-secondary text-xs font-semibold px-3 py-2 rounded-full" title="Customize in Studio">
@@ -347,34 +342,34 @@
                             </span>
                             <img src="images/products/case_magsafe.jpg" alt="MagSafe Armor Rugged Case" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">5.0 (215)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">5.0 (215)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">Ready to Print</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             MagSafe Armor Rugged Case
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Industrial 38-magnet N52 neodymium array engineered for high-speed wireless charging and rock-solid magnetic car mounts. 10ft drop rated.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Drop Standard:</span>
-                                <span class="font-semibold text-white">MIL-STD-810H Certified</span>
+                                <span class="font-semibold text-[#1d1d1f]">MIL-STD-810H Certified</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Magnet Ring:</span>
-                                <span class="font-semibold text-white">N52 Super Neodymium</span>
+                                <span class="font-semibold text-[#1d1d1f]">N52 Super Neodymium</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Retail Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$59.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Retail Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$59.00</span>
                         </div>
                         <div class="flex items-center space-x-2">
                             <a href="#custom-studio-bench" onclick="setCaseFinish('magsafe')" class="liquid-btn-secondary text-xs font-semibold px-3 py-2 rounded-full" title="Customize in Studio">
@@ -390,18 +385,18 @@
             </div>
 
             <!-- KEEP THE CURRENT CUSTOM PRINT STUDIO BENCH -->
-            <div id="custom-studio-bench" class="liquid-glass-white rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-2xl border border-white/10">
+            <div id="custom-studio-bench" class="liquid-glass-white rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-xl border border-white/95">
                 <div class="reveal-element text-center mb-8">
                     <div class="inline-flex items-center space-x-2 mb-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full shadow-sm">
                         <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-700">
                             Interactive Custom Print Studio
                         </span>
                     </div>
-                    <h3 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+                    <h3 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f]">
                         Design & Preview Your Case Live
                     </h3>
-                    <p class="text-xs sm:text-sm text-[#94a3b8] max-w-xl mx-auto mt-2">
+                    <p class="text-xs sm:text-sm text-[#6e6e73] max-w-xl mx-auto mt-2">
                         Upload any photo, portrait, or artwork. Watch it map directly to your camera bump in real time.
                     </p>
                 </div>
@@ -413,7 +408,7 @@
                         
                         <!-- 1. Phone Model Selector -->
                         <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">
+                            <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
                                 1 · Select Your Phone Model
                             </label>
                             <select id="case-phone-model" class="w-full liquid-input text-sm sm:text-base font-semibold p-4 outline-none cursor-pointer">
@@ -498,17 +493,17 @@
 
                         <!-- 2. Case Type & Material Selection -->
                         <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">
+                            <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
                                 2 · Choose Glass Finish & Protection
                             </label>
                             <div class="grid grid-cols-3 gap-2">
                                 <button type="button" onclick="setCaseFinish('clear')" id="case-mat-clear" class="liquid-tier-btn active py-3 px-2 sm:px-3 text-center">
                                     <span class="block text-xs sm:text-sm font-bold">Liquid Clear</span>
-                                    <span class="block text-[10px] text-slate-400 mt-0.5 apple-price">9H Tempered · A$49</span>
+                                    <span class="block text-[10px] text-[#86868b] mt-0.5 apple-price">9H Tempered · A$49</span>
                                 </button>
                                 <button type="button" onclick="setCaseFinish('matte')" id="case-mat-matte" class="liquid-tier-btn py-3 px-2 sm:px-3 text-center">
                                     <span class="block text-xs sm:text-sm font-bold">Frosted Matte</span>
-                                    <span class="block text-[10px] text-slate-400 mt-0.5 apple-price">Silky Finish · A$49</span>
+                                    <span class="block text-[10px] text-[#86868b] mt-0.5 apple-price">Silky Finish · A$49</span>
                                 </button>
                                 <button type="button" onclick="setCaseFinish('magsafe')" id="case-mat-magsafe" class="liquid-tier-btn py-3 px-2 sm:px-3 text-center">
                                     <span class="block text-xs sm:text-sm font-bold">MagSafe Armor</span>
@@ -519,10 +514,10 @@
 
                         <!-- 3. Artwork Upload & Presets -->
                         <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">
+                            <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-2.5">
                                 3 · Upload Photo or Artwork
                             </label>
-                            <div class="case-upload-dropzone p-5 sm:p-6 text-center cursor-pointer relative rounded-2xl border-2 border-dashed border-white/20 hover:border-sky-400/50 transition-colors bg-white/[0.03]" id="case-dropzone">
+                            <div class="case-upload-dropzone p-5 sm:p-6 text-center cursor-pointer relative rounded-2xl border-2 border-dashed border-black/[0.12] hover:border-appleBlue/50 transition-colors bg-white/50" id="case-dropzone">
                                 <input type="file" id="case-file-input" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full">
                                 <div class="space-y-2 pointer-events-none">
                                     <div class="w-10 h-10 mx-auto rounded-full bg-appleBlue/10 flex items-center justify-center text-appleBlue">
@@ -530,10 +525,10 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                         </svg>
                                     </div>
-                                    <p class="text-xs sm:text-sm font-bold text-white">
+                                    <p class="text-xs sm:text-sm font-bold text-[#1d1d1f]">
                                         Click to browse or drop high-res image here
                                     </p>
-                                    <p class="text-[11px] text-[#94a3b8]">
+                                    <p class="text-[11px] text-[#86868b]">
                                         Supports PNG, JPG, HEIC up to 30MB · Laser Direct UV Print
                                     </p>
                                 </div>
@@ -541,39 +536,39 @@
 
                             <!-- Sample Artwork Quick Presets -->
                             <div class="mt-3 flex items-center justify-between">
-                                <div class="text-xs text-slate-400 flex flex-wrap items-center gap-2 pt-1">
+                                <div class="text-xs text-[#6e6e73] flex flex-wrap items-center gap-2 pt-1">
                                     <span>Try presets:</span>
-                                    <button type="button" onclick="loadSampleCaseArt('spatial')" class="text-white hover:underline font-semibold">Spatial Glass</button>
+                                    <button type="button" onclick="loadSampleCaseArt('spatial')" class="text-[#1d1d1f] hover:underline font-semibold">Spatial Glass</button>
                                     <span>·</span>
-                                    <button type="button" onclick="loadSampleCaseArt('marble')" class="text-[#94a3b8] hover:text-white hover:underline font-medium">Minimal Marble</button>
+                                    <button type="button" onclick="loadSampleCaseArt('marble')" class="text-[#515154] hover:underline font-medium">Minimal Marble</button>
                                     <span>·</span>
-                                    <button type="button" onclick="loadSampleCaseArt('obsidian')" class="text-[#94a3b8] hover:text-white hover:underline font-medium">Obsidian Wave</button>
+                                    <button type="button" onclick="loadSampleCaseArt('obsidian')" class="text-[#515154] hover:underline font-medium">Obsidian Wave</button>
                                     <span>·</span>
-                                    <button type="button" onclick="loadSampleCaseArt('blueprint')" class="text-[#94a3b8] hover:text-white hover:underline font-medium">Silicon Blueprint</button>
+                                    <button type="button" onclick="loadSampleCaseArt('blueprint')" class="text-[#515154] hover:underline font-medium">Silicon Blueprint</button>
                                 </div>
                             </div>
                         </div>
 
                         <!-- 4. Interactive Adjustments (Zoom & MagSafe Toggle) -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
                             <div>
-                                <div class="flex justify-between text-xs text-slate-300 mb-1.5">
+                                <div class="flex justify-between text-xs text-[#6e6e73] mb-1.5">
                                     <span>Image Zoom / Scale</span>
-                                    <span id="case-zoom-val" class="font-semibold text-white apple-price">100%</span>
+                                    <span id="case-zoom-val" class="font-semibold text-[#1d1d1f] apple-price">100%</span>
                                 </div>
                                 <input type="range" id="case-zoom-range" min="50" max="220" value="100" class="w-full accent-appleBlue cursor-pointer">
                             </div>
                             <div class="flex items-center justify-between sm:justify-end sm:space-x-3 pt-2 sm:pt-0">
-                                <label for="case-magsafe-toggle" class="text-xs text-slate-300 cursor-pointer font-medium">Show MagSafe Ring</label>
+                                <label for="case-magsafe-toggle" class="text-xs text-[#515154] cursor-pointer font-medium">Show MagSafe Ring</label>
                                 <input type="checkbox" id="case-magsafe-toggle" class="liquid-checkbox">
                             </div>
                         </div>
 
                         <!-- 5. Order Action Bar -->
-                        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="pt-4 border-t border-black/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div>
-                                <span class="text-xs text-slate-400 block">Custom Studio Configuration:</span>
-                                <div class="text-2xl font-bold text-white apple-price" id="case-total-price">A$49.00</div>
+                                <span class="text-xs text-[#6e6e73] block">Custom Studio Configuration:</span>
+                                <div class="text-2xl font-bold text-[#1d1d1f] apple-price" id="case-total-price">A$49.00</div>
                             </div>
                             <div class="flex flex-wrap sm:flex-nowrap gap-2.5 w-full sm:w-auto">
                                 <button type="button" onclick="downloadCaseMockup()" class="liquid-btn-secondary text-xs font-semibold px-4 py-3 rounded-full flex-1 sm:flex-initial text-center">
@@ -589,7 +584,7 @@
 
                     <!-- Right Column: Interactive Realistic Case Preview (5 Cols) -->
                     <div class="lg:col-span-5 flex flex-col items-center justify-center">
-                        <span class="text-[11px] font-mono uppercase tracking-widest text-slate-400 mb-3">Live Interactive Glass Mockup</span>
+                        <span class="text-[11px] font-mono uppercase tracking-widest text-[#6e6e73] mb-3">Live Interactive Glass Mockup</span>
                         
                         <!-- Realistic Phone Case Shell Mockup -->
                         <div class="case-mockup-frame relative" id="case-mockup-container">
@@ -701,7 +696,7 @@
 
                         <!-- Live Details Indicator -->
                         <div class="mt-4 text-center">
-                            <span id="case-preview-badge" class="text-xs font-semibold text-white bg-white/[0.04] border border-white/10 px-3.5 py-1.5 rounded-full">
+                            <span id="case-preview-badge" class="text-xs font-semibold text-[#1d1d1f] bg-black/[0.04] border border-black/[0.08] px-3.5 py-1.5 rounded-full">
                                 iPhone 18 Pro Max · Liquid Clear Glass
                             </span>
                         </div>
@@ -714,13 +709,13 @@
         <!-- =================================================================== -->
         <!-- 3. CATEGORY: SCREEN & CAMERA PROTECTORS                             -->
         <!-- =================================================================== -->
-        <section id="screen-protectors" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10" data-category="screen-protectors">
-            <div class="mb-8 pb-4 border-b border-white/10">
+        <section id="screen-protectors" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-black/[0.08]" data-category="screen-protectors">
+            <div class="mb-8 pb-4 border-b border-black/[0.06]">
                 <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Category 02</span>
-                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f] mt-1">
                     Screen & Camera Protectors
                 </h2>
-                <p class="text-xs sm:text-sm text-[#94a3b8] mt-1">
+                <p class="text-xs sm:text-sm text-[#6e6e73] mt-1">
                     Ultra-hard 9H sapphire tempered glass, bilateral privacy polarization, and CNC titanium lens rings. Complimentary dust-free installation in-store.
                 </p>
             </div>
@@ -732,39 +727,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="screen-protectors">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 Free Bench Install
                             </span>
                             <img src="images/products/screen_sapphire.jpg" alt="9H Sapphire Tempered Glass Shield" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.9 (310)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.9 (310)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-base text-white group-hover:text-appleBlue transition-colors">
+                        <h3 class="font-bold text-base text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             9H Sapphire Tempered Glass
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Full-coverage 2.5D arc curved edge, electroplated oleophobic oil-repellent layer, and 99.9% optical crystal clarity.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Hardness:</span>
-                                <span class="font-semibold text-white">9H Sapphire Mohs Scale</span>
+                                <span class="font-semibold text-[#1d1d1f]">9H Sapphire Mohs Scale</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>In-Store:</span>
-                                <span class="font-semibold text-white">Free Dust-Free Alignment</span>
+                                <span class="font-semibold text-[#1d1d1f]">Free Dust-Free Alignment</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-lg font-bold text-white apple-price">A$25.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-lg font-bold text-[#1d1d1f] apple-price">A$25.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'screen_sapphire', title: '9H Sapphire Tempered Glass Shield', variant: 'Universal Fit · Free Bench Install', price: 25, image: 'images/products/screen_sapphire.jpg', category: 'screen-protectors'})" class="liquid-btn-primary text-xs font-bold px-3.5 py-2 rounded-full">
                             Add to Cart
@@ -776,39 +771,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="screen-protectors">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 28° Anti-Peep
                             </span>
                             <img src="images/products/screen_privacy.jpg" alt="28° Anti-Peep Privacy Polarized Glass" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.8 (182)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.8 (182)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-base text-white group-hover:text-appleBlue transition-colors">
+                        <h3 class="font-bold text-base text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             28° Anti-Peep Privacy Glass
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Bilateral micro-louver polarization. Blurs display to side onlookers while maintaining ultra-sharp clarity straight on.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Privacy Angle:</span>
-                                <span class="font-semibold text-white">28-Degree Bilateral Louver</span>
+                                <span class="font-semibold text-[#1d1d1f]">28-Degree Bilateral Louver</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Clarity:</span>
-                                <span class="font-semibold text-white">True-Color HD Head-on</span>
+                                <span class="font-semibold text-[#1d1d1f]">True-Color HD Head-on</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-lg font-bold text-white apple-price">A$30.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-lg font-bold text-[#1d1d1f] apple-price">A$30.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'screen_privacy', title: '28° Anti-Peep Privacy Polarized Glass', variant: 'Anti-Spy Shield · Free Install', price: 30, image: 'images/products/screen_privacy.jpg', category: 'screen-protectors'})" class="liquid-btn-primary text-xs font-bold px-3.5 py-2 rounded-full">
                             Add to Cart
@@ -820,39 +815,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="screen-protectors">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 Gaming Satin
                             </span>
                             <img src="images/products/screen_matte.jpg" alt="Matte Silk Gaming Anti-Glare Shield" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.9 (145)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.9 (145)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-base text-white group-hover:text-appleBlue transition-colors">
+                        <h3 class="font-bold text-base text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Matte Silk Gaming Shield
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Micro-etched anti-glare finish with zero fingerprint smudge retention. Silky smooth glide for precision touchscreen mobile gaming.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Surface:</span>
-                                <span class="font-semibold text-white">AG Silky Micro-Etched</span>
+                                <span class="font-semibold text-[#1d1d1f]">AG Silky Micro-Etched</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Smudge:</span>
-                                <span class="font-semibold text-white">100% Anti-Fingerprint</span>
+                                <span class="font-semibold text-[#1d1d1f]">100% Anti-Fingerprint</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-lg font-bold text-white apple-price">A$30.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-lg font-bold text-[#1d1d1f] apple-price">A$30.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'screen_matte', title: 'Matte Silk Gaming Anti-Glare Shield', variant: 'Satin Gaming Glass · Free Install', price: 30, image: 'images/products/screen_matte.jpg', category: 'screen-protectors'})" class="liquid-btn-primary text-xs font-bold px-3.5 py-2 rounded-full">
                             Add to Cart
@@ -864,39 +859,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="screen-protectors">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 Aviation Alloy
                             </span>
                             <img src="images/products/lens_rings.jpg" alt="Titanium Alloy Camera Lens Rings" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">5.0 (126)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">5.0 (126)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-base text-white group-hover:text-appleBlue transition-colors">
+                        <h3 class="font-bold text-base text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Titanium Alloy Lens Rings
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Individual CNC aircraft-grade titanium protective rings with AR anti-reflective coating. Defends camera bumps without flash flare.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Material:</span>
-                                <span class="font-semibold text-white">Grade 5 Titanium + AR Glass</span>
+                                <span class="font-semibold text-[#1d1d1f]">Grade 5 Titanium + AR Glass</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Optics:</span>
-                                <span class="font-semibold text-white">Zero Flare / 99.8% Light</span>
+                                <span class="font-semibold text-[#1d1d1f]">Zero Flare / 99.8% Light</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-lg font-bold text-white apple-price">A$20.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-lg font-bold text-[#1d1d1f] apple-price">A$20.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'lens_rings', title: 'Titanium Alloy Camera Lens Rings', variant: 'Space Gray / Titanium Natural', price: 20, image: 'images/products/lens_rings.jpg', category: 'screen-protectors'})" class="liquid-btn-primary text-xs font-bold px-3.5 py-2 rounded-full">
                             Add to Cart
@@ -910,13 +905,13 @@
         <!-- =================================================================== -->
         <!-- 4. CATEGORY: LANYARDS & STRAPS                                      -->
         <!-- =================================================================== -->
-        <section id="lanyards" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10" data-category="lanyards">
-            <div class="mb-8 pb-4 border-b border-white/10">
+        <section id="lanyards" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-black/[0.08]" data-category="lanyards">
+            <div class="mb-8 pb-4 border-b border-black/[0.06]">
                 <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Category 03</span>
-                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f] mt-1">
                     Phone Lanyards & Straps
                 </h2>
-                <p class="text-xs sm:text-sm text-[#94a3b8] mt-1">
+                <p class="text-xs sm:text-sm text-[#6e6e73] mt-1">
                     Hands-free ergonomics. Climbing-grade braided crossbody cords, liquid silicone wristlets, and ultra-thin universal anchor tabs.
                 </p>
             </div>
@@ -928,39 +923,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="lanyards">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 Climbing Grade
                             </span>
                             <img src="images/products/lanyard_crossbody.jpg" alt="Braided Crossbody Rope Lanyard" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.9 (88)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.9 (88)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Braided Crossbody Rope Lanyard
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             8mm heavy-duty climbing cord with electroplated zinc alloy quick-release carabiners, rotary swivel locks, and adjustable length slider.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Cord Diameter:</span>
-                                <span class="font-semibold text-white">8mm Heavy-Duty Paracord</span>
+                                <span class="font-semibold text-[#1d1d1f]">8mm Heavy-Duty Paracord</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Hardware:</span>
-                                <span class="font-semibold text-white">Matte Gunmetal Alloy Carabiner</span>
+                                <span class="font-semibold text-[#1d1d1f]">Matte Gunmetal Alloy Carabiner</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$25.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$25.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'lanyard_crossbody', title: 'Braided Crossbody Rope Lanyard', variant: 'Deep Navy & Gray / Universal Alloy', price: 25, image: 'images/products/lanyard_crossbody.jpg', category: 'lanyards'})" class="liquid-btn-primary text-xs font-bold px-4 py-2 rounded-full">
                             Add to Cart
@@ -972,39 +967,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="lanyards">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 Soft Silicone
                             </span>
                             <img src="images/products/lanyard_wristlet.jpg" alt="Liquid Silicone Soft Wristlet Strap" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.8 (74)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.8 (74)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Liquid Silicone Wristlet Strap
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Silky soft-touch liquid silicone with high-tensile core. Ergonomic loop around the wrist for instant drop prevention during photography and commutes.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Material:</span>
-                                <span class="font-semibold text-white">Food-Grade Liquid Silicone</span>
+                                <span class="font-semibold text-[#1d1d1f]">Food-Grade Liquid Silicone</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Washable:</span>
-                                <span class="font-semibold text-white">100% Water & Stain Proof</span>
+                                <span class="font-semibold text-[#1d1d1f]">100% Water & Stain Proof</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$15.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$15.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'lanyard_wristlet', title: 'Liquid Silicone Soft Wristlet Strap', variant: 'Soft Lavender / Space Alloy', price: 15, image: 'images/products/lanyard_wristlet.jpg', category: 'lanyards'})" class="liquid-btn-primary text-xs font-bold px-4 py-2 rounded-full">
                             Add to Cart
@@ -1016,39 +1011,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="lanyards">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 0.4mm Ultra-Thin
                             </span>
                             <img src="images/products/lanyard_anchor.jpg" alt="Stainless Universal Anchor Insert Tab" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.9 (95)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.9 (95)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Stainless Universal Anchor Tab
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Ultra-thin 0.4mm woven steel insert that slips under your phone inside any case. Never blocks USB-C/Lightning ports or MagSafe charging.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Thickness:</span>
-                                <span class="font-semibold text-white">0.4mm Low-Profile Steel</span>
+                                <span class="font-semibold text-[#1d1d1f]">0.4mm Low-Profile Steel</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Compatibility:</span>
-                                <span class="font-semibold text-white">Fits 100% of Cases & Phones</span>
+                                <span class="font-semibold text-[#1d1d1f]">Fits 100% of Cases & Phones</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$10.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$10.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'lanyard_anchor', title: 'Stainless Universal Anchor Insert Tab', variant: 'Stainless Steel / Universal Fit', price: 10, image: 'images/products/lanyard_anchor.jpg', category: 'lanyards'})" class="liquid-btn-primary text-xs font-bold px-4 py-2 rounded-full">
                             Add to Cart
@@ -1062,13 +1057,13 @@
         <!-- =================================================================== -->
         <!-- 5. CATEGORY: CHARGERS, CABLES & POWERBANKS                          -->
         <!-- =================================================================== -->
-        <section id="chargers-power" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10" data-category="chargers-power">
-            <div class="mb-8 pb-4 border-b border-white/10">
+        <section id="chargers-power" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-black/[0.08]" data-category="chargers-power">
+            <div class="mb-8 pb-4 border-b border-black/[0.06]">
                 <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Category 04</span>
-                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f] mt-1">
                     Chargers, Cables & Powerbanks
                 </h2>
-                <p class="text-xs sm:text-sm text-[#94a3b8] mt-1">
+                <p class="text-xs sm:text-sm text-[#6e6e73] mt-1">
                     Gallium Nitride (GaN III) high-efficiency charging blocks, Kevlar-sleeved 240W USB-C cords, and MagSafe magnetic battery packs.
                 </p>
             </div>
@@ -1080,39 +1075,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="chargers-power">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 GaN III Fast Charge
                             </span>
                             <img src="images/products/charger_gan.jpg" alt="GaN III 65W Dual USB-C Fast Charger" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">5.0 (204)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">5.0 (204)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             GaN III 65W Dual USB-C Fast Charger
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Gallium Nitride architecture with dual USB-C Power Delivery 3.0. Fast charges phone to 50% in 20 minutes while simultaneously powering laptops or iPads.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Output:</span>
-                                <span class="font-semibold text-white">65W / 100W PD 3.0 PPS</span>
+                                <span class="font-semibold text-[#1d1d1f]">65W / 100W PD 3.0 PPS</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Ports:</span>
-                                <span class="font-semibold text-white">Dual Intelligent USB-C</span>
+                                <span class="font-semibold text-[#1d1d1f]">Dual Intelligent USB-C</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$45.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$45.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'charger_gan', title: 'GaN III 65W Dual USB-C Fast Charger', variant: '65W Dual USB-C · White/Space Gray', price: 45, image: 'images/products/charger_gan.jpg', category: 'chargers-power'})" class="liquid-btn-primary text-xs font-bold px-4 py-2 rounded-full">
                             Add to Cart
@@ -1124,39 +1119,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="chargers-power">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 240W E-Marker
                             </span>
                             <img src="images/products/cable_kevlar.jpg" alt="240W Kevlar-Braided Fast USB-C Cable" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.9 (176)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.9 (176)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             240W Kevlar-Braided USB-C Cable
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             2-meter reinforced Kevlar ballistic braided sleeve, 480Mbps data transfer, and 30,000+ bend tolerance with laser-welded alloy strain relief housings.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Power Delivery:</span>
-                                <span class="font-semibold text-white">Up to 240W (48V/5A)</span>
+                                <span class="font-semibold text-[#1d1d1f]">Up to 240W (48V/5A)</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Length / Weave:</span>
-                                <span class="font-semibold text-white">2.0m Kevlar Weave</span>
+                                <span class="font-semibold text-[#1d1d1f]">2.0m Kevlar Weave</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$25.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$25.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'cable_kevlar', title: '240W Kevlar-Braided USB-C Cable', variant: '2-Meter Braided · Space Gray', price: 25, image: 'images/products/cable_kevlar.jpg', category: 'chargers-power'})" class="liquid-btn-primary text-xs font-bold px-4 py-2 rounded-full">
                             Add to Cart
@@ -1173,34 +1168,34 @@
                             </span>
                             <img src="images/products/powerbank_magsafe.jpg" alt="MagSafe 10,000mAh Magnetic Powerbank" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.9 (189)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.9 (189)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             MagSafe 10,000mAh Battery Pack
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Strong N52 neodymium magnetic snap, 15W wireless charging, 20W PD two-way USB-C port, and a fold-out aircraft alloy kickstand for hands-free viewing.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Capacity:</span>
-                                <span class="font-semibold text-white">10,000mAh Lithium-Polymer</span>
+                                <span class="font-semibold text-[#1d1d1f]">10,000mAh Lithium-Polymer</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Kickstand:</span>
-                                <span class="font-semibold text-white">Fold-Out Aluminum Hinge</span>
+                                <span class="font-semibold text-[#1d1d1f]">Fold-Out Aluminum Hinge</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$55.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$55.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'powerbank_magsafe', title: 'MagSafe 10,000mAh Battery Pack', variant: 'Magnetic Wireless + Kickstand', price: 55, image: 'images/products/powerbank_magsafe.jpg', category: 'chargers-power'})" class="liquid-btn-primary text-xs font-bold px-4 py-2 rounded-full">
                             Add to Cart
@@ -1214,13 +1209,13 @@
         <!-- =================================================================== -->
         <!-- 6. CATEGORY: CUSTOM & TECH VINYL STICKERS                           -->
         <!-- =================================================================== -->
-        <section id="stickers" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10" data-category="stickers">
-            <div class="mb-8 pb-4 border-b border-white/10">
+        <section id="stickers" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-black/[0.08]" data-category="stickers">
+            <div class="mb-8 pb-4 border-b border-black/[0.06]">
                 <span class="text-xs font-bold text-pink-600 uppercase tracking-widest">Category 05</span>
-                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f] mt-1">
                     Custom & Tech Vinyl Stickers
                 </h2>
-                <p class="text-xs sm:text-sm text-[#94a3b8] mt-1">
+                <p class="text-xs sm:text-sm text-[#6e6e73] mt-1">
                     Automotive-grade 3M vinyl decals, waterproof holographic foils, and in-house Roland cutter printed sticker sheets.
                 </p>
             </div>
@@ -1232,39 +1227,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="stickers">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 3M Waterproof Vinyl
                             </span>
                             <img src="images/products/stickers_tech.jpg" alt="Holographic & Matte Tech Decals" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">4.9 (112)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">4.9 (112)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">● In Stock</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Holographic & Matte Tech Decals
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             UV-resistant, waterproof vinyl stickers for MacBooks, iPads, phones, and glass cases. Zero sticky adhesive residue upon removal.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Pack Type:</span>
-                                <span class="font-semibold text-white">Single / 3-Pack Curated Decals</span>
+                                <span class="font-semibold text-[#1d1d1f]">Single / 3-Pack Curated Decals</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Laminate:</span>
-                                <span class="font-semibold text-white">Anti-Scratch Matte / Rainbow Foil</span>
+                                <span class="font-semibold text-[#1d1d1f]">Anti-Scratch Matte / Rainbow Foil</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Starting Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$8.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Starting Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$8.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'stickers_tech', title: 'Holographic & Matte Tech Decals', variant: 'Curated 3-Pack Tech Vinyl', price: 8, image: 'images/products/stickers_tech.jpg', category: 'stickers'})" class="liquid-btn-primary text-xs font-bold px-4 py-2 rounded-full">
                             Add to Cart
@@ -1276,39 +1271,39 @@
                 <div class="product-ecommerce-card p-5 group" data-category="stickers">
                     <div>
                         <div class="product-photo-wrap">
-                            <span class="product-badge-pill bg-slate-900/90 text-white border border-white/10">
+                            <span class="product-badge-pill bg-white/90 text-[#1d1d1f] border border-black/[0.08]">
                                 Lab Roland Custom Print
                             </span>
                             <img src="images/products/stickers_custom.jpg" alt="Custom In-House Printed Sticker Sheet" loading="lazy">
                         </div>
-                        <div class="flex items-center justify-between text-xs text-slate-400 mt-3.5 mb-1">
+                        <div class="flex items-center justify-between text-xs text-[#86868b] mt-3.5 mb-1">
                             <span class="flex items-center text-amber-500 font-bold space-x-1">
                                 <span>★★★★★</span>
-                                <span class="text-slate-300 font-semibold text-[11px]">5.0 (67)</span>
+                                <span class="text-[#1d1d1f] font-semibold text-[11px]">5.0 (67)</span>
                             </span>
                             <span class="text-[11px] font-medium text-emerald-600">Custom Service</span>
                         </div>
-                        <h3 class="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                        <h3 class="font-bold text-lg text-[#1d1d1f] group-hover:text-appleBlue transition-colors">
                             Custom In-House Sticker Sheet
                         </h3>
-                        <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
+                        <p class="text-xs text-[#515154] mt-1.5 leading-relaxed">
                             Bring your brand logo, art illustration, or club stickers. We print and contour cut on commercial Roland vinyl plotters right in our Cabramatta lab.
                         </p>
-                        <div class="mt-3 pt-3 border-t border-white/10 space-y-1 text-[11px] text-slate-400">
+                        <div class="mt-3 pt-3 border-t border-black/[0.06] space-y-1 text-[11px] text-[#6e6e73]">
                             <div class="flex items-center justify-between">
                                 <span>Sheet Yield:</span>
-                                <span class="font-semibold text-white">12-15 Die-Cut Stickers per Sheet</span>
+                                <span class="font-semibold text-[#1d1d1f]">12-15 Die-Cut Stickers per Sheet</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Turnaround:</span>
-                                <span class="font-semibold text-white">Same-Day / Next-Day Lab Pickup</span>
+                                <span class="font-semibold text-[#1d1d1f]">Same-Day / Next-Day Lab Pickup</span>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <div class="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-400 block font-medium">Starting Price</span>
-                            <span class="text-xl font-bold text-white apple-price">A$15.00</span>
+                            <span class="text-[10px] text-[#86868b] block font-medium">Starting Price</span>
+                            <span class="text-xl font-bold text-[#1d1d1f] apple-price">A$15.00</span>
                         </div>
                         <button type="button" onclick="addToCart({id: 'stickers_custom', title: 'Custom In-House Printed Sticker Sheet', variant: 'Full Sheet (12-15 Die-Cut Vinyl Stickers)', price: 15, image: 'images/products/stickers_custom.jpg', category: 'stickers'})" class="liquid-btn-primary text-xs font-bold px-4 py-2 rounded-full">
                             Add to Cart
@@ -1328,15 +1323,15 @@
 
     <aside id="cart-drawer" class="cart-drawer-panel" aria-label="Shopping Cart Drawer">
         <!-- Cart Header -->
-        <div class="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between">
+        <div class="p-5 sm:p-6 border-b border-black/[0.08] flex items-center justify-between">
             <div class="flex items-center space-x-2.5">
                 <span class="text-lg">🛒</span>
                 <div>
-                    <h3 class="font-extrabold text-base sm:text-lg text-white tracking-tight">Your Lab Cart</h3>
-                    <p class="text-[11px] text-slate-400">Cabramatta Workshop & Dispatch</p>
+                    <h3 class="font-extrabold text-base sm:text-lg text-[#1d1d1f] tracking-tight">Your Lab Cart</h3>
+                    <p class="text-[11px] text-[#86868b]">Cabramatta Workshop & Dispatch</p>
                 </div>
             </div>
-            <button type="button" onclick="closeCartDrawer()" class="liquid-btn-icon w-8 h-8 rounded-full text-slate-300 hover:text-white flex items-center justify-center" aria-label="Close Cart">
+            <button type="button" onclick="closeCartDrawer()" class="liquid-btn-icon w-8 h-8 rounded-full text-[#1d1d1f] flex items-center justify-center" aria-label="Close Cart">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
@@ -1346,11 +1341,11 @@
             
             <!-- Empty State -->
             <div id="cart-empty-state" class="py-16 text-center space-y-3 hidden">
-                <div class="w-16 h-16 mx-auto rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center text-2xl text-slate-400">
+                <div class="w-16 h-16 mx-auto rounded-full bg-black/[0.03] border border-black/[0.06] flex items-center justify-center text-2xl text-[#86868b]">
                     🛍️
                 </div>
-                <h4 class="font-bold text-white text-sm">Your cart is empty</h4>
-                <p class="text-xs text-[#94a3b8] max-w-xs mx-auto">
+                <h4 class="font-bold text-[#1d1d1f] text-sm">Your cart is empty</h4>
+                <p class="text-xs text-[#86868b] max-w-xs mx-auto">
                     Browse our liquid glass custom cases, 9H sapphire shields, utility lanyards, and GaN fast chargers.
                 </p>
                 <button type="button" onclick="closeCartDrawer()" class="liquid-btn-secondary text-xs font-semibold px-5 py-2.5 rounded-full mt-2">
@@ -1363,11 +1358,11 @@
         </div>
 
         <!-- Cart Footer & Checkout Summary -->
-        <div id="cart-footer-summary" class="p-5 sm:p-6 border-t border-white/10 bg-white/80 backdrop-blur-xl space-y-3.5">
-            <div class="space-y-1.5 text-xs text-[#94a3b8]">
+        <div id="cart-footer-summary" class="p-5 sm:p-6 border-t border-black/[0.08] bg-white/80 backdrop-blur-xl space-y-3.5">
+            <div class="space-y-1.5 text-xs text-[#515154]">
                 <div class="flex justify-between">
                     <span>Subtotal</span>
-                    <span id="cart-subtotal-val" class="apple-price font-bold text-white">A$0.00</span>
+                    <span id="cart-subtotal-val" class="apple-price font-bold text-[#1d1d1f]">A$0.00</span>
                 </div>
                 <div class="flex justify-between items-center text-[11px]">
                     <span class="flex items-center space-x-1">
@@ -1375,14 +1370,14 @@
                     </span>
                     <span class="font-semibold text-emerald-600">Free Cabramatta Bench Pickup</span>
                 </div>
-                <div class="flex justify-between text-sm pt-2 border-t border-white/10 font-extrabold text-white">
+                <div class="flex justify-between text-sm pt-2 border-t border-black/[0.06] font-extrabold text-[#1d1d1f]">
                     <span>Estimated Total</span>
-                    <span id="cart-total-val" class="apple-price text-base font-bold text-white">A$0.00</span>
+                    <span id="cart-total-val" class="apple-price text-base font-bold text-[#1d1d1f]">A$0.00</span>
                 </div>
             </div>
 
             <div class="flex space-x-2 pt-1">
-                <button type="button" onclick="clearCart()" class="liquid-btn-secondary text-xs font-semibold px-3 py-3 rounded-full text-slate-400 hover:text-red-400" title="Clear Cart">
+                <button type="button" onclick="clearCart()" class="liquid-btn-secondary text-xs font-semibold px-3 py-3 rounded-full text-[#86868b] hover:text-red-500" title="Clear Cart">
                     Clear
                 </button>
                 <button type="button" onclick="checkoutCart()" class="flex-1 liquid-btn-primary text-xs font-bold py-3 rounded-full text-center flex items-center justify-center space-x-2">
@@ -1391,37 +1386,37 @@
                 </button>
             </div>
 
-            <p class="text-[10px] text-center text-slate-400">
+            <p class="text-[10px] text-center text-[#86868b]">
                 Pick up at Suite 107, Level 1/54 Park Rd, Cabramatta or arrange AusPost express dispatch.
             </p>
         </div>
     </aside>
 
     <!-- Footer -->
-    <footer class="liquid-glass-white rounded-t-[3.5rem] pt-16 pb-12 px-6 sm:px-12 border-b-0 border-x-0 border-t border-white/10 shadow-[0_-15px_40px_rgba(0,0,0,0.4)]">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+    <footer class="liquid-glass-white rounded-t-[3.5rem] pt-16 pb-12 px-6 sm:px-12 border-b-0 border-x-0 border-t border-black/[0.08] shadow-[0_-15px_40px_rgba(0,0,0,0.03)]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-black/[0.06]">
             <div class="md:col-span-2 space-y-4">
-                <span class="text-xl font-extrabold tracking-tight text-white">
-                    Lee Nguyen <span class="font-normal text-slate-400">Lab</span>
+                <span class="text-xl font-extrabold tracking-tight text-[#1d1d1f]">
+                    Lee Nguyen <span class="font-normal text-[#86868b]">Lab</span>
                 </span>
-                <p class="text-sm text-[#94a3b8] max-w-sm">
+                <p class="text-sm text-[#515154] max-w-sm">
                     Professional, component-level technology laboratory serving individuals, educational institutions, and enterprise fleets.
                 </p>
-                <div class="text-xs text-slate-400 space-y-1 pt-2">
-                    <p class="font-bold text-white">Shop Location:</p>
-                    <p class="text-[#94a3b8]">Suite 107, Level 1/54 Park Rd</p>
-                    <p class="text-[#94a3b8]">Cabramatta, NSW 2166, Sydney</p>
+                <div class="text-xs text-[#86868b] space-y-1 pt-2">
+                    <p class="font-bold text-[#1d1d1f]">Shop Location:</p>
+                    <p class="text-[#515154]">Suite 107, Level 1/54 Park Rd</p>
+                    <p class="text-[#515154]">Cabramatta, NSW 2166, Sydney</p>
                 </div>
             </div>
 
             <div>
-                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Operating Hours</h4>
-                <ul class="text-sm text-[#94a3b8] space-y-2">
+                <h4 class="text-xs font-bold text-[#86868b] uppercase tracking-widest mb-3">Operating Hours</h4>
+                <ul class="text-sm text-[#515154] space-y-2">
                     <li class="flex justify-between">
                         <span>Monday – Sunday</span>
-                        <span class="font-bold text-white">8:00 AM – 8:00 PM</span>
+                        <span class="font-bold text-[#1d1d1f]">8:00 AM – 8:00 PM</span>
                     </li>
-                    <li class="flex justify-between text-slate-400">
+                    <li class="flex justify-between text-[#86868b]">
                         <span>Open 7 Days</span>
                         <span>Walk-ins & Appointments</span>
                     </li>
@@ -1429,69 +1424,68 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Direct Contact</h4>
+                <h4 class="text-xs font-bold text-[#86868b] uppercase tracking-widest mb-3">Direct Contact</h4>
                 <div class="space-y-3">
-                    <a href="tel:0291234567" class="block p-3.5 rounded-full liquid-btn-secondary text-center font-bold text-sm text-white shadow-sm">
+                    <a href="tel:0291234567" class="block p-3.5 rounded-full liquid-btn-secondary text-center font-bold text-sm text-[#1d1d1f] shadow-sm">
                         📞 (02) 9123 4567
                     </a>
-                    <a href="mailto:hello@leenguyenlab.com.au" class="block text-center text-xs text-[#94a3b8] hover:text-white font-medium transition-colors py-1">
+                    <a href="mailto:hello@leenguyenlab.com.au" class="block text-center text-xs text-[#515154] hover:text-[#1d1d1f] font-medium transition-colors py-1">
                         hello@leenguyenlab.com.au
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-medium">
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#86868b] font-medium">
             <p>© 2026 Lee Nguyen Lab. All rights reserved. Cabramatta, Sydney.</p>
-            <div class="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-0 justify-center">
-                <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Home Overview</a>
-                <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Repair Services</a>
-                <a href="about.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">About Us</a>
-                <a href="terms.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-slate-200 hover:text-white">Terms & Conditions</a>
+            <div class="flex space-x-3 mt-4 sm:mt-0">
+                <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Home Overview</a>
+                <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">Repair Services</a>
+                <a href="about.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium text-[#1d1d1f]">About Us</a>
             </div>
         </div>
     </footer>
 
     <!-- Booking / Checkout Order Modal -->
     <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
 
-        <div class="relative liquid-glass-white max-w-lg w-full rounded-[2.5rem] p-6 sm:p-10 shadow-2xl border border-white/10 z-10 animate-in fade-in zoom-in-95 duration-200">
-            <button onclick="closeBookingModal()" class="absolute top-6 right-6 liquid-btn-icon w-8 h-8 rounded-full text-slate-300 hover:text-white" aria-label="Close modal">
+        <div class="relative liquid-glass-white max-w-lg w-full rounded-[2.5rem] p-6 sm:p-10 shadow-2xl border border-white/95 z-10 animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 liquid-btn-icon w-8 h-8 rounded-full text-[#1d1d1f]" aria-label="Close modal">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Accessories & Store Order</span>
-            <h3 class="text-2xl font-extrabold text-white tracking-tight mt-1 mb-2">Reserve or Order Item</h3>
-            <p class="text-xs sm:text-sm text-[#94a3b8] mb-6 font-medium">Send your cart items to our Sydney workshop queue. We confirm turnaround time immediately.</p>
+            <span class="text-xs font-bold text-appleBlue uppercase tracking-widest">Accessories & Store Order</span>
+            <h3 class="text-2xl font-extrabold text-[#1d1d1f] tracking-tight mt-1 mb-2">Reserve or Order Item</h3>
+            <p class="text-xs sm:text-sm text-[#515154] mb-6 font-medium">Send your cart items to our Sydney workshop queue. We confirm turnaround time immediately.</p>
 
             <form action="https://formsubmit.co/adrian@leenguyenlab.com.au" method="POST" class="space-y-4">
                 <input type="hidden" name="_subject" value="New Accessories Order — Lee Nguyen Lab">
                 <input type="hidden" name="_captcha" value="false">
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Your Full Name</label>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Your Full Name</label>
                     <input type="text" name="name" required placeholder="e.g. David Harrison" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Phone Number</label>
+                        <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Phone Number</label>
                         <input type="tel" name="phone" required placeholder="0400 000 000" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Email Address</label>
+                        <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Email Address</label>
                         <input type="email" name="email" required placeholder="name@domain.com" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Device Model / Items Requested</label>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Device Model / Items Requested</label>
                     <input type="text" id="modal-device" name="device_model" required placeholder="e.g. Custom UV Case for iPhone 18 Pro Max" class="w-full liquid-input p-3.5 text-sm outline-none font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Order Specifications & Notes</label>
+                    <label class="block text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-1.5">Order Specifications & Notes</label>
                     <textarea id="modal-issue" name="parts_or_issue" rows="3" placeholder="e.g. Custom case artwork details or pickup preferences" class="w-full liquid-input p-3.5 text-sm outline-none custom-scroll font-medium"></textarea>
                 </div>
 
