@@ -1,341 +1,7 @@
 // =========================================================================
-        // 1. Dynamic Floating Particle Network with Optical Glass Lens Refraction
-        // Real-time background morphing and barrel distortion underneath glass buttons
+        // 1. Minimalist Apple Theme Initialization (No Particle Canvas)
         // =========================================================================
-        (function() {
-            const canvas = document.getElementById('particle-canvas');
-            const ctx = canvas.getContext('2d');
 
-            let width = 0;
-            let height = 0;
-            let dpr = 1;
-            let time = 0;
-            let frameCounter = 0;
-
-            // Interactive mouse position state
-            const mouse = {
-                x: null,
-                y: null,
-                radius: 140,       // Interactive repulsion radius in CSS pixels
-                repelForce: 2.2     // Push intensity
-            };
-
-            // Cached bounding boxes of all liquid glass buttons on the screen
-            let buttonRects = [];
-
-            function updateButtonRects() {
-                buttonRects = [];
-                const buttons = document.querySelectorAll('.liquid-btn-primary, .liquid-btn-secondary, .liquid-btn-icon, .liquid-tier-btn');
-                buttons.forEach(btn => {
-                    const rect = btn.getBoundingClientRect();
-                    // Include visible buttons in viewport
-                    if (rect.bottom > -50 && rect.top < window.innerHeight + 50 && rect.right > -50 && rect.left < window.innerWidth + 50) {
-                        buttonRects.push({
-                            left: rect.left,
-                            top: rect.top,
-                            right: rect.right,
-                            bottom: rect.bottom,
-                            width: rect.width,
-                            height: rect.height,
-                            centerX: rect.left + rect.width / 2,
-                            centerY: rect.top + rect.height / 2,
-                            radiusX: rect.width / 2,
-                            radiusY: rect.height / 2,
-                            isHovered: btn.matches(':hover')
-                        });
-                    }
-                });
-            }
-
-            // Real Optical Lens Refraction Formula:
-            // Calculates warped coordinate (rx, ry) for particles viewed through curved glass
-            function getGlassDistortion(px, py) {
-                for (let i = 0; i < buttonRects.length; i++) {
-                    const b = buttonRects[i];
-                    if (px >= b.left - 6 && px <= b.right + 6 && py >= b.top - 6 && py <= b.bottom + 6) {
-                        const nx = (px - b.centerX) / b.radiusX;
-                        const ny = (py - b.centerY) / b.radiusY;
-                        const rSq = nx * nx + ny * ny;
-
-                        if (rSq <= 1.08) {
-                            // Convex lens barrel distortion (Snell refraction magnification)
-                            const lensPower = b.isHovered ? 0.38 : 0.22;
-                            const barrelWarp = 1 + lensPower * (1 - Math.min(rSq, 1));
-                            
-                            // Dynamic fluid wave ripple when hovered or active
-                            let waveX = 0;
-                            let waveY = 0;
-                            if (b.isHovered) {
-                                const waveAngle = time * 4.8 + Math.sqrt(rSq) * 6.5;
-                                waveX = Math.sin(waveAngle) * 3.8;
-                                waveY = Math.cos(waveAngle) * 3.8;
-                            }
-
-                            const displacedX = b.centerX + (px - b.centerX) * barrelWarp + waveX;
-                            const displacedY = b.centerY + (py - b.centerY) * barrelWarp + waveY;
-
-                            return {
-                                isUnderGlass: true,
-                                x: displacedX,
-                                y: displacedY,
-                                magnification: barrelWarp,
-                                isHovered: b.isHovered
-                            };
-                        }
-                    }
-                }
-                return { isUnderGlass: false, x: px, y: py, magnification: 1, isHovered: false };
-            }
-
-            // Particle entity definition
-            class Particle {
-                constructor(w, h) {
-                    this.reset(w, h, true);
-                }
-
-                reset(w, h, randomInit = false) {
-                    this.x = randomInit ? Math.random() * w : (Math.random() > 0.5 ? 0 : w);
-                    this.y = randomInit ? Math.random() * h : (Math.random() > 0.5 ? 0 : h);
-                    
-                    // Subtle ambient drift velocity
-                    this.baseVx = (Math.random() - 0.5) * 0.55;
-                    this.baseVy = (Math.random() - 0.5) * 0.55;
-                    this.vx = this.baseVx;
-                    this.vy = this.baseVy;
-
-                    // Physical particle properties (Subtle Slate Constellation on White Canvas)
-                    this.radius = Math.random() * 1.5 + 1.1; // 1.1px to 2.6px
-                    const slateTones = [
-                        'rgba(71, 85, 105, 0.45)',   // deep slate
-                        'rgba(100, 116, 139, 0.40)',  // neutral slate
-                        'rgba(148, 163, 184, 0.50)',  // light slate
-                        'rgba(51, 65, 85, 0.35)'      // dark slate
-                    ];
-                    this.color = slateTones[Math.floor(Math.random() * slateTones.length)];
-                }
-
-                update(w, h) {
-                    // Repel physics from mouse movement
-                    if (mouse.x !== null && mouse.y !== null) {
-                        const dx = this.x - mouse.x;
-                        const dy = this.y - mouse.y;
-                        const distSq = dx * dx + dy * dy;
-                        const mouseRadiusSq = mouse.radius * mouse.radius;
-
-                        if (distSq < mouseRadiusSq && distSq > 0.01) {
-                            const dist = Math.sqrt(distSq);
-                            const force = (1 - dist / mouse.radius) * mouse.repelForce;
-                            const normalX = dx / dist;
-                            const normalY = dy / dist;
-
-                            this.vx += normalX * force * 0.45;
-                            this.vy += normalY * force * 0.45;
-                        }
-                    }
-
-                    // Velocity dampening back to ambient drift
-                    this.vx = this.vx * 0.94 + this.baseVx * 0.06;
-                    this.vy = this.vy * 0.94 + this.baseVy * 0.06;
-
-                    // Position step
-                    this.x += this.vx;
-                    this.y += this.vy;
-
-                    // Boundary bouncing
-                    if (this.x < 0) {
-                        this.x = 0;
-                        this.vx *= -1;
-                        this.baseVx *= -1;
-                    } else if (this.x > w) {
-                        this.x = w;
-                        this.vx *= -1;
-                        this.baseVx *= -1;
-                    }
-
-                    if (this.y < 0) {
-                        this.y = 0;
-                        this.vy *= -1;
-                        this.baseVy *= -1;
-                    } else if (this.y > h) {
-                        this.y = h;
-                        this.vy *= -1;
-                        this.baseVy *= -1;
-                    }
-                }
-            }
-
-            let particles = [];
-
-            function initCanvas() {
-                dpr = Math.min(window.devicePixelRatio || 1, 2);
-                width = window.innerWidth;
-                height = window.innerHeight;
-
-                canvas.width = Math.floor(width * dpr);
-                canvas.height = Math.floor(height * dpr);
-                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-                const area = width * height;
-                const particleCount = Math.max(35, Math.min(85, Math.floor(area / 16000)));
-
-                particles = [];
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle(width, height));
-                }
-
-                updateButtonRects();
-            }
-
-            // Mouse and touch interaction listeners
-            window.addEventListener('mousemove', (e) => {
-                mouse.x = e.clientX;
-                mouse.y = e.clientY;
-            }, { passive: true });
-
-            window.addEventListener('mouseleave', () => {
-                mouse.x = null;
-                mouse.y = null;
-            });
-
-            window.addEventListener('touchmove', (e) => {
-                if (e.touches.length > 0) {
-                    mouse.x = e.touches[0].clientX;
-                    mouse.y = e.touches[0].clientY;
-                }
-            }, { passive: true });
-
-            window.addEventListener('touchend', () => {
-                mouse.x = null;
-                mouse.y = null;
-            });
-
-            window.addEventListener('scroll', updateButtonRects, { passive: true });
-
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(initCanvas, 150);
-            });
-
-            // Dynamic mouse-coordinate specular reflection on buttons
-            document.querySelectorAll('.liquid-btn-primary, .liquid-btn-secondary, .liquid-btn-icon, .liquid-tier-btn').forEach(btn => {
-                btn.addEventListener('mousemove', (e) => {
-                    const rect = btn.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    btn.style.setProperty('--mouse-x', `${x}px`);
-                    btn.style.setProperty('--mouse-y', `${y}px`);
-                }, { passive: true });
-                btn.addEventListener('mouseenter', () => {
-                    updateButtonRects();
-                });
-                btn.addEventListener('mouseleave', () => {
-                    updateButtonRects();
-                });
-            });
-
-            // Main rendering loop with optical lens distortion
-            function render() {
-                ctx.clearRect(0, 0, width, height);
-                time += 0.016;
-                frameCounter++;
-
-                // Throttled recalculation of button positions for dynamic responsive elements
-                if (frameCounter % 45 === 0) {
-                    updateButtonRects();
-                }
-
-                const count = particles.length;
-                const maxLineDist = 125;
-                const maxLineDistSq = maxLineDist * maxLineDist;
-
-                // Step 1: Update physics and calculate optical distortion states
-                const optPositions = [];
-                for (let i = 0; i < count; i++) {
-                    const p = particles[i];
-                    p.update(width, height);
-                    optPositions.push(getGlassDistortion(p.x, p.y));
-                }
-
-                // Step 2: Draw connecting lines between proximity neighbors with optical bend
-                for (let i = 0; i < count; i++) {
-                    const p1 = particles[i];
-                    const opt1 = optPositions[i];
-
-                    for (let j = i + 1; j < count; j++) {
-                        const p2 = particles[j];
-                        const opt2 = optPositions[j];
-
-                        const dx = p1.x - p2.x;
-                        const dy = p1.y - p2.y;
-                        const distSq = dx * dx + dy * dy;
-
-                        if (distSq < maxLineDistSq) {
-                            const dist = Math.sqrt(distSq);
-                            let lineAlpha = (1 - dist / maxLineDist) * 0.22;
-
-                            // When under glass, lines warp through curved glass refraction with enhanced contrast
-                            if (opt1.isUnderGlass || opt2.isUnderGlass) {
-                                lineAlpha = Math.min(lineAlpha * 2.2, 0.65);
-                                ctx.beginPath();
-                                ctx.moveTo(opt1.x, opt1.y);
-                                ctx.lineTo(opt2.x, opt2.y);
-                                ctx.strokeStyle = opt1.isHovered || opt2.isHovered 
-                                    ? `rgba(15, 23, 42, ${lineAlpha})` 
-                                    : `rgba(51, 65, 85, ${lineAlpha * 0.8})`;
-                                ctx.lineWidth = opt1.isHovered || opt2.isHovered ? 1.5 : 1.1;
-                                ctx.stroke();
-                            } else {
-                                ctx.beginPath();
-                                ctx.moveTo(p1.x, p1.y);
-                                ctx.lineTo(p2.x, p2.y);
-                                ctx.strokeStyle = `rgba(100, 116, 139, ${lineAlpha * 0.75})`;
-                                ctx.lineWidth = 0.9;
-                                ctx.stroke();
-                            }
-                        }
-                    }
-
-                    // Cursor tracer proximity lines (pure starlight white)
-                    if (mouse.x !== null && mouse.y !== null) {
-                        const mdx = p1.x - mouse.x;
-                        const mdy = p1.y - mouse.y;
-                        const mDistSq = mdx * mdx + mdy * mdy;
-                        const mouseConnectDist = 140;
-
-                        if (mDistSq < mouseConnectDist * mouseConnectDist) {
-                            const mDist = Math.sqrt(mDistSq);
-                            const mAlpha = (1 - mDist / mouseConnectDist) * 0.38;
-                            ctx.beginPath();
-                            ctx.moveTo(mouse.x, mouse.y);
-                            ctx.lineTo(opt1.x, opt1.y);
-                            ctx.strokeStyle = `rgba(71, 85, 105, ${mAlpha * 0.5})`;
-                            ctx.lineWidth = 1.1;
-                            ctx.stroke();
-                        }
-                    }
-
-                    // Step 3: Render particle dots underneath glass (clean neutral glass, no pink/blue fringes)
-                    if (opt1.isUnderGlass) {
-                        // Single magnified core particle viewed through curved glass
-                        ctx.beginPath();
-                        ctx.arc(opt1.x, opt1.y, p1.radius * opt1.magnification * 1.35, 0, Math.PI * 2);
-                        ctx.fillStyle = opt1.isHovered ? '#0f172a' : p1.color;
-                        ctx.fill();
-                    } else {
-                        ctx.beginPath();
-                        ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
-                        ctx.fillStyle = p1.color;
-                        ctx.fill();
-                    }
-                }
-
-                requestAnimationFrame(render);
-            }
-
-            initCanvas();
-            render();
-        })();
 
         // =========================================================================
         // 2. Scroll Reveal Intersection Observer
@@ -738,13 +404,13 @@
 
             currentCat.services.forEach((svc, index) => {
                 const label = document.createElement('label');
-                label.className = 'flex items-center justify-between p-3.5 rounded-2xl bg-white/75 hover:bg-white transition-all cursor-pointer border border-black/[0.06] shadow-sm select-none';
+                label.className = 'flex items-center justify-between p-3.5 rounded-2xl bg-[#0f1f38]/80 hover:bg-[#1c355c] transition-all cursor-pointer border border-white/15 select-none';
                 label.innerHTML = `
                     <div class="flex items-center space-x-3">
-                        <input type="checkbox" value="${svc.id}" ${index === 0 ? 'checked' : ''} onchange="calculateQuote()" class="w-4 h-4 rounded text-appleBlue cursor-pointer liquid-checkbox">
-                        <span class="text-sm font-bold text-[#1d1d1f]">${svc.name}</span>
+                        <input type="checkbox" value="${svc.id}" ${index === 0 ? 'checked' : ''} onchange="calculateQuote()" class="w-4 h-4 rounded cursor-pointer liquid-checkbox">
+                        <span class="text-sm font-semibold text-[#f5f5f7]">${svc.name}</span>
                     </div>
-                    <span id="price-tag-${svc.id}" class="text-xs font-bold text-[#515154] apple-price"></span>
+                    <span id="price-tag-${svc.id}" class="text-xs font-bold text-[#7da6d8] apple-price"></span>
                 `;
                 container.appendChild(label);
             });
@@ -779,7 +445,7 @@
             let timeEstimate = "30–45 mins";
 
             if (checkboxes.length === 0) {
-                receiptItems.innerHTML = '<p class="text-[#86868b] text-xs text-center py-8">Select one or more services to generate your estimate.</p>';
+                receiptItems.innerHTML = '<p class="text-[#94a3b8] text-xs text-center py-8">Select one or more services to generate your estimate.</p>';
                 document.getElementById('receipt-parts').textContent = 'A$0.00';
                 document.getElementById('receipt-labor').textContent = 'A$0.00';
                 animatePriceCounter('receipt-total', 0, 'A$');
@@ -804,8 +470,8 @@
                     if (tag) tag.textContent = `A$${itemPrice}`;
 
                     const row = document.createElement('div');
-                    row.className = 'flex justify-between items-center text-xs text-[#515154] animate-in fade-in duration-200';
-                    row.innerHTML = `<span>${svc.name}</span><span class="apple-price font-bold text-[#1d1d1f]">A$${itemPrice}.00</span>`;
+                    row.className = 'flex justify-between items-center text-xs text-[#94a3b8] animate-in fade-in duration-200';
+                    row.innerHTML = `<span>${svc.name}</span><span class="apple-price font-bold text-[#f5f5f7]">A$${itemPrice}.00</span>`;
                     receiptItems.appendChild(row);
                 }
             });
@@ -1020,15 +686,29 @@
             }
         }
 
+        function setCaseFinish(finishKey) {
+            if (finishKey === 'clear') setCaseType('liquid_clear', 49);
+            else if (finishKey === 'matte') setCaseType('matte_frosted', 49);
+            else if (finishKey === 'magsafe') setCaseType('magsafe_armor', 59);
+        }
+
         function setCaseType(typeKey, price) {
             currentCaseType = typeKey;
             currentCasePrice = price;
 
-            document.querySelectorAll('.case-type-btn').forEach(btn => btn.classList.remove('active'));
-            if (typeKey === 'liquid_clear') document.getElementById('case-type-clear')?.classList.add('active');
-            else if (typeKey === 'matte_frosted') document.getElementById('case-type-matte')?.classList.add('active');
-            else if (typeKey === 'magsafe_armor') {
+            ['case-mat-clear', 'case-mat-matte', 'case-mat-magsafe', 'case-type-clear', 'case-type-matte', 'case-type-magsafe'].forEach(id => {
+                document.getElementById(id)?.classList.remove('active');
+            });
+
+            if (typeKey === 'liquid_clear') {
+                document.getElementById('case-type-clear')?.classList.add('active');
+                document.getElementById('case-mat-clear')?.classList.add('active');
+            } else if (typeKey === 'matte_frosted') {
+                document.getElementById('case-type-matte')?.classList.add('active');
+                document.getElementById('case-mat-matte')?.classList.add('active');
+            } else if (typeKey === 'magsafe_armor') {
                 document.getElementById('case-type-magsafe')?.classList.add('active');
+                document.getElementById('case-mat-magsafe')?.classList.add('active');
                 const toggle = document.getElementById('case-magsafe-toggle');
                 if (toggle && !toggle.checked) {
                     toggle.checked = true;
@@ -1250,8 +930,6 @@
         window.addEventListener('DOMContentLoaded', () => {
             onFamilyChange();
             initCaseStudio();
-            init3DTiltCards();
-            initMockup3DTilt();
         });
 
         // Mobile Navigation Accessories Dropdown Toggle
@@ -1406,21 +1084,21 @@
                 if (footerContainer) footerContainer.classList.remove('opacity-50', 'pointer-events-none');
 
                 itemsContainer.innerHTML = labCart.map((item, index) => `
-                    <div class="flex items-center space-x-3.5 p-3.5 rounded-2xl bg-black/[0.02] border border-black/[0.05] hover:bg-black/[0.04] transition-all">
-                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 rounded-xl object-cover border border-black/[0.06] flex-shrink-0 bg-white">
+                    <div class="flex items-center space-x-3.5 p-3.5 rounded-2xl bg-[#0f1f38]/85 border border-white/15 hover:border-[#7da6d8]/50 transition-all">
+                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 rounded-xl object-cover border border-white/15 flex-shrink-0 bg-[#152a4a]">
                         <div class="flex-1 min-w-0">
-                            <h4 class="font-bold text-xs sm:text-sm text-[#1d1d1f] truncate">${item.title}</h4>
-                            <p class="text-[11px] text-[#86868b] truncate">${item.variant}</p>
+                            <h4 class="font-bold text-xs sm:text-sm text-[#f5f5f7] truncate">${item.title}</h4>
+                            <p class="text-[11px] text-[#94a3b8] truncate">${item.variant}</p>
                             <div class="flex items-center justify-between mt-1.5">
-                                <span class="apple-price font-bold text-xs sm:text-sm text-[#1d1d1f]">A$${item.price}.00</span>
-                                <div class="flex items-center space-x-1.5 bg-white border border-black/[0.1] rounded-lg px-1.5 py-0.5">
-                                    <button type="button" onclick="updateCartQty(${index}, -1)" class="text-xs text-[#86868b] hover:text-black px-1 font-bold">−</button>
-                                    <span class="text-xs apple-price font-bold text-[#1d1d1f] px-1">${item.qty}</span>
-                                    <button type="button" onclick="updateCartQty(${index}, 1)" class="text-xs text-[#86868b] hover:text-black px-1 font-bold">+</button>
+                                <span class="apple-price font-bold text-xs sm:text-sm text-[#f5f5f7]">A$${item.price}.00</span>
+                                <div class="flex items-center space-x-1.5 bg-[#152a4a] border border-white/15 rounded-lg px-1.5 py-0.5">
+                                    <button type="button" onclick="updateCartQty(${index}, -1)" class="text-xs text-[#94a3b8] hover:text-white px-1 font-bold">−</button>
+                                    <span class="text-xs apple-price font-bold text-[#f5f5f7] px-1">${item.qty}</span>
+                                    <button type="button" onclick="updateCartQty(${index}, 1)" class="text-xs text-[#94a3b8] hover:text-white px-1 font-bold">+</button>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" onclick="removeFromCart(${index})" class="text-[#86868b] hover:text-red-500 p-1.5 transition-colors" title="Remove Item">
+                        <button type="button" onclick="removeFromCart(${index})" class="text-[#94a3b8] hover:text-red-400 p-1.5 transition-colors" title="Remove Item">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                         </button>
                     </div>
@@ -1436,7 +1114,7 @@
                 toast.className = 'toast-bubble';
                 document.body.appendChild(toast);
             }
-            toast.innerHTML = `<span>✨</span><span>${message}</span>`;
+            toast.innerHTML = `<span class="text-[#7da6d8] font-bold">✓</span><span>${message}</span>`;
             toast.classList.add('show');
             clearTimeout(toast.timeout);
             toast.timeout = setTimeout(() => {
