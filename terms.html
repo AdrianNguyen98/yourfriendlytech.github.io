@@ -39,13 +39,15 @@
     <!-- External Apple Minimalist Light Navy Stylesheet -->
     <link rel="stylesheet" href="style.css">
     
+    <!-- Smooth Kinetic Scroll Engine -->
+    <script src="lenis.min.js" defer></script>
     <!-- External Application Logic -->
     <script src="script.js" defer></script>
 </head>
 <body class="relative text-[#f5f5f7] bg-[#0f1f38] selection:bg-[#3b6ea5]/40 selection:text-white min-h-screen">
 
     <!-- Navigation Header: Minimalist Translucent Light Navy Bar -->
-    <header class="apple-header-bar on-white-section transition-all duration-300">
+    <header class="apple-header-bar transition-all duration-300">
         <div class="max-w-7xl mx-auto px-5 sm:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html#hero" class="flex items-center cursor-pointer group">
@@ -111,26 +113,26 @@
 
         <!-- Mobile Menu Dropdown Bar -->
         <div id="mobile-menu" class="hidden md:hidden w-full border-t border-white/15 bg-[#0f1f38]/95 backdrop-blur-xl px-6 py-5 space-y-3">
-            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white">Overview</a>
-            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white">Repair Services</a>
+            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-[#f5f5f7]">Overview</a>
+            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-[#f5f5f7]">Repair Services</a>
             
             <!-- Mobile Accessories Submenu -->
             <div>
-                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white py-1">
+                <button type="button" onclick="toggleMobileAccessories()" class="w-full flex items-center justify-between mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-[#f5f5f7] py-1">
                     <span>Accessories</span>
                     <svg id="mobile-acc-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-white/15 space-y-2 py-1 mt-1">
-                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Custom Cases</a>
-                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Screen Protectors</a>
-                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Lanyards</a>
-                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Chargers, Cables & Powerbanks</a>
-                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#94a3b8] hover:text-white py-1">Stickers</a>
+                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#cbd5e1] hover:text-[#f5f5f7] py-1">Custom Cases</a>
+                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#cbd5e1] hover:text-[#f5f5f7] py-1">Screen Protectors</a>
+                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#cbd5e1] hover:text-[#f5f5f7] py-1">Lanyards</a>
+                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#cbd5e1] hover:text-[#f5f5f7] py-1">Chargers, Cables & Powerbanks</a>
+                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#cbd5e1] hover:text-[#f5f5f7] py-1">Stickers</a>
                 </div>
             </div>
 
-            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white">Workshop</a>
-            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-white">About Us</a>
+            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-[#f5f5f7]">Workshop</a>
+            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#cbd5e1] hover:text-[#f5f5f7]">About Us</a>
             <button onclick="openBookingModal()" class="w-full text-center liquid-btn-primary text-sm font-semibold py-3.5 rounded-full mt-2">
                Book a Repair
             </button>
@@ -144,16 +146,16 @@
         <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-6 sm:pt-12 pb-8 sm:pb-12">
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                 <div>
-                    <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#f5f5f7] leading-[1.06]">
+                    <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#f5f5f7] leading-[1.06] hero-animate-1">
                         Terms & Conditions
                     </h1>
-                    <p class="text-lg sm:text-2xl font-normal text-[#94a3b8] mt-4 max-w-2xl leading-relaxed">
-                        Transparent protocols for hardware diagnostics, 6-month warranties, client privacy, and lab service agreements.
+                    <p class="text-lg sm:text-2xl font-normal text-[#94a3b8] mt-4 max-w-2xl leading-relaxed hero-animate-2">
+                        Transparent protocols for hardware diagnostics, 3-month warranties, client privacy, and lab service agreements.
                     </p>
                 </div>
 
                 <!-- Live Search Clause Input -->
-                <div class="w-full lg:w-80">
+                <div class="w-full lg:w-80 hero-animate-3">
                     <div class="relative">
                         <input type="text" id="terms-search-input" oninput="searchTerms(this.value)" placeholder="Search clauses (e.g. warranty, backup)..." class="w-full liquid-input py-3 pl-10 pr-4 text-xs font-medium outline-none rounded-full">
                         <svg class="w-4 h-4 text-[#94a3b8] absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,7 +166,7 @@
             </div>
 
             <!-- Quick Meta Strip -->
-            <div class="flex flex-wrap items-center gap-3 sm:gap-6 mt-8 pt-6 border-t border-white/15 text-xs text-[#94a3b8] font-medium">
+            <div class="flex flex-wrap items-center gap-3 sm:gap-6 mt-8 pt-6 border-t border-white/15 text-xs text-[#94a3b8] font-medium hero-animate-4">
                 <span class="text-[#f5f5f7] font-semibold">Effective Edition: 2026</span>
                 <span>·</span>
                 <span>Jurisdiction: New South Wales, Australia</span>
@@ -178,7 +180,7 @@
         </section>
 
         <!-- 2. Interactive Category Tabs -->
-        <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
+        <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-4 apple-reveal">
             <div class="flex flex-wrap gap-2" id="terms-tabs-bar">
                 <button type="button" onclick="switchTermsTab('all', this)" class="terms-tab-btn active filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
                     All Sections (6)
@@ -187,7 +189,7 @@
                     Diagnostic & Repairs
                 </button>
                 <button type="button" onclick="switchTermsTab('warranty', this)" class="terms-tab-btn filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
-                    6-Month Warranty
+                    3-Month Warranty
                 </button>
                 <button type="button" onclick="switchTermsTab('privacy', this)" class="terms-tab-btn filter-pill-btn text-xs font-semibold px-4 py-2 rounded-full">
                     Data Security & Backups
@@ -205,10 +207,10 @@
         </section>
 
         <!-- 3. Terms Clauses Content Articles -->
-        <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-8 space-y-8" id="terms-content-container">
+        <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-8 space-y-8 apple-stagger-grid" id="terms-content-container">
 
             <!-- Clause 01: Scope & Diagnostics -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="scope" id="clause-scope">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300 apple-reveal" data-category="scope" id="clause-scope">
                 <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
                         <span class="text-base font-semibold text-[#7da6d8]">01.</span>
@@ -232,8 +234,8 @@
                 </div>
             </article>
 
-            <!-- Clause 02: 6-Month Warranty -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="warranty" id="clause-warranty">
+            <!-- Clause 02: 3-Month Warranty -->
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300 apple-reveal" data-category="warranty" id="clause-warranty">
                 <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
                         <span class="text-base font-semibold text-[#7da6d8]">02.</span>
@@ -241,17 +243,17 @@
                             Comprehensive Hardware Warranty Policy
                         </h2>
                     </div>
-                    <span class="text-xs font-semibold text-[#7da6d8] hidden sm:inline">Up to 6 Months</span>
+                    <span class="text-xs font-semibold text-[#7da6d8] hidden sm:inline">3 Months Warranty</span>
                 </div>
 
                 <div class="space-y-4 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
                     <p>
-                        <strong class="text-[#f5f5f7]">2.1 Coverage Scope:</strong> Lee Nguyen Lab warrants all installed replacement hardware components and bench workmanship against defects in material and assembly for a period of up to <strong class="text-[#f5f5f7]">six (6) months</strong> from the date of client collection, as specified on your invoice:
+                        <strong class="text-[#f5f5f7]">2.1 Coverage Scope:</strong> Lee Nguyen Lab warrants all installed replacement hardware components and bench workmanship against defects in material and assembly for a period of <strong class="text-[#f5f5f7]">three (3) months</strong> from the date of client collection, as specified on your invoice:
                     </p>
                     <ul class="list-disc pl-6 space-y-2 text-[#94a3b8] text-sm">
-                        <li><strong class="text-[#f5f5f7]">Genuine Service Packs & Premium OEM-Spec Modules:</strong> Covered by our full 6-Month Comprehensive Warranty (touch responsiveness, OLED display uniformity, battery health retention, port connectivity).</li>
-                        <li><strong class="text-[#f5f5f7]">Aftermarket Budget Modules:</strong> Covered by a 90-Day Functional Warranty against component defects.</li>
-                        <li><strong class="text-[#f5f5f7]">Logic Board Micro-Soldering Repairs:</strong> Covered by a 90-Day Warranty on the specific IC chips, trace jumpers, or soldered power rails restored.</li>
+                        <li><strong class="text-[#f5f5f7]">Genuine Service Packs & Premium OEM-Spec Modules:</strong> Covered by our full 3-Month Comprehensive Warranty (touch responsiveness, OLED display uniformity, battery health retention, port connectivity).</li>
+                        <li><strong class="text-[#f5f5f7]">Aftermarket Budget Modules:</strong> Covered by a 3-Month Functional Warranty against component defects.</li>
+                        <li><strong class="text-[#f5f5f7]">Logic Board Micro-Soldering Repairs:</strong> Covered by a 3-Month Warranty on the specific IC chips, trace jumpers, or soldered power rails restored.</li>
                     </ul>
                     <p>
                         <strong class="text-[#f5f5f7]">2.2 What Is Excluded:</strong> Warranty coverage does not apply if the device experiences subsequent accidental damage post-handover, including:
@@ -266,7 +268,7 @@
             </article>
 
             <!-- Clause 03: Data Security & Privacy -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="privacy" id="clause-privacy">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300 apple-reveal" data-category="privacy" id="clause-privacy">
                 <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
                         <span class="text-base font-semibold text-[#7da6d8]">03.</span>
@@ -291,7 +293,7 @@
             </article>
 
             <!-- Clause 04: Turnaround & Storage -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="turnaround" id="clause-turnaround">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300 apple-reveal" data-category="turnaround" id="clause-turnaround">
                 <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
                         <span class="text-base font-semibold text-[#7da6d8]">04.</span>
@@ -316,7 +318,7 @@
             </article>
 
             <!-- Clause 05: Custom Accessories & UV Studio -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="custom" id="clause-custom">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300 apple-reveal" data-category="custom" id="clause-custom">
                 <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
                         <span class="text-base font-semibold text-[#7da6d8]">05.</span>
@@ -341,7 +343,7 @@
             </article>
 
             <!-- Clause 06: Australian Consumer Law -->
-            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300" data-category="acl" id="clause-acl">
+            <article class="terms-clause-card liquid-glass-white p-7 sm:p-10 rounded-[24px] space-y-5 transition-all duration-300 apple-reveal" data-category="acl" id="clause-acl">
                 <div class="flex items-center justify-between border-b border-white/15 pb-4">
                     <div class="flex items-center space-x-3">
                         <span class="text-base font-semibold text-[#7da6d8]">06.</span>
@@ -368,7 +370,7 @@
         </section>
 
         <!-- 4. Direct Assistance & Contact Callout -->
-        <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-8">
+        <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 apple-reveal">
             <div class="bg-[#152a4a] p-8 sm:p-12 rounded-[24px] border border-white/15 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="space-y-2 text-center md:text-left">
                     <h3 class="text-2xl sm:text-3xl font-bold text-[#f5f5f7] tracking-tight">Need Clarification on Our Terms?</h3>
@@ -390,7 +392,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#0f1f38] pt-16 pb-12 px-6 sm:px-12 border-t border-white/10">
+    <footer class="bg-[#0f1f38] pt-16 pb-12 px-6 sm:px-12 border-t border-white/10 apple-reveal">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
             <div class="md:col-span-2 space-y-4">
                 <span class="text-xl font-bold tracking-tight text-[#f5f5f7]">
@@ -433,19 +435,19 @@
         </div>
 
         <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#94a3b8] font-medium">
-            <p>© 2026 Lee Nguyen Lab. All rights reserved. Suite 107, Level 1/54 Park Rd, Cabramatta NSW 2166.</p>
+            <p>© 2026 Lee Nguyen Lab. All rights reserved.</p>
             <div class="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-0 justify-center">
                 <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Home Overview</a>
                 <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Repair Services</a>
                 <a href="accessories.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Accessories</a>
                 <a href="about.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">About Us</a>
-                <a href="terms.html" class="liquid-btn-primary text-xs px-4 py-1.5 rounded-full font-medium">Terms & Conditions</a>
+                <a href="terms.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Terms & Conditions</a>
             </div>
         </div>
     </footer>
 
     <!-- Booking Modal -->
-    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden" data-lenis-prevent>
         <div class="absolute inset-0 bg-[#060e1c]/70 backdrop-blur-sm transition-opacity" onclick="closeBookingModal()"></div>
 
         <div class="relative liquid-glass-white max-w-lg w-full rounded-[24px] p-6 sm:p-10 shadow-2xl border border-white/15 z-10 animate-in fade-in zoom-in-95 duration-200">

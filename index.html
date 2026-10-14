@@ -39,6 +39,8 @@
     <!-- External Apple Minimalist Light Navy Stylesheet -->
     <link rel="stylesheet" href="style.css">
     
+    <!-- Smooth Kinetic Scroll Engine -->
+    <script src="lenis.min.js" defer></script>
     <!-- External Application Logic -->
     <script src="script.js" defer></script>
 </head>
@@ -167,7 +169,7 @@
                 </div>
 
                 <!-- Seamless Product Visual -->
-                <div class="hero-animate-4 w-full max-w-6xl mx-auto relative flex items-center justify-center">
+                <div class="hero-animate-zoom w-full max-w-6xl mx-auto relative flex items-center justify-center">
                     <img src="images/landing-hero.jpg" 
                          alt="iPhone Pro Studio Hardware Visual" 
                          class="w-full h-auto max-h-[580px] sm:max-h-[680px] object-contain transition-transform duration-700 hover:scale-[1.01] select-none">
@@ -177,7 +179,7 @@
                 <div class="hero-animate-5 max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-4 sm:gap-8 mt-8 sm:mt-12 text-xs sm:text-sm text-[#94a3b8] font-medium">
                     <span>30-Min On-The-Spot Service</span>
                     <span class="text-white/25 hidden sm:inline">•</span>
-                    <span>6 Months Lab Warranty</span>
+                    <span>3 Months Lab Warranty</span>
                     <span class="text-white/25 hidden sm:inline">•</span>
                     <span>Suite 107, Level 1/54 Park Rd, Cabramatta NSW 2166</span>
                 </div>
@@ -189,10 +191,10 @@
 
         <!-- Section 2 (Elevated Light Navy #152a4a): Overview Split Gateway -->
         <section class="py-24 px-4 sm:px-6 lg:px-8 bg-[#152a4a] border-y border-white/10">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 apple-stagger-grid">
                 
                 <!-- Gateway 1: Repair Services & Instant Matrix -->
-                <div class="liquid-glass-white rounded-[24px] p-8 sm:p-12 flex flex-col justify-between space-y-8 glass-card-lift">
+                <div class="apple-reveal liquid-glass-white rounded-[24px] p-8 sm:p-12 flex flex-col justify-between space-y-8 glass-card-lift">
                     <div class="space-y-4">
                         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#f5f5f7]">
                             Precision Repair Services
@@ -211,7 +213,7 @@
                             </li>
                             <li class="flex items-center space-x-2.5">
                                 <span class="text-[#7da6d8] font-bold">✓</span>
-                                <span>Up to 6 months comprehensive warranty</span>
+                                <span>3 months comprehensive warranty</span>
                             </li>
                         </ul>
                     </div>
@@ -224,7 +226,7 @@
                 </div>
 
                 <!-- Gateway 2: Lab Accessories & Custom Studio -->
-                <div class="liquid-glass-white rounded-[24px] p-8 sm:p-12 flex flex-col justify-between space-y-8 glass-card-lift">
+                <div class="apple-reveal liquid-glass-white rounded-[24px] p-8 sm:p-12 flex flex-col justify-between space-y-8 glass-card-lift">
                     <div class="space-y-4">
                         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#f5f5f7]">
                             Accessories & Custom Cases
@@ -262,148 +264,257 @@
             </div>
         </section>
 
-        <!-- Section 3 (Light Navy Base #0f1f38): Precision Repair Services -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="reveal-element text-center mb-16">
-                <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-[#f5f5f7] mb-4">
-                    Precision Repair Services
-                </h2>
-                <p class="text-[#94a3b8] text-sm sm:text-base max-w-2xl mx-auto">
-                    From micro-soldered logic chips to optical display restorations, we calibrate every device to OEM tolerances.
-                </p>
-            </div>
+        <!-- Section 3 (Interactive Central Info Hub): Precision Repair Services -->
+        <section id="precision-services" class="relative w-full py-20 sm:py-28 overflow-hidden bg-gradient-to-b from-[#0f1f38] via-[#102038] to-[#152a4a] border-t border-white/10">
+            <!-- Subtle Smooth Ambient Aura -->
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_35%,rgba(59,110,165,0.08),transparent_70%)] pointer-events-none"></div>
 
-            <!-- 6 Service Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="reveal-element stagger-delay-1 liquid-glass-white glass-card-lift p-4 flex flex-col group">
-                    <div class="w-full h-56 rounded-[18px] overflow-hidden bg-[#0f1f38] mb-5 relative border border-white/10">
-                        <img src="images/screen-repair.jpg" alt="Phone Screen Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="px-2 pb-3 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-[#f5f5f7] mb-2">Screen Repairs</h3>
-                        <p class="text-sm text-[#94a3b8] leading-relaxed mb-6 flex-grow">
-                            Restore true color accuracy, 120Hz ProMotion response, and scratch-free optical glass clarity on high-resolution displays.
-                        </p>
-                        <a href="services.html" class="liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
-                            <span>Calculate Quote</span>
-                            <span class="text-sm text-[#7da6d8]">→</span>
-                        </a>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="apple-reveal text-center mb-10 sm:mb-14">
+                    <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-[#f5f5f7] mb-4">
+                        Precision Repair Services
+                    </h2>
+                    <p class="text-[#94a3b8] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                        Explore our active diagnostic bench protocols. Select any core discipline below to inspect component-level workflows, calibration standards, and turnaround tolerances.
+                    </p>
+                </div>
+
+                <!-- 1. Interactive Service Selector Dock (6 Lab Protocols) -->
+                <div class="apple-reveal grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-8 sm:mb-10" id="hub-service-tabs" role="tablist" aria-label="Precision Repair Protocols">
+                    <!-- Tab 1: Screen -->
+                    <button type="button" class="hub-service-card active p-3 sm:p-4 rounded-2xl flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-[#7da6d8]/40" data-service-id="screen" role="tab" aria-selected="true" aria-controls="central-hub-stage">
+                        <div class="flex items-center justify-between w-full mb-3">
+                            <div class="hub-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0f1f38] border border-white/15 text-[#7da6d8] flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <span class="hub-active-dot w-2 h-2 rounded-full bg-[#7da6d8] shadow-[0_0_8px_#7da6d8] opacity-100 transition-opacity"></span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-semibold tracking-wider uppercase text-[#7da6d8]">Optical</span>
+                            <span class="block text-xs sm:text-sm font-bold text-[#f5f5f7] leading-tight">Screen & OLED</span>
+                        </div>
+                    </button>
+
+                    <!-- Tab 2: Battery -->
+                    <button type="button" class="hub-service-card p-3 sm:p-4 rounded-2xl flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-[#7da6d8]/40" data-service-id="battery" role="tab" aria-selected="false" aria-controls="central-hub-stage">
+                        <div class="flex items-center justify-between w-full mb-3">
+                            <div class="hub-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0f1f38] border border-white/15 text-[#94a3b8] flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <span class="hub-active-dot w-2 h-2 rounded-full bg-[#7da6d8] shadow-[0_0_8px_#7da6d8] opacity-0 transition-opacity"></span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-semibold tracking-wider uppercase text-[#7da6d8]">Power</span>
+                            <span class="block text-xs sm:text-sm font-bold text-[#f5f5f7] leading-tight">Battery & BMS</span>
+                        </div>
+                    </button>
+
+                    <!-- Tab 3: Logic Board -->
+                    <button type="button" class="hub-service-card p-3 sm:p-4 rounded-2xl flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-[#7da6d8]/40" data-service-id="board" role="tab" aria-selected="false" aria-controls="central-hub-stage">
+                        <div class="flex items-center justify-between w-full mb-3">
+                            <div class="hub-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0f1f38] border border-white/15 text-[#94a3b8] flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m14-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                            </div>
+                            <span class="hub-active-dot w-2 h-2 rounded-full bg-[#7da6d8] shadow-[0_0_8px_#7da6d8] opacity-0 transition-opacity"></span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-semibold tracking-wider uppercase text-[#7da6d8]">Micro-Soldering</span>
+                            <span class="block text-xs sm:text-sm font-bold text-[#f5f5f7] leading-tight">Logic Board</span>
+                        </div>
+                    </button>
+
+                    <!-- Tab 4: Charging Port -->
+                    <button type="button" class="hub-service-card p-3 sm:p-4 rounded-2xl flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-[#7da6d8]/40" data-service-id="charging" role="tab" aria-selected="false" aria-controls="central-hub-stage">
+                        <div class="flex items-center justify-between w-full mb-3">
+                            <div class="hub-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0f1f38] border border-white/15 text-[#94a3b8] flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 4v1m6 11h2m-6 0h-4v4m0-4v-4m-6 0h2m4-7H8a2 2 0 00-2 2v6a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2"/></svg>
+                            </div>
+                            <span class="hub-active-dot w-2 h-2 rounded-full bg-[#7da6d8] shadow-[0_0_8px_#7da6d8] opacity-0 transition-opacity"></span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-semibold tracking-wider uppercase text-[#7da6d8]">I/O & Dock</span>
+                            <span class="block text-xs sm:text-sm font-bold text-[#f5f5f7] leading-tight">Charging Flex</span>
+                        </div>
+                    </button>
+
+                    <!-- Tab 5: Software & Data -->
+                    <button type="button" class="hub-service-card p-3 sm:p-4 rounded-2xl flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-[#7da6d8]/40" data-service-id="software" role="tab" aria-selected="false" aria-controls="central-hub-stage">
+                        <div class="flex items-center justify-between w-full mb-3">
+                            <div class="hub-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0f1f38] border border-white/15 text-[#94a3b8] flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            </div>
+                            <span class="hub-active-dot w-2 h-2 rounded-full bg-[#7da6d8] shadow-[0_0_8px_#7da6d8] opacity-0 transition-opacity"></span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-semibold tracking-wider uppercase text-[#7da6d8]">Firmware</span>
+                            <span class="block text-xs sm:text-sm font-bold text-[#f5f5f7] leading-tight">Data Recovery</span>
+                        </div>
+                    </button>
+
+                    <!-- Tab 6: Fleet & Enterprise -->
+                    <button type="button" class="hub-service-card p-3 sm:p-4 rounded-2xl flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-[#7da6d8]/40" data-service-id="business" role="tab" aria-selected="false" aria-controls="central-hub-stage">
+                        <div class="flex items-center justify-between w-full mb-3">
+                            <div class="hub-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0f1f38] border border-white/15 text-[#94a3b8] flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            </div>
+                            <span class="hub-active-dot w-2 h-2 rounded-full bg-[#7da6d8] shadow-[0_0_8px_#7da6d8] opacity-0 transition-opacity"></span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-semibold tracking-wider uppercase text-[#7da6d8]">Enterprise</span>
+                            <span class="block text-xs sm:text-sm font-bold text-[#f5f5f7] leading-tight">Fleet SLA</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- 2. Central Spotlight Info Hub Stage -->
+                <div id="central-hub-stage" class="apple-reveal-zoom liquid-glass-white rounded-3xl sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-white/20 bg-[#152a4a]/90 backdrop-blur-xl shadow-2xl relative overflow-hidden transition-all duration-300">
+                    <!-- Subtle Interior Glow -->
+                    <div class="absolute -right-24 -top-24 w-96 h-96 bg-[radial-gradient(circle,rgba(125,166,216,0.12),transparent_70%)] pointer-events-none"></div>
+
+                    <!-- Hub Stage Dynamic Container with .hub-fade-anim -->
+                    <div id="hub-content-container" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center hub-fade-anim">
+                        
+                        <!-- Left Details (7 cols) -->
+                        <div class="lg:col-span-7 flex flex-col space-y-6">
+                            
+                            <!-- Service Header Badge & Icon Row -->
+                            <div class="flex items-start space-x-4">
+                                <div id="hub-service-icon" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#0f1f38] border border-[#7da6d8]/40 text-[#7da6d8] flex-shrink-0 flex items-center justify-center shadow-[0_0_20px_rgba(125,166,216,0.22)]">
+                                    <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div class="space-y-1">
+                                    <div class="flex items-center space-x-2.5">
+                                        <span id="hub-protocol-tag" class="text-[11px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#0f1f38] border border-[#7da6d8]/30 text-[#7da6d8]">
+                                            PROTOCOL 01 // OPTICAL LAB
+                                        </span>
+                                        <span class="inline-flex items-center space-x-1 text-[11px] text-[#94a3b8]">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                            <span>Bench Ready</span>
+                                        </span>
+                                    </div>
+                                    <h3 id="hub-service-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#f5f5f7] tracking-tight">
+                                        Screen & Optical OLED Restoration
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <!-- Detailed Description -->
+                            <p id="hub-service-desc" class="text-sm sm:text-base text-[#94a3b8] leading-relaxed">
+                                Complete cleanroom display restoration recovering true color fidelity, 120Hz ProMotion touch sampling, and pristine optical transparency. We transfer factory EEPROM calibration for TrueTone continuity and reinstall laser-cut acoustic water-resistant seals.
+                            </p>
+
+                            <!-- Micro-Specifications Badges (4 stats) -->
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                                <div class="p-3 rounded-2xl bg-[#0f1f38]/70 border border-white/10">
+                                    <span class="block text-[10px] font-semibold text-[#94a3b8] uppercase tracking-wider">Turnaround</span>
+                                    <span id="hub-spec-turnaround" class="block text-xs sm:text-sm font-bold text-[#f5f5f7] mt-0.5">~25–40 Mins</span>
+                                </div>
+                                <div class="p-3 rounded-2xl bg-[#0f1f38]/70 border border-white/10">
+                                    <span class="block text-[10px] font-semibold text-[#94a3b8] uppercase tracking-wider">Warranty</span>
+                                    <span id="hub-spec-warranty" class="block text-xs sm:text-sm font-bold text-[#7da6d8] mt-0.5">3 Months</span>
+                                </div>
+                                <div class="p-3 rounded-2xl bg-[#0f1f38]/70 border border-white/10">
+                                    <span class="block text-[10px] font-semibold text-[#94a3b8] uppercase tracking-wider">Quality Tiers</span>
+                                    <span id="hub-spec-tiers" class="block text-xs sm:text-sm font-bold text-[#f5f5f7] mt-0.5">OEM / Genuine</span>
+                                </div>
+                                <div class="p-3 rounded-2xl bg-[#0f1f38]/70 border border-white/10">
+                                    <span class="block text-[10px] font-semibold text-[#94a3b8] uppercase tracking-wider">Tolerance</span>
+                                    <span id="hub-spec-tolerance" class="block text-xs sm:text-sm font-bold text-[#f5f5f7] mt-0.5">±0.02mm Optical</span>
+                                </div>
+                            </div>
+
+                            <!-- Diagnostic Bench Checklist (4 points) -->
+                            <div class="pt-2">
+                                <span class="block text-xs font-semibold text-[#f5f5f7] uppercase tracking-wider mb-2.5">Diagnostic & Bench Protocol</span>
+                                <ul id="hub-checklist" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-[#94a3b8]">
+                                    <li class="flex items-start space-x-2">
+                                        <span class="text-[#7da6d8] font-bold text-sm leading-none mt-0.5">✓</span>
+                                        <span class="text-[#f5f5f7]/90 leading-tight">TrueTone EEPROM programmer sync & serial validation</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <span class="text-[#7da6d8] font-bold text-sm leading-none mt-0.5">✓</span>
+                                        <span class="text-[#f5f5f7]/90 leading-tight">32-point capacitive multi-touch & digitizer grid test</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <span class="text-[#7da6d8] font-bold text-sm leading-none mt-0.5">✓</span>
+                                        <span class="text-[#f5f5f7]/90 leading-tight">Oleophobic 9H surface coating scratch-resistance check</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <span class="text-[#7da6d8] font-bold text-sm leading-none mt-0.5">✓</span>
+                                        <span class="text-[#f5f5f7]/90 leading-tight">Laser-cut acoustic chassis perimeter gasket reseal</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- CTA Buttons Row -->
+                            <div class="pt-4 flex flex-wrap items-center gap-3">
+                                <a id="hub-quote-btn" href="services.html#quote" onclick="selectServiceInCalculator('screen')" class="liquid-btn-primary px-6 py-3 rounded-full text-xs sm:text-sm font-bold inline-flex items-center space-x-2">
+                                    <span>Calculate Quote for This Service</span>
+                                    <span class="text-sm">→</span>
+                                </a>
+                                <a href="https://wa.me/61413867666?text=Hi%20Lee%20Nguyen%20Lab,%20I%20have%20an%20inquiry%20regarding%20Precision%20Repair%20Services" target="_blank" rel="noopener noreferrer" class="liquid-btn-secondary px-5 py-3 rounded-full text-xs font-semibold text-[#94a3b8] hover:text-[#f5f5f7] inline-flex items-center space-x-1.5">
+                                    <span>Direct Bench Chat</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Bench Showcase Photo (5 cols) -->
+                        <div class="lg:col-span-5">
+                            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0f1f38] border border-white/15 shadow-xl group">
+                                <img id="hub-bench-image" src="images/precision-services/screen-repair.jpg" alt="Screen & Optical OLED Restoration" class="w-full h-72 sm:h-84 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                                
+                                <!-- Floating Bench Spec Badge Overlay -->
+                                <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                                    <span id="hub-bench-station" class="text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#0f1f38]/90 backdrop-blur-md border border-white/20 text-[#7da6d8]">
+                                        ISO 5 CLEANROOM BENCH
+                                    </span>
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-black/60 backdrop-blur-md text-[#94a3b8] border border-white/10">
+                                        LIVE BENCH
+                                    </span>
+                                </div>
+
+                                <!-- Floating Calibration Badge Overlay -->
+                                <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-[#0f1f38]/90 backdrop-blur-md border border-white/15 text-xs text-[#94a3b8] flex items-center space-x-3 pointer-events-none">
+                                    <div class="w-2 h-2 rounded-full bg-[#7da6d8] flex-shrink-0 animate-ping"></div>
+                                    <span id="hub-bench-caption" class="leading-tight text-[#f5f5f7] font-medium text-xs">
+                                        Laser-aligned vacuum press with ambient sensor sync.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Service Card 2 -->
-                <div class="reveal-element stagger-delay-2 liquid-glass-white glass-card-lift p-4 flex flex-col group">
-                    <div class="w-full h-56 rounded-[18px] overflow-hidden bg-[#0f1f38] mb-5 relative border border-white/10">
-                        <img src="images/charging-port.jpg" alt="Charging Port Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="px-2 pb-3 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-[#f5f5f7] mb-2">Charging Port Repairs</h3>
-                        <p class="text-sm text-[#94a3b8] leading-relaxed mb-6 flex-grow">
-                            A broken charging port shouldn't leave you disconnected. We offer rapid component-level port replacements.
-                        </p>
-                        <a href="services.html" class="liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
-                            <span>Calculate Quote</span>
-                            <span class="text-sm text-[#7da6d8]">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="reveal-element stagger-delay-3 liquid-glass-white glass-card-lift p-4 flex flex-col group">
-                    <div class="w-full h-56 rounded-[18px] overflow-hidden bg-[#0f1f38] mb-5 relative border border-white/10">
-                        <img src="images/battery-replacement.jpg" alt="Battery Replacement" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="px-2 pb-3 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-[#f5f5f7] mb-2">Battery Replacement</h3>
-                        <p class="text-sm text-[#94a3b8] leading-relaxed mb-6 flex-grow">
-                            Is your phone dying too fast or overheating? Get a high-cycle premium battery replacement with calibration.
-                        </p>
-                        <a href="services.html" class="liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
-                            <span>Calculate Quote</span>
-                            <span class="text-sm text-[#7da6d8]">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="reveal-element stagger-delay-4 liquid-glass-white glass-card-lift p-4 flex flex-col group">
-                    <div class="w-full h-56 rounded-[18px] overflow-hidden bg-[#0f1f38] mb-5 relative border border-white/10">
-                        <img src="images/software-upgrade.jpg" alt="Software Upgrade" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="px-2 pb-3 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-[#f5f5f7] mb-2">Software & Data Recovery</h3>
-                        <p class="text-sm text-[#94a3b8] leading-relaxed mb-6 flex-grow">
-                            We recover critical lost data, resolve boot loops, and restore system firmware cleanly without the hassle.
-                        </p>
-                        <a href="services.html" class="liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
-                            <span>Calculate Quote</span>
-                            <span class="text-sm text-[#7da6d8]">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 5 -->
-                <div class="reveal-element stagger-delay-5 liquid-glass-white glass-card-lift p-4 flex flex-col group">
-                    <div class="w-full h-56 rounded-[18px] overflow-hidden bg-[#0f1f38] mb-5 relative border border-white/10">
-                        <img src="images/business-repairs.jpg" alt="Business & School Repairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="px-2 pb-3 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-[#f5f5f7] mb-2">Fleet & Enterprise Repairs</h3>
-                        <p class="text-sm text-[#94a3b8] leading-relaxed mb-6 flex-grow">
-                            Volume enterprise device maintenance for schools, medical clinics, and corporate fleets with dedicated SLA turnaround.
-                        </p>
-                        <a href="services.html" class="liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
-                            <span>Calculate Quote</span>
-                            <span class="text-sm text-[#7da6d8]">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 6 -->
-                <div class="reveal-element stagger-delay-6 liquid-glass-white glass-card-lift p-4 flex flex-col group">
-                    <div class="w-full h-56 rounded-[18px] overflow-hidden bg-[#0f1f38] mb-5 relative border border-white/10">
-                        <img src="images/showcase-2.jpg" alt="Micro-soldering & Logic Board Diagnostics" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="px-2 pb-3 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-[#f5f5f7] mb-2">Micro-Soldering & Logic Board</h3>
-                        <p class="text-sm text-[#94a3b8] leading-relaxed mb-6 flex-grow">
-                            Trace repairs, capacitor replacements, power IC restoration, and short-circuit thermal diagnostic repairs.
-                        </p>
-                        <a href="services.html" class="liquid-btn-secondary text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center space-x-1.5 self-start">
-                            <span>Calculate Quote</span>
-                            <span class="text-sm text-[#7da6d8]">→</span>
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
         <!-- Section 4 (Elevated Light Navy #152a4a): Inside the Workshop -->
         <section id="showcase" class="py-24 px-4 sm:px-6 lg:px-8 bg-[#152a4a] border-t border-white/10">
             <div class="max-w-7xl mx-auto">
-                <div class="reveal-element text-center mb-14">
+                <div class="apple-reveal text-center mb-14">
                     <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-[#f5f5f7] mb-4">Inside the Workshop</h2>
                     <p class="text-[#94a3b8] text-sm sm:text-base max-w-xl mx-auto">Clean workstations, stereomicroscopes, thermal imaging, and high-frequency laser separation.</p>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                    <div class="reveal-element stagger-delay-1 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 apple-stagger-grid">
+                    <div class="apple-reveal-zoom stagger-delay-1 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
                         <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-[#0f1f38] border border-white/10">
                             <img src="images/showcase-1.jpg" alt="Workshop Precision Lab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                     </div>
-                    <div class="reveal-element stagger-delay-2 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
+                    <div class="apple-reveal-zoom stagger-delay-2 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
                         <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-[#0f1f38] border border-white/10">
-                            <img src="images/showcase-2.jpg" alt="Micro-soldering Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                            <img src="images/precision-services/logic-board.jpg" alt="Micro-soldering Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                     </div>
-                    <div class="reveal-element stagger-delay-3 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
+                    <div class="apple-reveal-zoom stagger-delay-3 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
                         <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-[#0f1f38] border border-white/10">
                             <img src="images/showcase-3.jpg" alt="Parts Calibration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
                     </div>
-                    <div class="reveal-element stagger-delay-4 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
+                    <div class="apple-reveal-zoom stagger-delay-4 liquid-glass-white glass-card-lift p-2.5 overflow-hidden group">
                         <div class="overflow-hidden rounded-2xl h-48 sm:h-72 w-full bg-[#0f1f38] border border-white/10">
                             <img src="images/showcase-4.jpg" alt="Laser Glass Disassembly" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         </div>
@@ -413,7 +524,7 @@
         </section>
 
         <!-- Footer -->
-        <footer id="contact" class="bg-[#0f1f38] pt-16 pb-12 px-6 sm:px-12 border-t border-white/10">
+        <footer id="contact" class="apple-reveal bg-[#0f1f38] pt-16 pb-12 px-6 sm:px-12 border-t border-white/10">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
                 <div class="md:col-span-2 space-y-4">
                     <span class="text-xl font-bold tracking-tight text-[#f5f5f7]">
@@ -472,7 +583,7 @@
             </div>
 
             <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#94a3b8] font-medium">
-                <p>© 2026 Lee Nguyen Lab. All rights reserved. Suite 107, Level 1/54 Park Rd, Cabramatta NSW 2166.</p>
+                <p>© 2026 Lee Nguyen Lab. All rights reserved.</p>
                 <div class="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-0 justify-center">
                     <a href="#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Back to Top</a>
                     <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Repair Services</a>
@@ -486,7 +597,7 @@
     </div>
 
     <!-- Booking Modal -->
-    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden" data-lenis-prevent>
         <div class="absolute inset-0 bg-[#060e1c]/70 backdrop-blur-sm transition-opacity" onclick="closeBookingModal()"></div>
 
         <div class="relative liquid-glass-white max-w-lg w-full rounded-[24px] p-6 sm:p-10 shadow-2xl border border-white/15 z-10 animate-in fade-in zoom-in-95 duration-200">

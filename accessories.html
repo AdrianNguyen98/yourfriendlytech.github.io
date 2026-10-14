@@ -23,12 +23,13 @@
                         apple: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', '"Inter"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
                     },
                     colors: {
-                        navyPrimary: '#526D91',
-                        navySoft: '#7089A8',
-                        navyDark: '#172B46',
-                        paleBlue: '#F2F6FB',
-                        mutedSlate: '#64748B',
-                        subtleBorder: '#DFE7F0',
+                        navyBase: '#0f1f38',
+                        navyAlt: '#152a4a',
+                        navyCard: '#1c355c',
+                        navyPrimary: '#3b6ea5',
+                        navySoft: '#7da6d8',
+                        textLight: '#f5f5f7',
+                        mutedSlate: '#94a3b8',
                     }
                 }
             }
@@ -38,14 +39,16 @@
     <!-- External Apple Minimalist Light Navy Stylesheet -->
     <link rel="stylesheet" href="style.css">
     
+    <!-- Smooth Kinetic Scroll Engine -->
+    <script src="lenis.min.js" defer></script>
     <!-- External Application Logic -->
     <script src="script.js" defer></script>
 </head>
 <body class="relative text-[#f5f5f7] bg-[#0f1f38] selection:bg-[#3b6ea5]/20 selection:text-[#f5f5f7] min-h-screen">
 
     <!-- Navigation Header: Minimalist Translucent Apple Bar -->
-    <header class="apple-header-bar on-white-section transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="apple-header-bar transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html#hero" class="flex items-center cursor-pointer group">
                     <span class="logo-title text-base sm:text-lg font-bold tracking-tight text-[#f5f5f7] group-hover:opacity-80 transition-all">
@@ -53,9 +56,9 @@
                     </span>
                 </a>
 
-                <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold">
-                    <a href="index.html#hero" class="text-[#94a3b8] hover:text-[#f5f5f7] transition-colors">Overview</a>
-                    <a href="services.html" class="text-[#94a3b8] hover:text-[#f5f5f7] transition-colors">Repair Services</a>
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold">
+                    <a href="index.html#hero" class="text-[#cbd5e1] hover:text-white transition-colors">Overview</a>
+                    <a href="services.html" class="text-[#cbd5e1] hover:text-white transition-colors">Repair Services</a>
                     
                     <!-- Accessories Dropdown Menu (Active) -->
                     <div class="relative group">
@@ -66,24 +69,24 @@
                             </svg>
                         </a>
                         <div class="absolute -left-4 top-full pt-2 w-72 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
-                            <div class="apple-nav-dropdown rounded-2xl p-2.5 border border-white/15 space-y-1">
-                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl hover:bg-[#152a4a] transition-colors">
+                            <div class="apple-nav-dropdown rounded-2xl p-2.5 space-y-1">
+                                <a href="accessories.html#custom-cases" class="block px-3.5 py-2.5 rounded-xl transition-colors">
                                     <span class="block font-bold text-xs text-[#f5f5f7]">Custom Cases</span>
-                                    <span class="block text-[10px] text-[#94a3b8] font-normal">UV Laser Print Studio</span>
+                                    <span class="block text-[10px] text-[#94a3b8] font-normal">Lab UV Print Studio</span>
                                 </a>
-                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl hover:bg-[#152a4a] transition-colors">
+                                <a href="accessories.html#screen-protectors" class="block px-3.5 py-2.5 rounded-xl transition-colors">
                                     <span class="block font-bold text-xs text-[#f5f5f7]">Screen Protectors</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">9H Tempered & Privacy</span>
                                 </a>
-                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl hover:bg-[#152a4a] transition-colors">
+                                <a href="accessories.html#lanyards" class="block px-3.5 py-2.5 rounded-xl transition-colors">
                                     <span class="block font-bold text-xs text-[#f5f5f7]">Lanyards</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">Braided cords & wrist straps</span>
                                 </a>
-                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl hover:bg-[#152a4a] transition-colors">
+                                <a href="accessories.html#chargers-power" class="block px-3.5 py-2.5 rounded-xl transition-colors">
                                     <span class="block font-bold text-xs text-[#f5f5f7]">Chargers, Cables & Powerbanks</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">GaN 65W & MagSafe packs</span>
                                 </a>
-                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl hover:bg-[#152a4a] transition-colors">
+                                <a href="accessories.html#stickers" class="block px-3.5 py-2.5 rounded-xl transition-colors">
                                     <span class="block font-bold text-xs text-[#f5f5f7]">Stickers</span>
                                     <span class="block text-[10px] text-[#94a3b8] font-normal">Waterproof vinyl tech decals</span>
                                 </a>
@@ -91,8 +94,8 @@
                         </div>
                     </div>
 
-                    <a href="index.html#showcase" class="text-[#94a3b8] hover:text-[#f5f5f7] transition-colors">Workshop</a>
-                    <a href="about.html" class="text-[#94a3b8] hover:text-[#f5f5f7] transition-colors">About Us</a>
+                    <a href="index.html#showcase" class="text-[#cbd5e1] hover:text-white transition-colors">Workshop</a>
+                    <a href="about.html" class="text-[#cbd5e1] hover:text-white transition-colors">About Us</a>
                 </nav>
 
                 <div class="flex items-center space-x-3">
@@ -101,7 +104,7 @@
                         <svg class="w-4 h-4 text-[#f5f5f7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                         </svg>
-                        <span class="hidden sm:inline font-semibold">Cart</span>
+                        <span class="hidden sm:inline font-semibold text-[#f5f5f7]">Cart</span>
                         <span class="cart-count-badge bg-[#3b6ea5] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
                     </button>
 
@@ -119,8 +122,8 @@
 
         <!-- Mobile Menu Dropdown Bar -->
         <div id="mobile-menu" class="hidden md:hidden w-full border-t border-white/15 bg-[#0f1f38]/95 backdrop-blur-xl px-6 py-5 space-y-3">
-            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-[#f5f5f7]">Overview</a>
-            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-[#f5f5f7]">Repair Services</a>
+            <a href="index.html#hero" class="block mobile-nav-link text-sm font-semibold text-[#475569] hover:text-[#f5f5f7]">Overview</a>
+            <a href="services.html" class="block mobile-nav-link text-sm font-semibold text-[#475569] hover:text-[#f5f5f7]">Repair Services</a>
             
             <!-- Mobile Accessories Submenu -->
             <div>
@@ -129,16 +132,16 @@
                     <svg id="mobile-acc-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div id="mobile-acc-dropdown" class="hidden pl-3 border-l-2 border-white/15 space-y-2 py-1 mt-1">
-                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#94a3b8] hover:text-[#f5f5f7] py-1">Custom Cases</a>
-                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#94a3b8] hover:text-[#f5f5f7] py-1">Screen Protectors</a>
-                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#94a3b8] hover:text-[#f5f5f7] py-1">Lanyards</a>
-                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#94a3b8] hover:text-[#f5f5f7] py-1">Chargers, Cables & Powerbanks</a>
-                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#94a3b8] hover:text-[#f5f5f7] py-1">Stickers</a>
+                    <a href="accessories.html#custom-cases" class="block text-xs font-semibold text-[#475569] hover:text-[#f5f5f7] py-1">Custom Cases</a>
+                    <a href="accessories.html#screen-protectors" class="block text-xs font-semibold text-[#475569] hover:text-[#f5f5f7] py-1">Screen Protectors</a>
+                    <a href="accessories.html#lanyards" class="block text-xs font-semibold text-[#475569] hover:text-[#f5f5f7] py-1">Lanyards</a>
+                    <a href="accessories.html#chargers-power" class="block text-xs font-semibold text-[#475569] hover:text-[#f5f5f7] py-1">Chargers, Cables & Powerbanks</a>
+                    <a href="accessories.html#stickers" class="block text-xs font-semibold text-[#475569] hover:text-[#f5f5f7] py-1">Stickers</a>
                 </div>
             </div>
 
-            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-[#f5f5f7]">Workshop</a>
-            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#94a3b8] hover:text-[#f5f5f7]">About Us</a>
+            <a href="index.html#showcase" class="block mobile-nav-link text-sm font-semibold text-[#475569] hover:text-[#f5f5f7]">Workshop</a>
+            <a href="about.html" class="block mobile-nav-link text-sm font-semibold text-[#475569] hover:text-[#f5f5f7]">About Us</a>
             <button onclick="openBookingModal()" class="w-full text-center liquid-btn-primary text-sm font-semibold py-3.5 rounded-full mt-2">
                Book a Repair
             </button>
@@ -151,7 +154,7 @@
         <!-- 1. Store Hero Banner & Interactive Filter Bar -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/15">
-                <div>
+                <div class="hero-animate-1">
                     <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#f5f5f7] leading-[1.06]">
                         Accessories & Gear.
                     </h1>
@@ -161,7 +164,7 @@
                 </div>
 
                 <!-- Fast Search Bar -->
-                <div class="w-full md:w-80">
+                <div class="w-full md:w-80 hero-animate-2">
                     <div class="relative">
                         <input type="text" id="accessory-search-input" oninput="searchAccessories(this.value)" placeholder="Search accessories..." class="w-full liquid-input py-2.5 pl-10 pr-4 text-xs font-medium outline-none rounded-full">
                         <svg class="w-4 h-4 text-[#94a3b8] absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +175,7 @@
             </div>
 
             <!-- E-Commerce Category Filter Pills -->
-            <div class="flex items-center justify-between flex-wrap gap-3 pt-6">
+            <div class="flex items-center justify-between flex-wrap gap-3 pt-6 hero-animate-3">
                 <div class="flex flex-wrap gap-2" id="category-filter-pills">
                     <button type="button" onclick="filterAccessories('all', this)" class="filter-pill-btn active text-xs font-semibold px-4 py-2 rounded-full">
                         All Items (15)
@@ -206,50 +209,50 @@
         <!-- 2. CATEGORY: CUSTOM CASES (With E-Commerce Cards & Custom Studio)   -->
         <!-- =================================================================== -->
         <section id="custom-cases" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" data-category="custom-cases">
-            <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/15">
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/15 apple-reveal">
                 <div>
                     <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-[#f5f5f7]">
-                        Custom Phone Cases
+                        Artistic & Custom Phone Cases
                     </h2>
                     <p class="text-xs sm:text-sm text-[#94a3b8] mt-1.5">
-                        Optical 9H tempered glass backs, shock-absorbing TPU frames, and UV laser printing technology.
+                        Choose from 3 signature Artistic Case pre-designs or print your own custom design on optical 9H tempered glass.
                     </p>
                 </div>
                 <a href="#custom-studio-bench" class="hidden sm:inline-flex items-center space-x-1.5 text-xs font-semibold text-[#7da6d8] hover:text-[#f5f5f7] hover:underline">
-                    <span>Jump to Custom Print Studio</span>
+                    <span>Jump to Artistic Case Studio</span>
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </a>
             </div>
 
             <!-- Product Cards Grid: Custom Cases -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 apple-stagger-grid">
                 
-                <!-- Card 1: Liquid Clear Tempered Case -->
-                <div class="product-ecommerce-card p-5 group" data-category="custom-cases">
+                <!-- Card 1: Liquid Clear Artistic Case -->
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="custom-cases">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
-                                Best Seller
+                                3 Pre-Designs or Custom Print
                             </span>
-                            <img src="images/products/case_clear.jpg" alt="Liquid Clear Tempered Custom Case" loading="lazy">
+                            <img src="images/products/case_clear.jpg" alt="Liquid Clear Artistic Custom Case" loading="lazy">
                         </div>
                         <div class="flex items-center justify-between text-xs text-[#94a3b8] mt-3.5 mb-1">
                             <span class="flex items-center text-[#7da6d8] font-bold space-x-1">
                                 <span>★★★★★</span>
                                 <span class="text-[#94a3b8] font-semibold text-[11px]">4.9 (164)</span>
                             </span>
-                            <span class="text-[11px] font-semibold text-[#7da6d8]">Ready to Print</span>
+                            <span class="text-[11px] font-semibold text-[#7da6d8]">Artistic Case Series</span>
                         </div>
                         <h3 class="font-bold text-lg text-[#f5f5f7] group-hover:text-[#7da6d8] transition-colors">
-                            Liquid Clear Tempered Case
+                            Liquid Clear Artistic Case
                         </h3>
                         <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
-                            Ultra-clear 9H scratch-resistant tempered backplate with shock-absorbing TPU air-cushion bumpers. Anti-yellowing resin technology.
+                            Ultra-clear 9H tempered glass backplate that showcases your phone colour. Available in 3 signature Artistic Pre-Designs or custom printed with your own artwork.
                         </p>
                         <div class="mt-3 pt-3 border-t border-white/15 space-y-1 text-[11px] text-[#94a3b8]">
                             <div class="flex items-center justify-between">
-                                <span>Compatibility:</span>
-                                <span class="font-semibold text-[#f5f5f7]">iPhone 18 / 17 / 16 / Galaxy S25</span>
+                                <span>Design Options:</span>
+                                <span class="font-semibold text-[#f5f5f7]">3 Pre-Designs or Print Your Own</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Print Finish:</span>
@@ -266,43 +269,43 @@
                             <a href="#custom-studio-bench" onclick="setCaseFinish('clear')" class="liquid-btn-secondary text-xs font-semibold px-3 py-2 rounded-full" title="Customize in Studio">
                                 Customize
                             </a>
-                            <button type="button" onclick="addToCart({id: 'case_clear', title: 'Liquid Clear Tempered Case', variant: 'iPhone 18 Pro Max · Clear Glass', price: 49, image: 'images/products/case_clear.jpg', category: 'custom-cases'})" class="liquid-btn-primary text-xs font-semibold px-4 py-2 rounded-full">
+                            <button type="button" onclick="addToCart({id: 'case_clear', title: 'Liquid Clear Artistic Case', variant: 'iPhone 18 Pro Max · Clear Glass', price: 49, image: 'images/products/case_clear.jpg', category: 'custom-cases'})" class="liquid-btn-primary text-xs font-semibold px-4 py-2 rounded-full">
                                 Add to Cart
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2: Frosted Matte Silk Custom Case -->
-                <div class="product-ecommerce-card p-5 group" data-category="custom-cases">
+                <!-- Card 2: Frosted Matte Silk Artistic Case -->
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="custom-cases">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
-                                Anti-Fingerprint
+                                3 Pre-Designs or Custom Print
                             </span>
-                            <img src="images/products/case_matte.jpg" alt="Frosted Matte Silk Custom Case" loading="lazy">
+                            <img src="images/products/case_matte.jpg" alt="Frosted Matte Silk Artistic Case" loading="lazy">
                         </div>
                         <div class="flex items-center justify-between text-xs text-[#94a3b8] mt-3.5 mb-1">
                             <span class="flex items-center text-[#7da6d8] font-bold space-x-1">
                                 <span>★★★★★</span>
                                 <span class="text-[#94a3b8] font-semibold text-[11px]">4.8 (98)</span>
                             </span>
-                            <span class="text-[11px] font-semibold text-[#7da6d8]">Ready to Print</span>
+                            <span class="text-[11px] font-semibold text-[#7da6d8]">Artistic Case Series</span>
                         </div>
                         <h3 class="font-bold text-lg text-[#f5f5f7] group-hover:text-[#7da6d8] transition-colors">
-                            Frosted Matte Silk Custom Case
+                            Frosted Matte Silk Artistic Case
                         </h3>
                         <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
-                            Velvety frosted smoky matte finish with micro-etched AG surface. Completely repels oily fingerprints and sweaty hand smudges.
+                            Velvety frosted translucent matte finish with micro-etched anti-fingerprint surface. Pick from 3 in-house Artistic Pre-Designs or print your own design.
                         </p>
                         <div class="mt-3 pt-3 border-t border-white/15 space-y-1 text-[11px] text-[#94a3b8]">
                             <div class="flex items-center justify-between">
-                                <span>Compatibility:</span>
-                                <span class="font-semibold text-[#f5f5f7]">All Major Flagship Models</span>
+                                <span>Design Options:</span>
+                                <span class="font-semibold text-[#f5f5f7]">3 Pre-Designs or Print Your Own</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Touch Feel:</span>
-                                <span class="font-semibold text-[#f5f5f7]">Silky Satin Cashmere Texture</span>
+                                <span class="font-semibold text-[#f5f5f7]">Silky Satin Anti-Smudge</span>
                             </div>
                         </div>
                     </div>
@@ -315,39 +318,39 @@
                             <a href="#custom-studio-bench" onclick="setCaseFinish('matte')" class="liquid-btn-secondary text-xs font-semibold px-3 py-2 rounded-full" title="Customize in Studio">
                                 Customize
                             </a>
-                            <button type="button" onclick="addToCart({id: 'case_matte', title: 'Frosted Matte Silk Custom Case', variant: 'iPhone 18 Pro Max · Matte Silk', price: 49, image: 'images/products/case_matte.jpg', category: 'custom-cases'})" class="liquid-btn-primary text-xs font-semibold px-4 py-2 rounded-full">
+                            <button type="button" onclick="addToCart({id: 'case_matte', title: 'Frosted Matte Silk Artistic Case', variant: 'iPhone 18 Pro Max · Matte Silk', price: 49, image: 'images/products/case_matte.jpg', category: 'custom-cases'})" class="liquid-btn-primary text-xs font-semibold px-4 py-2 rounded-full">
                                 Add to Cart
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 3: MagSafe Armor Rugged Case -->
-                <div class="product-ecommerce-card p-5 group" data-category="custom-cases">
+                <!-- Card 3: MagSafe Armor Artistic Case -->
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="custom-cases">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
-                                N52 MagSafe Ring
+                                N52 MagSafe · Artistic Series
                             </span>
-                            <img src="images/products/case_magsafe.jpg" alt="MagSafe Armor Rugged Case" loading="lazy">
+                            <img src="images/products/case_magsafe.jpg" alt="MagSafe Armor Artistic Case" loading="lazy">
                         </div>
                         <div class="flex items-center justify-between text-xs text-[#94a3b8] mt-3.5 mb-1">
                             <span class="flex items-center text-[#7da6d8] font-bold space-x-1">
                                 <span>★★★★★</span>
                                 <span class="text-[#94a3b8] font-semibold text-[11px]">5.0 (215)</span>
                             </span>
-                            <span class="text-[11px] font-semibold text-[#7da6d8]">Ready to Print</span>
+                            <span class="text-[11px] font-semibold text-[#7da6d8]">Artistic Case Series</span>
                         </div>
                         <h3 class="font-bold text-lg text-[#f5f5f7] group-hover:text-[#7da6d8] transition-colors">
-                            MagSafe Armor Rugged Case
+                            MagSafe Armor Artistic Case
                         </h3>
                         <p class="text-xs text-[#94a3b8] mt-1.5 leading-relaxed">
-                            Industrial 38-magnet N52 neodymium array engineered for high-speed wireless charging and rock-solid magnetic car mounts. 10ft drop rated.
+                            Industrial 38-magnet N52 neodymium array with 10ft drop protection. Choose from our 3 signature Artistic Pre-Designs or print your own custom artwork.
                         </p>
                         <div class="mt-3 pt-3 border-t border-white/15 space-y-1 text-[11px] text-[#94a3b8]">
                             <div class="flex items-center justify-between">
-                                <span>Drop Standard:</span>
-                                <span class="font-semibold text-[#f5f5f7]">MIL-STD-810H Certified</span>
+                                <span>Design Options:</span>
+                                <span class="font-semibold text-[#f5f5f7]">3 Pre-Designs or Print Your Own</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>Magnet Ring:</span>
@@ -364,7 +367,7 @@
                             <a href="#custom-studio-bench" onclick="setCaseFinish('magsafe')" class="liquid-btn-secondary text-xs font-semibold px-3 py-2 rounded-full" title="Customize in Studio">
                                 Customize
                             </a>
-                            <button type="button" onclick="addToCart({id: 'case_magsafe', title: 'MagSafe Armor Rugged Case', variant: 'iPhone 18 Pro Max · MagSafe Armor', price: 59, image: 'images/products/case_magsafe.jpg', category: 'custom-cases'})" class="liquid-btn-primary text-xs font-semibold px-4 py-2 rounded-full">
+                            <button type="button" onclick="addToCart({id: 'case_magsafe', title: 'MagSafe Armor Artistic Case', variant: 'iPhone 18 Pro Max · MagSafe Armor', price: 59, image: 'images/products/case_magsafe.jpg', category: 'custom-cases'})" class="liquid-btn-primary text-xs font-semibold px-4 py-2 rounded-full">
                                 Add to Cart
                             </button>
                         </div>
@@ -374,20 +377,20 @@
             </div>
 
             <!-- CUSTOM PRINT STUDIO BENCH (Pale Blue #F2F6FB Highlight Card) -->
-            <div id="custom-studio-bench" class="bg-[#152a4a] rounded-[24px] p-6 sm:p-10 md:p-12 border border-white/15">
-                <div class="reveal-element text-center mb-10">
+            <div id="custom-studio-bench" class="bg-[#152a4a] rounded-[24px] p-6 sm:p-10 md:p-12 border border-white/15 apple-reveal-zoom">
+                <div class="apple-reveal text-center mb-10">
                     <h3 class="text-2xl sm:text-4xl font-bold tracking-tight text-[#f5f5f7]">
-                        Design & Preview Your Case Live
+                        Design & Preview Your Artistic Case Live
                     </h3>
                     <p class="text-xs sm:text-sm text-[#94a3b8] max-w-xl mx-auto mt-2">
-                        Upload any photo, portrait, or artwork. Watch it map directly to your camera bump in real time.
+                        Select your exact phone model and phone colour, then choose from our 3 signature Artistic Pre-Designs or upload your own custom design to preview on the live phone mockup.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     
                     <!-- Left Configurator Column (7 Cols) -->
-                    <div class="lg:col-span-7 space-y-6 bg-[#0f1f38] p-6 sm:p-8 rounded-[20px] border border-white/15">
+                    <div class="lg:col-span-7 space-y-6 bg-[#0f1f38] p-6 sm:p-8 rounded-[20px] border border-white/15 apple-reveal">
                         
                         <!-- 1. Phone Model Selector -->
                         <div>
@@ -395,19 +398,16 @@
                                 1 · Select Your Phone Model
                             </label>
                             <select id="case-phone-model" class="w-full liquid-input text-sm sm:text-base font-semibold p-4 outline-none cursor-pointer">
-                                <optgroup label="Apple iPhone — 18 Series">
+                                <optgroup label="Apple iPhone — 18 Series (2026)">
                                     <option value="iphone_18_pm" selected>iPhone 18 Pro Max</option>
                                     <option value="iphone_18_p">iPhone 18 Pro</option>
-                                    <option value="iphone_18_air">iPhone 18 Air</option>
-                                    <option value="iphone_18_plus">iPhone 18 Plus</option>
-                                    <option value="iphone_18">iPhone 18</option>
                                 </optgroup>
-                                <optgroup label="Apple iPhone — 17 Series">
+                                <optgroup label="Apple iPhone — 17 Series & iPhone Air">
                                     <option value="iphone_17_pm">iPhone 17 Pro Max</option>
                                     <option value="iphone_17_p">iPhone 17 Pro</option>
-                                    <option value="iphone_17_air">iPhone 17 Air</option>
-                                    <option value="iphone_17_plus">iPhone 17 Plus</option>
+                                    <option value="iphone_17_air">iPhone Air (17 Air)</option>
                                     <option value="iphone_17">iPhone 17</option>
+                                    <option value="iphone_17e">iPhone 17e</option>
                                 </optgroup>
                                 <optgroup label="Apple iPhone — 16 Series">
                                     <option value="iphone_16_pm">iPhone 16 Pro Max</option>
@@ -428,15 +428,19 @@
                                     <option value="iphone_14_plus">iPhone 14 Plus</option>
                                     <option value="iphone_14">iPhone 14</option>
                                 </optgroup>
-                                <optgroup label="Apple iPhone — 13 & 12 Series">
+                                <optgroup label="Apple iPhone — 13 Series">
                                     <option value="iphone_13_pm">iPhone 13 Pro Max</option>
                                     <option value="iphone_13_p">iPhone 13 Pro</option>
                                     <option value="iphone_13">iPhone 13</option>
                                     <option value="iphone_13_mini">iPhone 13 mini</option>
+                                </optgroup>
+                                <optgroup label="Apple iPhone — 12 & 11 Series">
                                     <option value="iphone_12_pm">iPhone 12 Pro Max</option>
                                     <option value="iphone_12_p">iPhone 12 Pro</option>
                                     <option value="iphone_12">iPhone 12</option>
+                                    <option value="iphone_12_mini">iPhone 12 mini</option>
                                     <option value="iphone_11_pm">iPhone 11 Pro Max</option>
+                                    <option value="iphone_11_p">iPhone 11 Pro</option>
                                     <option value="iphone_11">iPhone 11</option>
                                 </optgroup>
                                 <optgroup label="Samsung Galaxy — S Series">
@@ -474,10 +478,40 @@
                             </select>
                         </div>
 
-                        <!-- 2. Case Type & Material Selection -->
+                        <!-- 2. Choose Your Official Phone Colour (Dynamically Loaded per Model & Shown on Mockup) -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2.5">
+                                <label class="block text-xs font-semibold text-[#f5f5f7]">
+                                    2 · Choose Your Official Phone Colour
+                                </label>
+                                <span id="case-phone-color-label" class="text-xs font-bold text-[#7da6d8]">
+                                    Black
+                                </span>
+                            </div>
+                            <div id="case-phone-color-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                                <button type="button" onclick="setPhoneColor('black')" id="phone-col-black" class="liquid-tier-btn active py-2.5 px-2 flex flex-col items-center justify-center gap-1.5" title="Black">
+                                    <span class="w-6 h-6 rounded-full border border-white/15 shadow-inner" style="background: linear-gradient(135deg, #2b303a 0%, #14171d 100%);"></span>
+                                    <span class="text-[11px] font-semibold text-[#f5f5f7] leading-tight">Black</span>
+                                </button>
+                                <button type="button" onclick="setPhoneColor('silver')" id="phone-col-silver" class="liquid-tier-btn py-2.5 px-2 flex flex-col items-center justify-center gap-1.5" title="Silver">
+                                    <span class="w-6 h-6 rounded-full border border-slate-300 shadow-inner" style="background: linear-gradient(135deg, #ffffff 0%, #dce3ec 100%);"></span>
+                                    <span class="text-[11px] font-semibold text-[#f5f5f7] leading-tight">Silver</span>
+                                </button>
+                                <button type="button" onclick="setPhoneColor('glacier')" id="phone-col-glacier" class="liquid-tier-btn py-2.5 px-2 flex flex-col items-center justify-center gap-1.5" title="Glacier">
+                                    <span class="w-6 h-6 rounded-full border border-white/15 shadow-inner" style="background: linear-gradient(135deg, #e3eff8 0%, #b8d0e4 100%);"></span>
+                                    <span class="text-[11px] font-semibold text-[#f5f5f7] leading-tight">Glacier</span>
+                                </button>
+                                <button type="button" onclick="setPhoneColor('burgundy')" id="phone-col-burgundy" class="liquid-tier-btn py-2.5 px-2 flex flex-col items-center justify-center gap-1.5" title="Burgundy">
+                                    <span class="w-6 h-6 rounded-full border border-white/15 shadow-inner" style="background: linear-gradient(135deg, #6e2635 0%, #3d121b 100%);"></span>
+                                    <span class="text-[11px] font-semibold text-[#f5f5f7] leading-tight">Burgundy</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Case Type & Material Selection -->
                         <div>
                             <label class="block text-xs font-semibold text-[#f5f5f7] mb-2.5">
-                                2 · Choose Glass Finish & Protection
+                                3 · Choose Glass Finish & Protection
                             </label>
                             <div class="grid grid-cols-3 gap-2">
                                 <button type="button" onclick="setCaseFinish('clear')" id="case-mat-clear" class="liquid-tier-btn active py-3 px-2 sm:px-3 text-center">
@@ -495,51 +529,87 @@
                             </div>
                         </div>
 
-                        <!-- 3. Artwork Upload & Presets -->
+                        <!-- 4. Artistic Case: 3 Pre-Designs or Print Your Own Design -->
                         <div>
-                            <label class="block text-xs font-semibold text-[#f5f5f7] mb-2.5">
-                                3 · Upload Photo or Artwork
-                            </label>
-                            <div class="case-upload-dropzone p-5 sm:p-6 text-center cursor-pointer relative rounded-2xl" id="case-dropzone">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <label class="block text-xs font-semibold text-[#f5f5f7]">
+                                    4 · Artistic Case — Choose 3 Pre-Designs or Print Your Own
+                                </label>
+                                <span id="case-design-mode-label" class="text-[11px] font-bold text-[#7da6d8]">
+                                    Pre-Design 01 · Great Wave & Koi
+                                </span>
+                            </div>
+
+                            <!-- 4-Card Selector: 3 Artistic Pre-Designs + 1 Print Your Own Design -->
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-3">
+                                <!-- Pre-Design 1 -->
+                                <button type="button" onclick="selectArtisticDesign('design_1')" id="case-design-btn-1" class="liquid-tier-btn active p-3 text-left flex flex-col justify-between">
+                                    <div class="flex items-center justify-between w-full mb-1.5">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-[#7da6d8]">Pre-Design 01</span>
+                                        <span class="w-2 h-2 rounded-full bg-[#526D91]"></span>
+                                    </div>
+                                    <span class="block text-xs font-bold text-[#f5f5f7] leading-snug">Great Wave & Koi</span>
+                                    <span class="block text-[10px] text-[#94a3b8] mt-0.5">Ukiyo-e Line Art</span>
+                                </button>
+
+                                <!-- Pre-Design 2 -->
+                                <button type="button" onclick="selectArtisticDesign('design_2')" id="case-design-btn-2" class="liquid-tier-btn p-3 text-left flex flex-col justify-between">
+                                    <div class="flex items-center justify-between w-full mb-1.5">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-[#7da6d8]">Pre-Design 02</span>
+                                        <span class="w-2 h-2 rounded-full bg-[#7089A8]"></span>
+                                    </div>
+                                    <span class="block text-xs font-bold text-[#f5f5f7] leading-snug">Botanical Flora</span>
+                                    <span class="block text-[10px] text-[#94a3b8] mt-0.5">Minimalist Leaf Ink</span>
+                                </button>
+
+                                <!-- Pre-Design 3 -->
+                                <button type="button" onclick="selectArtisticDesign('design_3')" id="case-design-btn-3" class="liquid-tier-btn p-3 text-left flex flex-col justify-between">
+                                    <div class="flex items-center justify-between w-full mb-1.5">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-[#7da6d8]">Pre-Design 03</span>
+                                        <span class="w-2 h-2 rounded-full bg-[#172B46]"></span>
+                                    </div>
+                                    <span class="block text-xs font-bold text-[#f5f5f7] leading-snug">Geo Topography</span>
+                                    <span class="block text-[10px] text-[#94a3b8] mt-0.5">Architectural Contour</span>
+                                </button>
+
+                                <!-- Option 4: Print Your Own Design -->
+                                <button type="button" onclick="selectArtisticDesign('custom')" id="case-design-btn-custom" class="liquid-tier-btn p-3 text-left flex flex-col justify-between">
+                                    <div class="flex items-center justify-between w-full mb-1.5">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-[#7da6d8]">Custom Print</span>
+                                        <svg class="w-3.5 h-3.5 text-[#7da6d8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    </div>
+                                    <span class="block text-xs font-bold text-[#f5f5f7] leading-snug">Print Your Own</span>
+                                    <span class="block text-[10px] text-[#94a3b8] mt-0.5">Upload Any Photo/Art</span>
+                                </button>
+                            </div>
+
+                            <!-- Custom Upload Dropzone (Always accessible or highlighted when 'Print Your Own' is chosen) -->
+                            <div class="case-upload-dropzone p-4 sm:p-5 text-center cursor-pointer relative rounded-2xl transition-all" id="case-dropzone">
                                 <input type="file" id="case-file-input" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full">
-                                <div class="space-y-2 pointer-events-none">
-                                    <div class="w-10 h-10 mx-auto rounded-full bg-[#3b6ea5]/25 flex items-center justify-center text-[#7da6d8]">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <div class="space-y-1.5 pointer-events-none">
+                                    <div class="w-9 h-9 mx-auto rounded-full bg-[#3b6ea5]/25 flex items-center justify-center text-[#7da6d8]">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                         </svg>
                                     </div>
-                                    <p class="text-xs sm:text-sm font-bold text-[#f5f5f7]">
-                                        Click to browse or drop high-res image here
+                                    <p class="text-xs sm:text-sm font-bold text-[#f5f5f7]" id="case-upload-prompt">
+                                        Want to print your own design? Click or drop your photo / artwork here
                                     </p>
                                     <p class="text-[11px] text-[#94a3b8]">
-                                        Supports PNG, JPG, HEIC up to 30MB · Laser Direct UV Print
+                                        Supports PNG, JPG, HEIC up to 30MB · Direct UV Laser Print on Glass
                                     </p>
-                                </div>
-                            </div>
-
-                            <!-- Sample Artwork Quick Presets -->
-                            <div class="mt-3 flex items-center justify-between">
-                                <div class="text-xs text-[#94a3b8] flex flex-wrap items-center gap-2 pt-1">
-                                    <span>Try presets:</span>
-                                    <button type="button" onclick="loadSampleCaseArt('spatial')" class="text-[#7da6d8] hover:text-[#f5f5f7] hover:underline font-semibold">Spatial Glass</button>
-                                    <span>·</span>
-                                    <button type="button" onclick="loadSampleCaseArt('marble')" class="text-[#94a3b8] hover:text-[#f5f5f7] hover:underline font-medium">Minimal Marble</button>
-                                    <span>·</span>
-                                    <button type="button" onclick="loadSampleCaseArt('obsidian')" class="text-[#94a3b8] hover:text-[#f5f5f7] hover:underline font-medium">Obsidian Wave</button>
-                                    <span>·</span>
-                                    <button type="button" onclick="loadSampleCaseArt('blueprint')" class="text-[#94a3b8] hover:text-[#f5f5f7] hover:underline font-medium">Silicon Blueprint</button>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 4. Interactive Adjustments (Zoom & MagSafe Toggle) -->
+                        <!-- 5. Interactive Adjustments (Zoom & MagSafe Toggle) -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-[#152a4a] border border-white/15">
                             <div>
                                 <div class="flex justify-between text-xs text-[#94a3b8] mb-1.5">
-                                    <span>Image Zoom / Scale</span>
+                                    <span>Artwork Zoom / Scale</span>
                                     <span id="case-zoom-val" class="font-semibold text-[#f5f5f7] apple-price">100%</span>
                                 </div>
-                                <input type="range" id="case-zoom-range" min="50" max="220" value="100" class="w-full accent-[#6b9fd4] cursor-pointer">
+                                <input type="range" id="case-zoom-range" min="50" max="220" value="100" class="w-full accent-[#526D91] cursor-pointer">
                             </div>
                             <div class="flex items-center justify-between sm:justify-end sm:space-x-3 pt-2 sm:pt-0">
                                 <label for="case-magsafe-toggle" class="text-xs text-[#f5f5f7] cursor-pointer font-medium">Show MagSafe Ring</label>
@@ -547,10 +617,10 @@
                             </div>
                         </div>
 
-                        <!-- 5. Order Action Bar -->
+                        <!-- 6. Order Action Bar -->
                         <div class="pt-4 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div>
-                                <span class="text-xs text-[#94a3b8] block">Custom Studio Configuration:</span>
+                                <span class="text-xs text-[#94a3b8] block">Artistic Studio Configuration:</span>
                                 <div class="text-2xl font-bold text-[#f5f5f7] apple-price" id="case-total-price">A$49.00</div>
                             </div>
                             <div class="flex flex-wrap sm:flex-nowrap gap-2.5 w-full sm:w-auto">
@@ -566,11 +636,16 @@
                     </div>
 
                     <!-- Right Column: Interactive Realistic Case Preview (5 Cols) -->
-                    <div class="lg:col-span-5 flex flex-col items-center justify-center">
-                        <span class="text-xs font-medium text-[#94a3b8] mb-3">Live Interactive Glass Mockup</span>
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center apple-reveal-zoom">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="text-xs font-medium text-[#94a3b8]">Live Interactive Phone & Case Mockup</span>
+                            <span id="case-mockup-color-dot" class="w-3.5 h-3.5 rounded-full border border-white/15 shadow-sm inline-block" style="background: #1c2026;" title="Selected Phone Colour"></span>
+                        </div>
                         
                         <!-- Realistic Phone Case Shell Mockup -->
                         <div class="case-mockup-frame relative" id="case-mockup-container">
+                            <!-- Precision Cutout: Camera Control (Exposes Phone Titanium Frame) -->
+                            <div id="case-camera-control-cutout" class="camera-control-cutout" title="Exposed Phone Titanium Frame (Camera Control Cutout)"></div>
                             
                             <!-- 1. Big Plateau: iPhone 18 / 17 Pro Max & Pro -->
                             <div id="bump-iphone-plateau" class="camera-bump-plateau">
@@ -585,7 +660,6 @@
                                         <div class="plateau-flash" title="Adaptive True Tone Flash"><div class="plateau-flash-core"></div></div>
                                         <div class="plateau-mic" title="Studio Acoustic Mic"></div>
                                         <div class="plateau-lidar" title="LiDAR Depth Scanner"><div class="plateau-lidar-optic"></div></div>
-                                        <span class="plateau-label">48MP PRO</span>
                                     </div>
                                 </div>
                             </div>
@@ -679,8 +753,8 @@
 
                         <!-- Live Details Indicator -->
                         <div class="mt-4 text-center">
-                            <span id="case-preview-badge" class="text-xs font-semibold text-[#f5f5f7] bg-[#0f1f38] border border-white/15 px-3.5 py-1.5 rounded-full">
-                                iPhone 18 Pro Max · Liquid Clear Glass
+                            <span id="case-preview-badge" class="text-xs font-semibold text-[#f5f5f7] bg-[#0f1f38] border border-white/15 px-3.5 py-1.5 rounded-full inline-block">
+                                iPhone 18 Pro Max · Black Titanium · Pre-Design 01
                             </span>
                         </div>
                     </div>
@@ -693,7 +767,7 @@
         <!-- 3. CATEGORY: SCREEN & CAMERA PROTECTORS                             -->
         <!-- =================================================================== -->
         <section id="screen-protectors" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/15" data-category="screen-protectors">
-            <div class="mb-8 pb-4 border-b border-white/15">
+            <div class="mb-8 pb-4 border-b border-white/15 apple-reveal">
                 <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-[#f5f5f7]">
                     Screen & Camera Protectors
                 </h2>
@@ -703,10 +777,10 @@
             </div>
 
             <!-- Product Cards Grid: Screen Protectors -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 apple-stagger-grid">
                 
                 <!-- Card 4: 9H Sapphire Tempered Glass Shield -->
-                <div class="product-ecommerce-card p-5 group" data-category="screen-protectors">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="screen-protectors">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -750,7 +824,7 @@
                 </div>
 
                 <!-- Card 5: 28° Anti-Peep Privacy Polarized Glass -->
-                <div class="product-ecommerce-card p-5 group" data-category="screen-protectors">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="screen-protectors">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -794,7 +868,7 @@
                 </div>
 
                 <!-- Card 6: Matte Silk Gaming Anti-Glare Shield -->
-                <div class="product-ecommerce-card p-5 group" data-category="screen-protectors">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="screen-protectors">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -838,7 +912,7 @@
                 </div>
 
                 <!-- Card 7: Titanium Alloy Camera Lens Rings -->
-                <div class="product-ecommerce-card p-5 group" data-category="screen-protectors">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="screen-protectors">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -888,7 +962,7 @@
         <!-- 4. CATEGORY: LANYARDS & STRAPS                                      -->
         <!-- =================================================================== -->
         <section id="lanyards" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/15" data-category="lanyards">
-            <div class="mb-8 pb-4 border-b border-white/15">
+            <div class="mb-8 pb-4 border-b border-white/15 apple-reveal">
                 <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-[#f5f5f7]">
                     Phone Lanyards & Straps
                 </h2>
@@ -898,10 +972,10 @@
             </div>
 
             <!-- Product Cards Grid: Lanyards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 apple-stagger-grid">
                 
                 <!-- Card 8: Braided Crossbody Rope Lanyard -->
-                <div class="product-ecommerce-card p-5 group" data-category="lanyards">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="lanyards">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -945,7 +1019,7 @@
                 </div>
 
                 <!-- Card 9: Liquid Silicone Soft Wristlet Strap -->
-                <div class="product-ecommerce-card p-5 group" data-category="lanyards">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="lanyards">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -989,7 +1063,7 @@
                 </div>
 
                 <!-- Card 10: Stainless Universal Anchor Insert Tab -->
-                <div class="product-ecommerce-card p-5 group" data-category="lanyards">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="lanyards">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -1039,7 +1113,7 @@
         <!-- 5. CATEGORY: CHARGERS, CABLES & POWERBANKS                          -->
         <!-- =================================================================== -->
         <section id="chargers-power" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/15" data-category="chargers-power">
-            <div class="mb-8 pb-4 border-b border-white/15">
+            <div class="mb-8 pb-4 border-b border-white/15 apple-reveal">
                 <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-[#f5f5f7]">
                     Chargers, Cables & Powerbanks
                 </h2>
@@ -1049,10 +1123,10 @@
             </div>
 
             <!-- Product Cards Grid: Chargers & Power -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 apple-stagger-grid">
                 
                 <!-- Card 11: GaN III 65W & 100W Dual USB-C Fast Wall Charger -->
-                <div class="product-ecommerce-card p-5 group" data-category="chargers-power">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="chargers-power">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -1096,7 +1170,7 @@
                 </div>
 
                 <!-- Card 12: 240W Kevlar-Braided Fast USB-C Cable -->
-                <div class="product-ecommerce-card p-5 group" data-category="chargers-power">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="chargers-power">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -1140,7 +1214,7 @@
                 </div>
 
                 <!-- Card 13: MagSafe 10,000mAh Magnetic Powerbank with Kickstand -->
-                <div class="product-ecommerce-card p-5 group" data-category="chargers-power">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="chargers-power">
                     <div>
                         <div class="product-photo-wrap">
                             <span class="product-badge-pill">
@@ -1190,7 +1264,7 @@
         <!-- 6. CATEGORY: CUSTOM & TECH VINYL STICKERS                           -->
         <!-- =================================================================== -->
         <section id="stickers" class="accessory-cat-section py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/15 pb-24" data-category="stickers">
-            <div class="mb-8 pb-4 border-b border-white/15">
+            <div class="mb-8 pb-4 border-b border-white/15 apple-reveal">
                 <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-[#f5f5f7]">
                     Custom & Tech Vinyl Stickers
                 </h2>
@@ -1200,12 +1274,12 @@
             </div>
 
             <!-- Product Cards Grid: Stickers -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto apple-stagger-grid">
                 
                 <!-- Card 14: Holographic & Matte Tech Decals -->
-                <div class="product-ecommerce-card p-5 group" data-category="stickers">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="stickers">
                     <div>
-                        <div class="product-photo-wrap">
+                        <div class="product-photo-wrap sticker-photo-wrap">
                             <span class="product-badge-pill">
                                 3M Waterproof Vinyl
                             </span>
@@ -1247,9 +1321,9 @@
                 </div>
 
                 <!-- Card 15: Custom In-House Printed Sticker Sheet -->
-                <div class="product-ecommerce-card p-5 group" data-category="stickers">
+                <div class="product-ecommerce-card p-5 group apple-reveal" data-category="stickers">
                     <div>
-                        <div class="product-photo-wrap">
+                        <div class="product-photo-wrap sticker-photo-wrap">
                             <span class="product-badge-pill">
                                 Lab Roland Custom Print
                             </span>
@@ -1300,7 +1374,7 @@
     <!-- ======================================================================= -->
     <div id="cart-backdrop" class="cart-drawer-backdrop" onclick="closeCartDrawer()"></div>
 
-    <aside id="cart-drawer" class="cart-drawer-panel" aria-label="Shopping Cart Drawer">
+    <aside id="cart-drawer" class="cart-drawer-panel" aria-label="Shopping Cart Drawer" data-lenis-prevent>
         <!-- Cart Header -->
         <div class="p-5 sm:p-6 border-b border-white/15 flex items-center justify-between bg-[#0f1f38]">
             <div>
@@ -1371,7 +1445,7 @@
     </aside>
 
     <!-- Footer -->
-    <footer class="bg-[#152a4a] pt-16 pb-12 px-6 sm:px-12 border-t border-white/15">
+    <footer class="bg-[#152a4a] pt-16 pb-12 px-6 sm:px-12 border-t border-white/15 apple-reveal">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/15">
             <div class="md:col-span-2 space-y-4">
                 <span class="text-xl font-bold tracking-tight text-[#f5f5f7]">
@@ -1414,7 +1488,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#94a3b8] font-medium">
-            <p>© 2026 Lee Nguyen Lab. All rights reserved. Suite 107, Level 1/54 Park Rd, Cabramatta NSW 2166.</p>
+            <p>© 2026 Lee Nguyen Lab. All rights reserved.</p>
             <div class="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-0 justify-center">
                 <a href="index.html#hero" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Home Overview</a>
                 <a href="services.html" class="liquid-btn-secondary text-xs px-4 py-1.5 rounded-full font-medium">Repair Services</a>
@@ -1425,7 +1499,7 @@
     </footer>
 
     <!-- Booking / Checkout Order Modal -->
-    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden" data-lenis-prevent>
         <div class="absolute inset-0 bg-[#060e1c]/70 backdrop-blur-sm transition-opacity" onclick="closeBookingModal()"></div>
 
         <div class="relative liquid-glass-white max-w-lg w-full rounded-[24px] p-6 sm:p-10 shadow-2xl border border-white/15 z-10 animate-in fade-in zoom-in-95 duration-200">
