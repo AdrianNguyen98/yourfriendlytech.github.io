@@ -280,8 +280,8 @@
                     </p>
                 </div>
 
-                <!-- 1. Interactive Service Selector Dock (6 Lab Protocols) -->
-                <div class="apple-reveal grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-8 sm:mb-10" id="hub-service-tabs" role="tablist" aria-label="Precision Repair Protocols">
+                <!-- 1. Interactive Service Selector Dock (5 Lab Protocols) -->
+                <div class="apple-reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-8 sm:mb-10" id="hub-service-tabs" role="tablist" aria-label="Precision Repair Protocols">
                     <!-- Tab 1: Screen -->
                     <button type="button" class="hub-service-card active p-3 sm:p-4 rounded-2xl flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-[#7da6d8]/40" data-service-id="screen" role="tab" aria-selected="true" aria-controls="central-hub-stage">
                         <div class="flex items-center justify-between w-full mb-3">
@@ -351,20 +351,6 @@
                             <span class="block text-xs sm:text-sm font-bold text-[#f5f5f7] leading-tight">Data Recovery</span>
                         </div>
                     </button>
-
-                    <!-- Tab 6: Fleet & Enterprise -->
-                    <button type="button" class="hub-service-card p-3 sm:p-4 rounded-2xl flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-[#7da6d8]/40" data-service-id="business" role="tab" aria-selected="false" aria-controls="central-hub-stage">
-                        <div class="flex items-center justify-between w-full mb-3">
-                            <div class="hub-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0f1f38] border border-white/15 text-[#94a3b8] flex items-center justify-center">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                            </div>
-                            <span class="hub-active-dot w-2 h-2 rounded-full bg-[#7da6d8] shadow-[0_0_8px_#7da6d8] opacity-0 transition-opacity"></span>
-                        </div>
-                        <div>
-                            <span class="block text-[10px] font-semibold tracking-wider uppercase text-[#7da6d8]">Enterprise</span>
-                            <span class="block text-xs sm:text-sm font-bold text-[#f5f5f7] leading-tight">Fleet SLA</span>
-                        </div>
-                    </button>
                 </div>
 
                 <!-- 2. Central Spotlight Info Hub Stage -->
@@ -384,11 +370,8 @@
                                     <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                                 </div>
                                 <div class="space-y-1">
-                                    <div class="flex items-center space-x-2.5">
-                                        <span id="hub-protocol-tag" class="text-[11px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#0f1f38] border border-[#7da6d8]/30 text-[#7da6d8]">
-                                            PROTOCOL 01 // OPTICAL LAB
-                                        </span>
-                                        <span class="inline-flex items-center space-x-1 text-[11px] text-[#94a3b8]">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="inline-flex items-center space-x-1.5 text-[11px] text-[#94a3b8]">
                                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                                             <span>Bench Ready</span>
                                         </span>
